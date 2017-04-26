@@ -1,0 +1,49 @@
+
+/*PARA TENER EN CUENTA:
+
+-La primera letra de toda palabra es con minuscula
+-Se separa por seccion todo lo que se va a hacer(si hay un css para todos se pone en el GENERAl)
+
+*/
+/*------------------------------------------LOGIN------------------------------------------*/
+
+.logoSenaLogin{
+    width: 100%; 
+    height: 100%;
+}
+.centrarLogin{
+    width: 250px;
+    margin: 0 auto 0 auto; 
+    margin-top: 80px;
+}
+
+.separarTitulo{
+    margin-top: 100px;
+}
+
+.separarSubTitulo{
+    margin-top: 45px;
+}
+
+.subTitulos{
+    text-align: center;
+    font-size: 23px;
+}
+
+.btn-default{
+    background-image: linear-gradient(to bottom,#ffffff 0,#ffffff 100%);
+    border-color: #ffffff;
+}
+
+.boton{
+     width: 90px; 
+    height: 100px;
+    margin-left: 33%;
+}
+
+/*------------------------------------------LOGIN------------------------------------------*/
+
+
+/*------------------------------------------GENERAL------------------------------------------*/
+
+/*------------------------------------------GENERAL------------------------------------------*/
