@@ -1,6 +1,6 @@
 <HTML>
 <Header>
-<Title>ces_rol - Table</Title>
+<Title>ces_tipo_persona - Table</Title>
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 <Link href="../css/doc.css" rel="stylesheet" type="text/css">
 </Header>
@@ -17,8 +17,8 @@
 </table>
 <hr>
 <table class="pageTitle">
-<tr class="altRow">
-<td class="title_nm">ces_rol</td><td class="watermark_right">(Table)</td>
+<tr>
+<td class="title_nm">ces_tipo_persona</td><td class="watermark_right">(Table)</td>
 </tr>
 </table>
 <br>
@@ -33,13 +33,13 @@
 <td class="PkCol">
 <p class="boolImg">
 <img src="../images/pkb16.gif"></p>
-</td><td class="PkCol"><a href="../columns/schemaA_ces_rol_rol_id.html">rol_id</a></td><td class="PkCol">BigInt</td><td class="PkCol"> </td><td class="PkCol">
-<p class="boolImg">
-<img src="../images/ok12d.gif"></p>
-</td><td class="PkCol"> </td><td class="PkCol">dato unico el cual representa el rol</td><td class="PkCol"> </td>
+</td><td class="PkCol"><a href="../columns/schemaA_ces_tipo_persona_id.html">id</a></td><td class="PkCol">Integer</td><td class="PkCol"> </td><td class="PkCol"> </td><td class="PkCol"> </td><td class="PkCol"> </td><td class="PkCol"> </td>
 </tr>
 <tr>
-<td> </td><td><a href="../columns/schemaA_ces_rol_rol_nombre.html">rol_nombre</a></td><td>VarChar(50)</td><td> </td><td> </td><td> </td><td>Rol que se le asigna a una persona</td><td> </td>
+<td> </td><td><a href="../columns/schemaA_ces_tipo_persona_tipo_persona.html">tipo_persona</a></td><td>VarChar(500)</td><td>
+<p class="boolImg">
+<img src="../images/ok12d.gif"></p>
+</td><td> </td><td> </td><td> </td><td> </td>
 </tr>
 </table>
 <br>
@@ -63,7 +63,7 @@
 <td class="header">Name</td><td class="header">Parent Table</td><td class="header">Child Table</td><td class="header">Parent Columns</td><td class="header">Child Columns</td>
 </tr>
 <tr>
-<td><a href="../foreignKeys/schemaA_ces_usuario_fk_ces_usuario_ces_rol.html">fk_ces_usuario_ces_rol</a></td><td><a href="../tables/schemaA_ces_rol.html">ces_rol</a></td><td><a href="../tables/schemaA_ces_usuario.html">ces_usuario</a></td><td>rol_id</td><td>rol_id</td>
+<td><a href="../foreignKeys/schemaA_ces_personal_fk_ces_personal_ces_tipo_persona.html">fk_ces_personal_ces_tipo_persona</a></td><td><a href="../tables/schemaA_ces_tipo_persona.html">ces_tipo_persona</a></td><td><a href="../tables/schemaA_ces_personal.html">ces_personal</a></td><td>id</td><td>id</td>
 </tr>
 </table>
 <br>
