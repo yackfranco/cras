@@ -30,17 +30,21 @@
     font-size: 23px;
 }
 
-.btn-default{
-    background-image: linear-gradient(to bottom,#ffffff 0,#ffffff 100%);
-    border-color: #ffffff;
+.botonEntrar{
+    margin: 0 auto 0 auto; 
+    margin-top: 30px;
 }
 
-.boton{
-     width: 90px; 
-    height: 100px;
-    margin-left: 33%;
+.botonCopyRigth{
+    width: 250px;
+    margin: 0 auto 0 auto; 
+    margin-top: 180px;
+    
 }
 
+.colorTexbox{
+    border:1px solid #FF9158;
+}
 /*------------------------------------------LOGIN------------------------------------------*/
 
 
