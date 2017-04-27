@@ -22,6 +22,10 @@
         <script src="app/app.js" type="text/javascript"></script>
         <script src="app/app.config.js" type="text/javascript"></script>
         
+        <script src="app/controller/controller.ces.js" type="text/javascript"></script>
+        <script src="app/controller/controller.login.js" type="text/javascript"></script>
+        
+        
     </body>
 </html>
   
