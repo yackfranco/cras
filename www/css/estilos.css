@@ -97,6 +97,11 @@
     padding-left: 0px;
     padding-right: 0px;
 }
+
+.btnSalir{
+    position: absolute; top: 0; right: 0;
+    width: 100px;
+}
 /*------------------------------------------CES------------------------------------------*/
 
 
