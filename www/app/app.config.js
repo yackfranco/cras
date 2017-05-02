@@ -10,6 +10,10 @@ angular.module('IMPERIUM').
                             controller: 'cesController',
                             templateUrl: 'app/template/ces.html'
                         }).
+                        when('/copyRight', {
+                            controller: 'copyrightController',
+                            templateUrl: 'app/template/copyRight.html'
+                        }).
                         otherwise('/');
             }
         ]);
