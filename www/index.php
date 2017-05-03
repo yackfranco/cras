@@ -24,6 +24,7 @@
         
         <script src="app/controller/controller.ces.js" type="text/javascript"></script>
         <script src="app/controller/controller.login.js" type="text/javascript"></script>
+        <script src="app/controller/controller.menuPrincipal.js" type="text/javascript"></script>
         
         
     </body>
