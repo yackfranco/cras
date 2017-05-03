@@ -179,19 +179,27 @@
 /*------------------------------------------Formulario Principal------------------------------------------*/
 
 .derechosr{
-    margin-top: 180px;
+margin-top: 360px;
 }
 .titulob{
-    margin-top: 90px;
+margin-top: 135px;
+color: #E69141;
 }
 .espacior{
-    margin-top: 90px;
+  margin-top: 110px;
 }
 
 .imagenlogo{
-    width: 300px;
-    height: 180px;
-    margin-top: 40px;
+  width: 400px;
+  height: 200px;
+  margin-top: 50px;
+}
+
+#textc{
+   font-size: 30px;
+    margin-top: 100px;
+    color: #E69141;
+    font-family: sans-serif;
 }
 
 /*------------------------------------------Formulario Principal------------------------------------------*/
