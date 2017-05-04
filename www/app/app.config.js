@@ -26,6 +26,10 @@ angular.module('IMPERIUM').
                             controller: 'reportesController',
                             templateUrl: 'app/template/reportes.html'
                         }).
+                        when('/registrarEquipo', {
+                            controller:'registrarEquipoController',
+                            templateUrl: 'app/template/registroEquipo.html'
+                        }).
                         otherwise('/');
             }
         ]);

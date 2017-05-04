@@ -203,6 +203,30 @@ color: #E69141;
 }
 
 /*------------------------------------------Formulario Principal------------------------------------------*/
+/*------------------------------------------REgistro Equipo------------------------------------------*/
+.Formulario{
+    margin-top: 30%;
+    font-size: 25px;
+}
+.colorbotones{
+    
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: #00877E;
+    height: 150px;
+    margin-top: 15%;      
+}
+.botones{
+   margin-top: 2%;
+   width: 100px;    
+}
+.textarea{
+    height:auto;
+    height: 100px;
+}
+.subtitulo{
+    margin-top: 35px;
+}
 
 /*------------------------------------------Reportes------------------------------------------*/
 
