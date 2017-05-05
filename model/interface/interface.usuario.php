@@ -10,5 +10,5 @@ interface IUsuario {
 
   public function update(usuario $usuario);
 
-  public function delete($id);
+  public function delete($id, $logico = true);
 }
