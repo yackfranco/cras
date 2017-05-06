@@ -1,2 +1,2 @@
 # imperium
-Software que controla la entrada y salida del personal 
+Software que controla la entrada y salida del personal  

@@ -104,8 +104,6 @@
 }
 /*------------------------------------------CES------------------------------------------*/
 
-
-
 /*------------------------------------------CopyRight------------------------------------------*/
 .titulo{
   text-align: center;
@@ -152,7 +150,6 @@
 }
 .divuno{
   margin-top: 10px;
-
 }
 .casa{
   float: right;
@@ -180,9 +177,9 @@
 .derechosr{
   margin-top: 20%;
 }
-.titulob{
-  margin-top: 135px;
-  color: #E69141;
+.titulob {
+  margin-top: 20%;
+  margin-top: 360px;
 }
 .espacior{
   margin-top: 110px;
@@ -200,6 +197,10 @@
   color: #E69141;
   font-family: sans-serif;
 }
+
+/*------------------------------------------GENERAL------------------------------------------*/
+
+/*------------------------------------------GENERAL------------------------------------------*/
 
 .logout{
   float: right;
@@ -233,11 +234,10 @@
 .subtitulo{
   margin-top: 35px;
 }
+/*------------------------------------------REgistro Equipo------------------------------------------*/
 
 /*------------------------------------------Reportes------------------------------------------*/
-
 .imgreportes{
-
   /*    width: 400px;
       height: 300px;*/
 }
@@ -258,10 +258,50 @@
   padding-left: 95%;
   padding-top: 10%;
 }
-
 /*------------------------------------------Reportes------------------------------------------*/
 
-/*------------------------------------------GENERAL------------------------------------------*/
+/*------------------------------------------REGISTRO PERSONAL------------------------------------------*/
+.imagenpersonal{
+  margin-top: 100px;
+  height: 300px; 
+}
+.botonfoto2{
+  margin-top: 5px;    
+}
+.formulariopersonal{
+  margin-top: 100px;
+}
+.colorformulario{
+  border:2px solid #E69141;
+}
+.anchura{
+  margin-top: 45px;
+}
+.labelpersonal{
+  font-size: 30px;
 
-/*------------------------------------------GENERAL------------------------------------------*/
+}
+.botonesaplicacion{
+  margin-top: 40px;
+  background-color: #00877E;
+  border: 2px solid #000000;
+  height: 200px;
+  font-size: 6em;
+  color: #ffffff;
+  padding-top: 58px;
+}
 
+.botonesaplicacion span {
+  cursor: pointer;
+}
+
+.form-horizontal .control-label {
+  text-align: left;
+}
+
+
+.botonCopyRigthPersonal{
+  padding-top: 80px;
+
+}
+/*------------------------------------------REGISTRO PERSONAL------------------------------------------*/

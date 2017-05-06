@@ -9,9 +9,9 @@
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        
-        <div class="" ng-view ng-cloak></div>
-        
+
+        <div ng-view ng-cloak></div>
+
         <script src="js/angular-1.6.1/angular.min.js" type="text/javascript"></script>
         <script src="js/angular-1.6.1/angular-route.min.js" type="text/javascript"></script>
         <script src="js/angular-1.6.1/angular-resource.min.js" type="text/javascript"></script>
@@ -26,8 +26,7 @@
         <script src="app/controller/controller.login.js" type="text/javascript"></script>
         <script src="app/controller/controller.menuPrincipal.js" type="text/javascript"></script>
         <script src="app/controller/controller.reportes.js" type="text/javascript"></script>
-        
-        
+        <script src="app/controller/controller.registroPersonal.js" type="text/javascript"></script>
     </body>
 </html>
   
