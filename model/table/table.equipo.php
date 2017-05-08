@@ -182,7 +182,5 @@ class equipo {
     public function setUpdate_at($update_at) {
         $this->update_at = $update_at;
     }
-
-
     
 }
