@@ -325,4 +325,11 @@ margin-top: 80px;
   padding-top: 80px;
 
 }
-/*------------------------------------------REGISTRO PERSONAL------------------------------------------*/
+/*------------------------------------------REGISTRO Usuario------------------------------------------*/
+.espaciotab
+{
+padding-bottom:20em; 
+}
+.textconfirmar{
+  font-size: 17px;
+}

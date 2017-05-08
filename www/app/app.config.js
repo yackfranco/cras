@@ -30,5 +30,9 @@ angular.module('IMPERIUM').
                             controller: 'registroPersonalController',
                             templateUrl: 'app/template/registroPersonal.html'
                         }).
+                                 when('/registrarUsuario', {
+                            controller: 'registrarUsuarioController',
+                            templateUrl: 'app/template/registrarUsuario.html'
+                        }).
                         otherwise('/');
             }]);
