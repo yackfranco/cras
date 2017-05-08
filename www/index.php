@@ -28,6 +28,7 @@
         <script src="app/controller/controller.reportes.js" type="text/javascript"></script>
         <script src="app/controller/controller.registroPersonal.js" type="text/javascript"></script>
         <script src="app/controller/controller.registrarUsuario.js" type="text/javascript"></script>
+        <script src="app/controller/controller.registrarEquipo.js" type="text/javascript"></script>
     </body>
 </html>
   

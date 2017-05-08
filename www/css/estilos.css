@@ -235,6 +235,10 @@ margin-top: 80px;
 .Formulario{
   margin-top: 30%;
   font-size: 25px;
+  
+}
+.texbox{
+  border:2px solid #E69141
 }
 .colorbotones{
 
@@ -254,6 +258,10 @@ margin-top: 80px;
 }
 .subtitulo{
   margin-top: 35px;
+}
+.textarea{
+  border:2px solid #E69141;
+  resize: none;
 }
 /*------------------------------------------REgistro Equipo------------------------------------------*/
 
