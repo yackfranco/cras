@@ -102,7 +102,7 @@
   width: 100px;
 }
 .botonRegistrarEquipo{
-margin-top: 80px;
+  margin-top: 80px;
 }
 
 .panelform2{
@@ -179,46 +179,46 @@ margin-top: 80px;
 
 
 /*------------------------------------------Formulario Principal------------------------------------------*/
- .julian {
-    height: 100vh;
-  }
-  .b1 {
-    height: 45vh;
-    padding: 3%;
-  }
-  .THijo {
-    padding: 3%;
-  }
-  .b2 {
-    height: 35vh;
-  }
-  .b3 {
-    height: 20vh;
-  }
-  .imagenSenaMP{
-    width: 300px;
-  }
+.julian {
+  height: 100vh;
+}
+.b1 {
+  height: 45vh;
+  padding: 3%;
+}
+.THijo {
+  padding: 3%;
+}
+.b2 {
+  height: 35vh;
+}
+.b3 {
+  height: 20vh;
+}
+.imagenSenaMP{
+  width: 300px;
+}
 
-  .tituloBienvenido {
-    font-size: 3em;
-     color: #E69141;
-  }
+.tituloBienvenido {
+  font-size: 3em;
+  color: #E69141;
+}
 
-  .subtitulos{
-    font-size: 2em;
-    color: #E69141;
-  }
-  .imagenes{
-    width: 150px;
-  }
+.subtitulos{
+  font-size: 2em;
+  color: #E69141;
+}
+.imagenes{
+  width: 150px;
+}
 
-  .Pinfo{
-    padding: 3%;
-  }
-  
-  .pcopy{
-    padding-top: 6%;
-  }
+.Pinfo{
+  padding: 3%;
+}
+
+.pcopy{
+  padding-top: 6%;
+}
 
 /*------------------------------------------GENERAL------------------------------------------*/
 .logout{
@@ -328,8 +328,12 @@ margin-top: 80px;
 /*------------------------------------------REGISTRO Usuario------------------------------------------*/
 .espaciotab
 {
-padding-bottom:20em; 
+  padding-bottom:20em; 
 }
 .textconfirmar{
   font-size: 17px;
+}
+.colorTexboxU{
+ border:2px solid #E69141;
+ 
 }
