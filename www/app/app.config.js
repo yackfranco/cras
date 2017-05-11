@@ -57,5 +57,5 @@ angular.module('IMPERIUM').config(['$routeProvider', '$httpProvider', function c
               template: '<p>Cerrando sesión...</p>',
               middleware: ['comprobarSession']
             }).
-            otherwise('/');
+            otherwise('/'); 
   }]);
