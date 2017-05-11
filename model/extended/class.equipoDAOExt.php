@@ -10,5 +10,4 @@ class equipoDAOExt extends equipoDAO {
 //    );
 //    return $this->query($sql, $params);
 //  }
-
 }

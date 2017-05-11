@@ -1,28 +1,33 @@
 <?php
 
 class login extends controllerExtended {
-  
+
   public function main(\request $request) {
-    $this->loadTableUsuario();
-    
-    $user = $request->getQuery('usu');
-    $password = hash($this->getConfig()->getHash(), $request->getQuery('pass'), false);
+    try {
+      $this->loadTableUsuario();
 
-    $usuarioDAO = new usuarioDAOExt($this->getConfig());
-    $rsp = array (
-        'code' => 200,
-        'usuario' => $usuarioDAO->search($user, $password)
-    );
+      $user = $request->getParam('usuario');
+      $password = hash($this->getConfig()->getHash(), $request->getParam('contrasena'), false);
 
-    $this->setParam('json', $rsp);
-    $this->setView('json');
+      $usuarioDAO = new usuarioDAOExt($this->getConfig());
+      $respuesta = $usuarioDAO->search($user, $password);
+      $respuesta = array(
+          'codigo' => (count($respuesta) > 0) ? 200 : 500,
+          'usuario' => $respuesta
+      );
+
+      $this->setParam('json', $respuesta);
+      $this->setView('imprimirJson');
+    } catch (Exception $exc) {
+      echo $exc->getMessage();
+    }
   }
-  
+
   private function loadTableUsuario() {
     require $this->getConfig()->getPath() . 'model/table/table.usuario.php';
     require $this->getConfig()->getPath() . 'model/interface/interface.usuario.php';
     require $this->getConfig()->getPath() . 'model/DAO/class.usuarioDAO.php';
-    require $this->getConfig()->getPath() . 'model/class.usuarioDAOExt.php';
+    require $this->getConfig()->getPath() . 'model/extended/class.usuarioDAOExt.php';
   }
 
 }

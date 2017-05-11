@@ -1,14 +1,14 @@
 <?php
 
 $config = new myConfig();
-$config->setPath('E:/xampp/htdocs/imperium/');
+$config->setPath('C:/xampp/htdocs/cras/');
 
 $config->setDrive('pgsql');
 $config->setHost('localhost');
 $config->setPort(5432);
 $config->setUser('postgres');
-$config->setPassword('sqlx32');
-$config->setDbname('adsi');
+$config->setPassword('123456');
+$config->setDbname('cras2');
 $config->setHash('md5');
 
-$config->setUrl('http://localhost/imperium/www/');
+$config->setUrl('http://localhost/cras/www/');

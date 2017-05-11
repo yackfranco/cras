@@ -4,30 +4,30 @@
  * Manager Class de los metodos principales de la tabla equipos
  */
 class equipoDAO extends dataSource implements IEquipo {
-    
-/**
- * metodo para el borrado logico o fisico de un equipo
- * @param Integer $id
- * @param Boolean $logico
- * @return Integer
- */
-    public function delete(integer $id, boolean $logico = true) {
-        if  ($logico)
-    $sql = 'UPDATE FROM equipo SET equi_delete_at = now() WHERE equi_id = :id';
-        else 
-            $sql = 'DELETE FROM equipo WHERE id = :id';
+
+  /**
+   * metodo para el borrado logico o fisico de un equipo
+   * @param Integer $id
+   * @param Boolean $logico
+   * @return Integer
+   */
+  public function delete(integer $id, boolean $logico = true) {
+    if ($logico) {
+      $sql = 'UPDATE FROM equipo SET equi_delete_at = now() WHERE equi_id = :id';
+    } else {
+      $sql = 'DELETE FROM equipo WHERE id = :id';
+    }
     $params = array(
         ':id' => $id
     );
     return $this->execute($sql, $params);
   }
-  
+
   /**
    * metodo para insertar el equipo en la tabla de la BD
    * @param \equipo $equipo
    * @return Integer
    */
-
   public function insert(\equipo $equipo) {
     $sql = 'INSERT INTO ces_equipo (equi_tipo,equi_serial,equi_marca,'
             . 'equi_codbarras,equi_observaciones,equi_create_at) VALUES (:tipo,:serial,'
@@ -41,7 +41,7 @@ class equipoDAO extends dataSource implements IEquipo {
     );
     return $this->execute($sql, $params);
   }
-  
+
   /**
    * metodo para seleccionar todos los datos de la BD
    * @return array of stdClass
@@ -84,7 +84,5 @@ class equipoDAO extends dataSource implements IEquipo {
     );
     return $this->execute($sql, $params);
   }
-    
-}
-    
 
+}
