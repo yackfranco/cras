@@ -1,6 +1,12 @@
+/**
+ * variables constante que diferencian los roles
+ */
 angular.module('IMPERIUM').constant('rolAdmin', 1);
 angular.module('IMPERIUM').constant('rolCelador', 2);
 
+/**
+ * middleware que comprueba las session y los tipos de roles
+ */
 angular.module('IMPERIUM').config(['$middlewareProvider',
   function middlewareProviderConfig($middlewareProvider) {
     $middlewareProvider.map({
@@ -16,6 +22,9 @@ angular.module('IMPERIUM').config(['$middlewareProvider',
     });
   }]);
 
+/**
+ * configurador de enrutamiento
+ */
 angular.module('IMPERIUM').config(['$routeProvider', '$httpProvider', function config($routeProvider, $httpProvider) {
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
     $routeProvider.
@@ -57,5 +66,5 @@ angular.module('IMPERIUM').config(['$routeProvider', '$httpProvider', function c
               template: '<p>Cerrando sesión...</p>',
               middleware: ['comprobarSession']
             }).
-            otherwise('/'); 
+            otherwise('/');
   }]);
