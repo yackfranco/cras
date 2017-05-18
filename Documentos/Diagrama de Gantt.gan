@@ -44,7 +44,7 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="154" name="Proyecto Formativo" meeting="false" start="2017-03-24" duration="74" complete="7" expand="true">
+        <task id="154" name="Proyecto Formativo" meeting="false" start="2017-03-24" duration="88" complete="15" expand="true">
             <task id="0" name="Requerimientos" meeting="false" start="2017-03-24" duration="11" complete="50" expand="true">
                 <task id="8" name="Historias de Usuario" color="#8cb6ce" meeting="false" start="2017-03-24" duration="9" complete="0" expand="true">
                     <depend id="3" type="2" difference="0" hardness="Strong"/>
@@ -63,7 +63,7 @@
                     <depend id="17" type="2" difference="0" hardness="Strong"/>
                 </task>
             </task>
-            <task id="16" name="Desarrollo del Software" meeting="false" start="2017-04-10" duration="34" complete="0" expand="false">
+            <task id="16" name="Desarrollo del Software" meeting="false" start="2017-04-10" duration="48" complete="18" expand="true">
                 <task id="17" name="Estructura de Carpetas MVC" color="#8cb6ce" meeting="false" start="2017-04-10" duration="2" complete="0" expand="true">
                     <depend id="97" type="2" difference="0" hardness="Strong"/>
                     <depend id="99" type="2" difference="0" hardness="Strong"/>
@@ -79,77 +79,55 @@
                     <task id="99" name="MenuAdmin" color="#8cb6ce" meeting="false" start="2017-04-12" duration="3" complete="0" expand="true">
                         <depend id="111" type="2" difference="0" hardness="Strong"/>
                     </task>
-                    <task id="101" name="MenuInvitado" color="#8cb6ce" meeting="false" start="2017-04-12" duration="3" complete="0" expand="true">
-                        <depend id="26" type="2" difference="0" hardness="Strong"/>
-                    </task>
+                    <task id="101" name="MenuInvitado" color="#8cb6ce" meeting="false" start="2017-04-12" duration="3" complete="0" expand="true"/>
                     <task id="103" name="Control Entrada y Salida" color="#8cb6ce" meeting="false" start="2017-04-12" duration="4" complete="0" expand="true"/>
                     <task id="105" name="CopyRight" color="#8cb6ce" meeting="false" start="2017-04-12" duration="2" complete="0" expand="true"/>
-                    <task id="107" name="Reportes" color="#8cb6ce" meeting="false" start="2017-04-12" duration="3" complete="0" expand="true">
-                        <depend id="43" type="2" difference="0" hardness="Strong"/>
-                    </task>
-                    <task id="109" name="RegistrarUsuario" color="#8cb6ce" meeting="false" start="2017-04-19" duration="4" complete="0" expand="true">
-                        <depend id="26" type="2" difference="0" hardness="Strong"/>
-                    </task>
-                    <task id="111" name="&quot;Complementaria&quot;" color="#8cb6ce" meeting="false" start="2017-04-19" duration="5" complete="0" expand="true">
-                        <depend id="43" type="2" difference="0" hardness="Strong"/>
-                    </task>
+                    <task id="107" name="Reportes" color="#8cb6ce" meeting="false" start="2017-04-12" duration="3" complete="0" expand="true"/>
+                    <task id="109" name="RegistrarUsuario" color="#8cb6ce" meeting="false" start="2017-04-19" duration="4" complete="0" expand="true"/>
+                    <task id="111" name="&quot;Complementaria&quot;" color="#8cb6ce" meeting="false" start="2017-04-19" duration="5" complete="0" expand="true"/>
                 </task>
-                <task id="21" name="Login" color="#000000" meeting="false" start="2017-04-25" duration="1" complete="0" expand="false">
-                    <depend id="50" type="2" difference="0" hardness="Strong"/>
-                    <task id="26" name="Validacion" color="#8cb6ce" meeting="false" start="2017-04-25" duration="1" complete="0" expand="true"/>
+                <task id="21" name="Login" color="#000000" meeting="false" start="2017-05-18" duration="22" complete="0" expand="true">
+                    <task id="26" name="Programacion" color="#8cb6ce" meeting="false" start="2017-05-18" duration="22" complete="0" expand="true"/>
                 </task>
-                <task id="29" name="Formulario Principal e Invitado" color="#000000" meeting="false" project="true" start="2017-04-26" duration="4" complete="0" expand="false" cost-manual-value="0.0" cost-calculated="true">
-                    <task id="43" name="Programacion" color="#8cb6ce" meeting="false" start="2017-04-26" duration="4" complete="0" expand="true"/>
+                <task id="29" name="Formulario Principal e Invitado" color="#000000" meeting="false" project="true" start="2017-05-18" duration="22" complete="100" expand="true" cost-manual-value="0.0" cost-calculated="true">
+                    <task id="43" name="Programacion" color="#8cb6ce" meeting="false" start="2017-05-18" duration="22" complete="100" expand="true"/>
                 </task>
-                <task id="45" name="Registro de Usuario" color="#000000" meeting="false" start="2017-04-26" duration="8" complete="0" expand="false">
-                    <task id="50" name="CRUD DAO" color="#8cb6ce" meeting="false" start="2017-04-26" duration="5" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
-                        <depend id="53" type="2" difference="0" hardness="Strong"/>
-                    </task>
-                    <task id="53" name="Validaciones" color="#8cb6ce" meeting="false" start="2017-05-03" duration="3" complete="0" expand="true">
-                        <depend id="76" type="2" difference="0" hardness="Strong"/>
-                    </task>
+                <task id="45" name="Registro de Usuario" color="#000000" meeting="false" start="2017-05-18" duration="22" complete="0" expand="true">
+                    <task id="53" name="Programacion" color="#8cb6ce" meeting="false" start="2017-05-18" duration="22" complete="0" expand="true"/>
                 </task>
-                <task id="72" name="Control de Entrada y Salida" meeting="false" start="2017-05-08" duration="8" complete="0" expand="false" cost-manual-value="0.0" cost-calculated="true">
-                    <task id="76" name="CRUD DAO" color="#8cb6ce" meeting="false" start="2017-05-08" duration="5" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
-                        <depend id="78" type="2" difference="0" hardness="Strong"/>
-                    </task>
-                    <task id="78" name="Validaciones" color="#8cb6ce" meeting="false" start="2017-05-15" duration="3" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
-                        <depend id="67" type="2" difference="0" hardness="Strong"/>
-                    </task>
+                <task id="72" name="Control de Entrada y Salida" meeting="false" start="2017-05-18" duration="22" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
+                    <task id="78" name="Programacion" color="#8cb6ce" meeting="false" start="2017-05-18" duration="22" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
                 </task>
-                <task id="63" name="Reportes" color="#000000" meeting="false" start="2017-05-18" duration="8" complete="0" expand="false">
-                    <task id="67" name="Programacion" color="#8cb6ce" meeting="false" start="2017-05-18" duration="5" complete="0" expand="true">
-                        <depend id="69" type="2" difference="0" hardness="Strong"/>
-                    </task>
-                    <task id="69" name="Validaciones" color="#8cb6ce" meeting="false" start="2017-05-25" duration="3" complete="0" expand="true">
+                <task id="63" name="Reportes" color="#000000" meeting="false" start="2017-05-18" duration="22" complete="0" expand="true">
+                    <task id="67" name="Programacion" color="#8cb6ce" meeting="false" start="2017-05-18" duration="22" complete="0" expand="true">
                         <depend id="81" type="2" difference="0" hardness="Strong"/>
                     </task>
                 </task>
             </task>
-            <task id="81" name="Testeo 1" color="#8cb6ce" meeting="false" start="2017-05-31" duration="3" complete="0" expand="true">
+            <task id="81" name="Testeo 1" color="#8cb6ce" meeting="false" start="2017-06-21" duration="3" complete="0" expand="true">
                 <depend id="84" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="84" name="Correccion 1" color="#8cb6ce" meeting="false" start="2017-06-05" duration="2" complete="0" expand="true">
+            <task id="84" name="Correccion 1" color="#8cb6ce" meeting="false" start="2017-06-27" duration="2" complete="0" expand="true">
                 <depend id="86" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="86" name="Testeo 2" color="#8cb6ce" meeting="false" start="2017-06-07" duration="3" complete="0" expand="true">
+            <task id="86" name="Testeo 2" color="#8cb6ce" meeting="false" start="2017-06-29" duration="3" complete="0" expand="true">
                 <depend id="88" type="2" difference="0" hardness="Strong"/>
                 <depend id="149" type="2" difference="0" hardness="Strong"/>
                 <depend id="151" type="2" difference="0" hardness="Strong"/>
                 <depend id="153" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="88" name="Correccion 2" color="#8cb6ce" meeting="false" start="2017-06-12" duration="2" complete="0" expand="true"/>
-            <task id="143" name="Manual de Usuario" color="#8cb6ce" meeting="false" start="2017-06-12" duration="5" complete="0" expand="false" cost-manual-value="0.0" cost-calculated="true">
-                <task id="149" name="Manual del Programador" color="#8cb6ce" meeting="false" start="2017-06-12" duration="5" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
-                <task id="151" name="Manual de Usuario" color="#8cb6ce" meeting="false" start="2017-06-12" duration="5" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
-                <task id="153" name="Manual de Instalacion" color="#8cb6ce" meeting="false" start="2017-06-12" duration="5" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
+            <task id="88" name="Correccion 2" color="#8cb6ce" meeting="false" start="2017-07-05" duration="2" complete="0" expand="true"/>
+            <task id="143" name="Manual de Usuario" color="#8cb6ce" meeting="false" start="2017-07-05" duration="5" complete="0" expand="false" cost-manual-value="0.0" cost-calculated="true">
+                <task id="149" name="Manual del Programador" color="#8cb6ce" meeting="false" start="2017-07-05" duration="5" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
+                <task id="151" name="Manual de Usuario" color="#8cb6ce" meeting="false" start="2017-07-05" duration="5" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
+                <task id="153" name="Manual de Instalacion" color="#8cb6ce" meeting="false" start="2017-07-05" duration="5" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
                     <depend id="145" type="2" difference="0" hardness="Strong"/>
                 </task>
             </task>
-            <task id="145" name="Capacitacion" color="#8cb6ce" meeting="false" start="2017-06-20" duration="1" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
+            <task id="145" name="Capacitacion" color="#8cb6ce" meeting="false" start="2017-07-12" duration="1" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true">
                 <depend id="147" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="147" name="Soporte" color="#8cb6ce" meeting="false" start="2017-06-21" duration="15" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
+            <task id="147" name="Soporte" color="#8cb6ce" meeting="false" start="2017-07-13" duration="15" complete="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
         </task>
     </tasks>
     <resources>
@@ -173,6 +151,7 @@
         <allocation task-id="26" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="63" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="149" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="21" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="53" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="78" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="10" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
@@ -186,11 +165,8 @@
         <allocation task-id="145" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="147" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="29" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
-        <allocation task-id="76" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="63" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="149" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="50" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
-        <allocation task-id="76" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="8" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="10" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="107" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
@@ -204,8 +180,6 @@
         <allocation task-id="63" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="151" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="21" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
-        <allocation task-id="50" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="76" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="8" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="10" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="97" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
@@ -219,8 +193,6 @@
         <allocation task-id="147" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="26" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="151" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="50" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="76" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="10" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="105" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="3" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
@@ -231,7 +203,6 @@
         <allocation task-id="145" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="147" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="45" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="76" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="63" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="63" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="153" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
@@ -248,7 +219,6 @@
         <allocation task-id="145" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="147" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="45" resource-id="5" function="Default:0" responsible="true" load="100.0"/>
-        <allocation task-id="76" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="63" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="153" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
     </allocations>

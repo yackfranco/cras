@@ -5,6 +5,6 @@
   if ($sessionStorage.usuario.rol_id == rolAdmin) {
     $this.next();
   } else {
-    $this.redirectTo('/logout');
+    $this.redirectTo('/ces');
   }
 }

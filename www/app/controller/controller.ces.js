@@ -1,4 +1,3 @@
-angular.module('IMPERIUM').
-        controller('cesController',['$scope', function($scope){
-                
-        }]);
+angular.module('IMPERIUM').controller('cesController', ['$scope', function ($scope) {
+    
+  }]);

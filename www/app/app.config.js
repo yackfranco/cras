@@ -3,6 +3,7 @@
  */
 angular.module('IMPERIUM').constant('rolAdmin', 1);
 angular.module('IMPERIUM').constant('rolCelador', 2);
+angular.module('IMPERIUM').constant('urlServer', 'http://localhost/cras/www/');
 
 /**
  * middleware que comprueba las session y los tipos de roles
@@ -18,6 +19,9 @@ angular.module('IMPERIUM').config(['$middlewareProvider',
         }],
       'comprobarPermisoDeCelador': ['$localStorage', '$sessionStorage', 'rolCelador', function comprobarPermisoDeCelador($localStorage, $sessionStorage, rolCelador) {
           middlewareComprobarPermisoDeCelador(this, $localStorage, $sessionStorage, rolCelador);
+        }],
+      'comprobarNoTenerSesion': ['$localStorage', '$sessionStorage', 'rolAdmin', function comprobarPermisoDeCelador($localStorage, $sessionStorage, rolAdmin) {
+          middlewareComprobarNoTenerSesion(this, $localStorage, $sessionStorage, rolAdmin);
         }]
     });
   }]);
@@ -30,7 +34,8 @@ angular.module('IMPERIUM').config(['$routeProvider', '$httpProvider', function c
     $routeProvider.
             when('/', {
               controller: 'loginController',
-              templateUrl: 'app/template/login.html'
+              templateUrl: 'app/template/login.html',
+              middleware: ['comprobarNoTenerSesion']
             }).
             when('/ces', {
               controller: 'cesController',
