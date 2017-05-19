@@ -24,33 +24,33 @@
 
     <div class="col-lg-6 panelform">
 
-      <form class="form-horizontal formulario ">
+      <form class="form-horizontal formulario" ng-submit="enter()"  >
         <div class="form-group">
           <label for="inputEmail3" class="col-lg-7 control-label labelFechaCes">Ingresar Identificacion</label>
           <div class="col-lg-5">
-            <input type="text" class="form-control colorTexbox" id="identificacion" placeholder="Ingresar Identificacion">
+            <input type="text" ng-model="identificacion"  ng-enter="consultarDocumento()" class="form-control colorTexbox" id="identificacion" placeholder="Ingresar Identificacion">
           </div>
         </div>
         <div class="form-group">
           <label for="inputPassword3" class="col-lg-7 control-label labelFechaCes">Identificacion</label>
           <div class="col-lg-5">
-            <input type="text" class="form-control colorTexbox" id="ident" placeholder="Identificacion">
+            <input type="text" ng-model="identificacion2" class="form-control colorTexbox" id="ident" placeholder="Identificacion">
           </div>
         </div>
         <div class="form-group">
           <label for="inputEmail3" class="col-lg-7 control-label labelFechaCes">Hora Entrada</label>
           <div class="col-lg-5">
-            <input type="text" class="form-control colorTexbox" id="horaEntrada" placeholder="Hora Entrada">
+            <input type="text" ng-model="horaE" class="form-control colorTexbox" id="horaEntrada" placeholder="Hora Entrada">
           </div>
         </div>
         <div class="form-group">
           <label for="inputPassword3" class="col-lg-7 control-label labelFechaCes">Hora Salida</label>
           <div class="col-lg-5">
-            <input type="text" class="form-control colorTexbox" id="horaSalida" placeholder="Hora Salida">
+            <input type="text" ng-model="horaS" class="form-control colorTexbox" id="horaSalida" placeholder="Hora Salida">
           </div>
         </div>
         <div class="form-group">
-          <label for="inputPassword3" class="col-lg-7 control-label labelFechaCes">Ficha</label>
+          <label for="inputPassword3" ng-model="ficha" class="col-lg-7 control-label labelFechaCes">Ficha</label>
           <div class="col-lg-5">
             <input type="text" class="form-control colorTexbox" id="inputPassword3" placeholder="Ficha">
           </div>
@@ -59,18 +59,18 @@
         <div class="form-group">
           <label for="inputPassword3" class="col-lg-7 control-label labelFechaCes">Registrar Equipo</label>
           <div class="col-lg-5">
-            <input type="text" class="form-control colorTexbox" id="inputPassword3" placeholder="Registrar Equipo">
+            <input type="text" ng-model="registroEquipo" class="form-control colorTexbox" id="inputPassword3" placeholder="Registrar Equipo">
           </div>
         </div>
 
-        <div class="form-group">
+        
+
+      </form>
+<div class="form-group">
           <div class="col-lg-offset-7 col-lg-5">
             <a href="#!/registrarEquipo" class="btn btn-default btn-block">Registrar equipo</a>
           </div>
         </div>
-
-      </form>
-
     </div>
 
   </div>

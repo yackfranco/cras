@@ -3,7 +3,6 @@
  */
 angular.module('IMPERIUM').constant('rolAdmin', 1);
 angular.module('IMPERIUM').constant('rolCelador', 2);
-angular.module('IMPERIUM').constant('urlServer', 'http://localhost/cras/www/');
 
 /**
  * middleware que comprueba las session y los tipos de roles
