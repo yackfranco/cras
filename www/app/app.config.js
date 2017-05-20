@@ -71,5 +71,10 @@ angular.module('IMPERIUM').config(['$routeProvider', '$httpProvider', function c
               template: '<p>Cerrando sesión...</p>',
               middleware: ['comprobarSession']
             }).
+            when('/registroUsuario', {
+              controller: 'registrarUsuarioController',
+              templateUrl: 'app/template/registrarUsuario.html',
+              middleware: ['comprobarSession']
+            }).
             otherwise('/');
   }]);

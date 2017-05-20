@@ -7,7 +7,7 @@ $config->setDrive('pgsql');
 $config->setHost('localhost');
 $config->setPort(5432);
 $config->setUser('postgres');
-$config->setPassword('123456');
+$config->setPassword('qwer159');
 $config->setDbname('cras2');
 $config->setHash('md5');
 
