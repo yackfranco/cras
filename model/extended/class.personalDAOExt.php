@@ -19,4 +19,12 @@ class usuarioDAOExt extends usuarioDAO {
 //    return $this->execute($sql, $params);
 //  }
 
+  public function searchForIdentification($identificacion) {
+    $sql = 'SELECT per_id,per_identificacion,per_identificacion_aprendiz,per_foto,per_nombre,per_apellidos,per_ficha, WHERE per_identificacion = :identi OR per_identificacion_aprendiz= :identi';
+    $params = array(
+        ':identi' => $identificacion
+    );
+    return $this->query($sql, $params);
+  }
+
 }
