@@ -11,7 +11,7 @@ class personalDAO extends dataSource implements IPersonal {
    * @param Boolean $logico
    * @return Integer
    */
-  public function delete(integer $id, boolean $logico = true) {
+  public function delete(int $id, bool $logico = true) {
     if ($logico)
       $sql = 'UPDATE FROM ces_personal SET ces_delete_at = now() WHERE per_id = :id';
     else
@@ -61,7 +61,7 @@ class personalDAO extends dataSource implements IPersonal {
    * @param integer $id
    * @return array of stdClass
    */
-  public function selectById(integer $id) {
+  public function selectById(int $id) {
     $sql = 'SELECT per_identificacion,per_identificacion_aprendiz,id,per_foto,'
             . 'per_nombre,per_apellidos,per_genero,per_ficha,per_celfamiliar  FROM ces_personal WHERE per_id=:id';
     $params = array(

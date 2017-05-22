@@ -7,12 +7,11 @@ class getDataCes extends controllerExtended {
       $this->loadTableUsuario();
 
       $identificacion = $request->getParam('identificacion');
-//      $user = $request->getParam('usuario');     
-//      $password = hash($this->getConfig()->getHash(), $request->getParam('contrasena'), false);
 
-      $personalDAO = new usuarioDAOExt($this->getConfig());
+      $personalDAO = new personalDAOExt($this->getConfig());
       $respuesta1 = $personalDAO->searchForIdentification($identificacion);
       $respuesta2 = array(
+          'fecha' => date ("h:i:s"),
           'codigo' => (count($respuesta1) > 0) ? 200 : 500,
           'usuario' => $respuesta1
       );

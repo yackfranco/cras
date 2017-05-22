@@ -14,7 +14,7 @@ interface IPersonal {
    *  Metodo para seleccionar un Registro buscado por el id
    * @param integer $id
    */
-  public function selectById(integer $id);
+  public function selectById(int $id);
 
   /**
    *  Metodo para insertar la persona en la BD
@@ -33,5 +33,5 @@ interface IPersonal {
    * @param integer $id
    * @param boolean $logico
    */
-  public function delete(integer $id, boolean $logico = true);
+  public function delete(int $id, bool $logico = true);
 }
