@@ -5,5 +5,4 @@ angular.module('IMPERIUM').service('getDataCesService', ['$http', function($http
     };
 
     // this.getUser = $http.get('http://localhost/cras/www/server.php/obtener_usuarios');
-    
 }]);
