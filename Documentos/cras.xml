@@ -5,9 +5,9 @@
   <DocFolder>C:\Users\ADSI\Desktop\Proyecto IMPERIUM\diccionario de datos</DocFolder>
   <Sch Cm="" nm="public">
     <Tbl UsSo="1" nm="ces_equipo">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="equi_id" nm="pkces_equipo"/>
-      <Cl au="1" df="" nm="equi_id" nu="0">
+      <Cl au="1" df="nextval('ces_equipo_equi_id_seq'::regclass)" nm="equi_id" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Llave Principal y campo autoincrementable de la tabla Equipos </Cm>
       </Cl>
@@ -47,9 +47,9 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="ces_personal">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="per_id" nm="pkces_personal"/>
-      <Cl au="1" df="" nm="per_id" nu="0">
+      <Cl au="1" df="nextval('ces_personal_per_id_seq'::regclass)" nm="per_id" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Llave Principal y campo autoincrementable de la tabla Personal </Cm>
       </Cl>
@@ -106,19 +106,19 @@
       </Fk>
       <Idx clu="0" ftx="0" nm="ces_personal_id_Idx" spa="0" unq="1">
         <ClNs>tip_id</ClNs>
-        <OptTx/>
+        <OptTx>USING btree</OptTx>
       </Idx>
       <Idx clu="0" ftx="0" nm="per_cedula" spa="0" unq="1">
         <ClNs>per_identificacion</ClNs>
-        <OptTx/>
+        <OptTx>USING btree</OptTx>
       </Idx>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="ces_registro_equipo">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="reg_equi_id" nm="pkces_registro_equipo"/>
-      <Cl au="1" df="" nm="reg_equi_id" nu="0">
+      <Cl au="1" df="nextval('ces_registro_equipo_reg_equi_id_seq'::regclass)" nm="reg_equi_id" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Llave Principal y campo autoincrementable de la tabla RegistroP </Cm>
       </Cl>
@@ -148,19 +148,19 @@
       </Fk>
       <Idx clu="0" ftx="0" nm="ces_registro_equipo_equi_id_Idx" spa="0" unq="0">
         <ClNs>equi_id</ClNs>
-        <OptTx/>
+        <OptTx>USING btree</OptTx>
       </Idx>
       <Idx clu="0" ftx="0" nm="ces_registro_equipo_reg_per_id_Idx" spa="0" unq="0">
         <ClNs>reg_per_id</ClNs>
-        <OptTx/>
+        <OptTx>USING btree</OptTx>
       </Idx>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="ces_registro_personal">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="reg_per_id" nm="pkces_registro_personal"/>
-      <Cl au="1" df="" nm="reg_per_id" nu="0">
+      <Cl au="1" df="nextval('ces_registro_personal_reg_per_id_seq'::regclass)" nm="reg_per_id" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
         <Cm>Llave Principal y campo autoincrementable de la tabla RegistroP</Cm>
       </Cl>
@@ -183,15 +183,15 @@
       </Fk>
       <Idx clu="0" ftx="0" nm="ces_registro_personal_per_id_Idx" spa="0" unq="0">
         <ClNs>per_id</ClNs>
-        <OptTx/>
+        <OptTx>USING btree</OptTx>
       </Idx>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="ces_rol">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="rol_id" nm="pkces_rol"/>
-      <Cl au="1" df="" nm="rol_id" nu="0">
+      <Cl au="1" df="nextval('ces_rol_rol_id_seq'::regclass)" nm="rol_id" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="0" un="0"/>
         <Cm>dato unico el cual representa el rol</Cm>
       </Cl>
@@ -203,9 +203,9 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="ces_tipo_persona">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="tip_id" nm="pkces_tipo_persona"/>
-      <Cl au="1" df="" nm="tip_id" nu="0">
+      <Cl au="1" df="nextval('ces_tipo_persona_tip_id_seq'::regclass)" nm="tip_id" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="tip_tipo_persona" nu="0">
@@ -215,9 +215,9 @@
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="ces_usuario">
-      <TblOpts/>
+      <TblOpts>WITHOUT OIDS</TblOpts>
       <Pk ClNs="usu_id" nm="pkces_usuario"/>
-      <Cl au="1" df="" nm="usu_id" nu="0">
+      <Cl au="1" df="nextval('ces_usuario_usu_id_seq'::regclass)" nm="usu_id" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
         <Cm>Llave Principal y campo autoincrementable de la tabla Usuario </Cm>
       </Cl>
@@ -271,15 +271,36 @@
       </Fk>
       <Idx clu="0" ftx="0" nm="ces_usuario_rol_id_Idx" spa="0" unq="0">
         <ClNs>rol_id</ClNs>
-        <OptTx/>
+        <OptTx>USING btree</OptTx>
       </Idx>
       <Idx clu="0" ftx="0" nm="indice_cedula" spa="0" unq="1">
         <ClNs>usu_cedula</ClNs>
-        <OptTx/>
+        <OptTx>USING btree</OptTx>
       </Idx>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
+    <Seq incr="1" nm="ces_equipo_equi_id_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="ces_personal_per_id_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="ces_registro_equipo_reg_equi_id_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="ces_registro_personal_reg_per_id_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="ces_rol_rol_id_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="ces_tipo_persona_tip_id_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
+    <Seq incr="1" nm="ces_usuario_usu_id_seq">
+      <Cm>DbWrench Autogenerated Sequence.</Cm>
+    </Seq>
     <CustomTypes/>
   </Sch>
   <Dgm nm="diagramA">
@@ -450,4 +471,5 @@
     <TreePath>/Schemas (1)/public/Procedures (0)</TreePath>
     <TreePath>/Diagrams (1)</TreePath>
   </TreePaths>
+  <SqlTexts/>
 </Db>

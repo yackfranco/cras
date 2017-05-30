@@ -11,7 +11,7 @@ class equipoDAO extends dataSource implements IEquipo {
    * @param Boolean $logico
    * @return Integer
    */
-  public function delete(integer $id, boolean $logico = true) {
+  public function delete(integer $id, boolean $logico) {
     if ($logico) {
       $sql = 'UPDATE FROM equipo SET equi_delete_at = now() WHERE equi_id = :id';
     } else {
@@ -29,17 +29,21 @@ class equipoDAO extends dataSource implements IEquipo {
    * @return Integer
    */
   public function insert(\equipo $equipo) {
-    $sql = 'INSERT INTO ces_equipo (equi_tipo,equi_serial,equi_marca,'
-            . 'equi_codbarras,equi_observaciones,equi_create_at) VALUES (:tipo,:serial,'
-            . 'marca,:codbarras,:observaciones,now())';
-    $params = array(
-        ':tipo' => $equipo->getTipo(),
-        ':serial' => $equipo->getSerial(),
-        ':marca' => $equipo->getMarca(),
-        ':codbarras' => $equipo->getCodBarras(),
-        ':observaciones' => $equipo->getSerial(),
-    );
-    return $this->execute($sql, $params);
+    try {
+      $sql = 'INSERT INTO ces_equipo (equi_tipo,equi_serial,equi_marca,'
+              . 'equi_codbarras,equi_observacion,equi_create_at) VALUES (:tipo,:serial,'
+              . ':marca,:codbarras,:observaciones,now())';
+      $params = array(
+          ':tipo' => (string) $equipo->getTipo(),
+          ':serial' => (string) $equipo->getSerial(),
+          ':marca' => (string) $equipo->getMarca(),
+          ':codbarras' => (string) $equipo->getCodBarras(),
+          ':observaciones' => (string) $equipo->getSerial(),
+      );
+      return $this->execute($sql, $params);
+    } catch (Exception $exc) {
+      throw new Exception($exc->getMessage(), $exc->getCode(), $exc->getPrevious());
+    }
   }
 
   /**

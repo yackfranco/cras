@@ -33,5 +33,5 @@ interface IEquipo {
    * @param integer $id
    * @param boolean $logico
    */
-  public function delete(integer $id, boolean $logico = true);
+  public function delete(integer $id, boolean $logico);
 }

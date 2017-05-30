@@ -1,4 +1,4 @@
-<form>
+<form ng-submit="guardarEquipo()">
   <div class="">
     <div class ="col-lg-offset-2 col-lg-4">
       <div class = "Formulario">
@@ -6,7 +6,7 @@
           <div class="form-group">
             <label for="inputEmail3" class="col-lg-4 control-label">Tipo</label>
             <div class="col-lg-8">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Tipo">
+              <input type="text" ng-model="equipo.tipo" class="form-control" id="inputEmail3" placeholder="Tipo" required>
             </div>
           </div>
           <div class="form-group">
@@ -19,14 +19,14 @@
                   </div>
                 </div>
               </div>
-              <input type="text" class="form-control" id="inputPassword3" placeholder="Cod.Barra">
+              <input type="text" ng-model="equipo.codbarra" class="form-control" id="inputPassword3" placeholder="Cod.Barra" required>
 
             </div>
           </div>
           <div class="form-group">
             <label for="inputEmail3" class="col-lg-4 control-label">Serial</label>
             <div class="col-lg-8">
-              <input type="text" class="form-control" id="inputEmail3" placeholder="Serial">
+              <input  ng-model="equipo.serial" type="text" class="form-control" id="inputEmail3" placeholder="Serial" required>
             </div>
           </div>          
         </div>
@@ -40,13 +40,13 @@
           <div class="form-group">
             <label for="inputPassword3" class="col-lg-4 control-label">Marca</label>
             <div class="col-lg-8">
-              <input type="text" class="form-control" id="inputPassword3" placeholder="Marca">
+              <input type="text" ng-model="equipo.marca" class="form-control" id="inputPassword3" placeholder="Marca">
             </div>
           </div>
           <div class="form-group">
             <label for="inputPassword3" class="col-lg-4 control-label">Observaciones</label>
             <div class="col-lg-8">
-              <textarea class="form-control textarea" rows="3"></textarea>
+              <textarea class="form-control textarea" ng-model="equipo.observaciones" rows="3" ></textarea>
             </div>
           </div>
         </div>
