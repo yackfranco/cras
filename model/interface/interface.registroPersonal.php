@@ -20,13 +20,13 @@ interface IregistroPersonal {
    * @param registroPersonal $rePersonal
    */
 
-  public function insert(registroPersonal $rePersonal);
+  public function insert($id);
 
   /**
    * Metodo para actualizar registro por el  id.
    * @param registroPersonal $rePersonal
    */
-  public function update(registroPersonal $rePersonal);
+  public function update($id);
 /**
  * Metodo para el borrado de un registro del personal.
  * @param type $id
