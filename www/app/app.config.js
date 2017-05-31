@@ -1,4 +1,4 @@
-/**
+/* *
  * variables constante que diferencian los roles
  */
 angular.module('IMPERIUM').constant('rolAdmin', 1);
