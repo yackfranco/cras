@@ -7,10 +7,15 @@ class createPersonal extends controllerExtended {
     
     $personal = new personal();
     $personal->setNombre($request->getParam('nombre'));
-    $personal->setIdentificacion($request->getParam('identificacion'));
+    $personal->setIdentificacion($request->getParam('identificacionP'));
     $personal->setIdentificacionAprendiz($request->getParam('nis'));
     $personal->setIdTipoPersona($request->getParam('cargo'));
-    
+    $personal->setGenero($request->getParam('genero'));
+//    $personal->setFoto('a');
+    $personal->setApellidos($request->getParam('apellido'));
+    $personal->setCelFamiliar($request->getParam('ficha'));
+    $personal->setCelFamiliar($request->getParam('celular_familia'));
+
     $personalDAO = new personalDAOExt($this->getConfig());
     $row = $personalDAO->insert($personal);
 

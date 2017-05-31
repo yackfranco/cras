@@ -1,12 +1,18 @@
-angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', 'personalServices', function ($scope, personalServices) {
+angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', 'personalServices', 'masculino', 'femenino', function ($scope, personalServices, masculino, femenino) {
 
     $scope.personal = {};
     $scope.success = true;
     $scope.warning = true;
     $scope.danger = true;
     $scope.disabledCelularFamilia = false;
+    $scope.masculino = masculino;
+    $scope.femenino = femenino;
+
+
 
     $scope.crudPersonal = function () {
+
+//      $scope.personal.genero;
       personalServices.createPersonal($scope.personal).then(function succesCallback(response) {
         console.log(response.data);
         if (response.data.code == 200) {
@@ -22,6 +28,7 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
         } else {
           $scope.success = true;
           $scope.warning = true;
+          `+++++¡`;
           $scope.danger = false;
           $scope.disabledCelularFamilia = true;
         }
@@ -31,12 +38,14 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
         console.log(response);
       });
     };
-    
+
     $scope.habilitar = function () {
       $scope.disabledCelularFamilia = false;
     };
 
 
   }]);
+
+
 
 

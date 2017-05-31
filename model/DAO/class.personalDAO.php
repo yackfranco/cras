@@ -29,17 +29,17 @@ class personalDAO extends dataSource implements IPersonal {
    * @return Integer
    */
   public function insert(\personal $personal) {
-    $sql = 'INSERT INTO ces_personal (per_identificacion,per_identificacion_aprendiz,id,per_foto,'
-            . 'per_nombre,per_apellidos,per_genero,per_ficha,per_celfamiliar,per_create_at) '
-            . 'VALUES (:identificacion,:identAprendiz,:idTipoPersonal,:foto,:nombre,:apellidos,:genero,:ficha,:celfamiliar,now())';
+    
+    $sql = 'INSERT INTO ces_personal (per_identificacion,per_identificacion_aprendiz,tip_id,per_foto,per_nombre,per_apellidos,per_genero,per_ficha,per_celfamiliar,ces_create_at)
+     VALUES (:identificacion,:identAprendiz,:idTipoPersonal,:foto,:nombre,:apellidos,:genero,:ficha,:celfamiliar,now())';
     $params = array(
         ':identificacion' => $personal->getIdentificacion(),
         ':identAprendiz' => $personal->getIdentificacionAprendiz(),
         ':idTipoPersonal' => $personal->getIdTipoPersona(),
         ':foto' => $personal->getFoto(),
         ':nombre' => $personal->getNombre(),
-        ':apellidos' => $personal->getApeliidos(),
-        ':genero' => $personal->getGenero(),
+        ':apellidos' => $personal->getApellidos(),
+        ':genero' => ($personal->getGenero() == 'true') ? 't' : 'f',
         ':ficha' => $personal->getFicha(),
         ':celfamiliar' => $personal->getCelFamiliar(),
     );
@@ -87,7 +87,7 @@ class personalDAO extends dataSource implements IPersonal {
         ':idTipoPersonal' => $personal->getIdTipoPersona(),
         ':foto' => $personal->getFoto(),
         ':nombre' => $personal->getNombre(),
-        ':apellidos' => $personal->getApeliidos(),
+        ':apellidos' => $personal->getApellidos(),
         ':genero' => $personal->getGenero(),
         ':ficha' => $personal->getFicha(),
         ':celfamiliar' => $personal->getCelFamiliar(),

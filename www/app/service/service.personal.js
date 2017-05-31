@@ -1,8 +1,18 @@
 angular.module('IMPERIUM').service('personalServices', ['$http', 'serverUrl', function($http, serverUrl){
     
-    this.createEquipo = function (data) {
+    this.createPersonal = function (data) {
       return $http.post(serverUrl + 'createPersonal', $.param(data));
     };
+  
+  
+    this.updatePersonal = function (data) {
+      return $http.post(serverUrl + 'updatePersonal', $.param(data));
+    };
     
-//    this.getPersonal = $http.get(serverUrl + 'getPersonal');
+    
+    this.deletePersonal = function (data) {
+      return $http.post(serverUrl + 'deletePersonal', $.param(data));
+    };
+    
+    // this.getPersonal = $http.get(serverUrl + 'getPersonal');
 }]);

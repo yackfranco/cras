@@ -20,7 +20,7 @@ class personal {
   private $idTipoPersona;
   private $foto;
   private $nombre;
-  private $apeliidos;
+  private $apellidos;
   private $genero;
   private $ficha;
   private $celFamiliar;
@@ -80,8 +80,8 @@ class personal {
    * Obtiene el apellido de la persona
    * @return string
    */
-  public function getApeliidos() {
-    return $this->apeliidos;
+  public function getApellidos() {
+    return $this->apellidos;
   }
 
   /**
@@ -184,8 +184,8 @@ class personal {
    * Setea el apellido de la persona
    * @param string
    */
-  public function setApeliidos($apeliidos) {
-    $this->apeliidos = $apeliidos;
+  public function setApellidos($apellidos) {
+    $this->apellidos = $apellidos;
   }
 
   /**
