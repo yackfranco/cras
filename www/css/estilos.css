@@ -348,5 +348,8 @@ margin-top: 80px;
 }
 .colorTexboxU{
  border:2px solid #E69141;
- 
-}
+ }
+ .mensaje{
+   margin-left: 40%;
+   margin-right: 40%;
+ }

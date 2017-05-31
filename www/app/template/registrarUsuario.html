@@ -1,134 +1,128 @@
-
-<div class = "row">
-  <div class ="col-lg-offset-2 col-lg-4">
-    <div class = "Formulario">
-      <form class="form-horizontal">
-        <div class="form-group">
-          <label for="inputEmail3" class="col-lg-4 control-label ">Nombre</label>
-          <div class="col-lg-8">
-            <input type="text" class="form-control colorTexboxU" id="inputEmail3" placeholder="Nombre">
+<form ng-submit="guardarUsuario()">
+  <div class = "row">
+    <div class ="col-lg-offset-2 col-lg-4">
+      <div class = "Formulario">
+        <div class="form-horizontal">
+          <div class="form-group">
+            <label for="inputmail3" class="col-lg-4 control-label">Cedula</label>
+            <div class="col-lg-8">
+              <input ng-model="datosusu.cedula" type="number" class="form-control colorTexboxU" id="inputEmail3" placeholder="Cedula" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail3" class="col-lg-4 control-label ">Nombre</label>
+            <div class="col-lg-8">
+              <input ng-model="datosusu.nombre" type="text" class="form-control colorTexboxU" id="inputEmail3" placeholder="Nombre" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail3" class="col-lg-4 control-label">Correo</label>
+            <div class="col-lg-8">
+              <input ng-model="datosusu.correo" type="text" class="form-control colorTexboxU" id="inputEmail3" placeholder="Correo" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail3" class="col-lg-4 control-label">Rol</label>
+            <div class="col-lg-8">
+              <select ng-model="datosusu.rol" class="form-control colorTexboxU" required>
+                <option value="Administrador">Administrador</option>
+                <option value="Invitado">Invitado</option>
+              </select>
+            </div>
           </div>
         </div>
-        <div class="form-group">
-          <label for="inputEmail3" class="col-lg-4 control-label">Correo</label>
-          <div class="col-lg-8">
-            <input type="text" class="form-control colorTexboxU" id="inputEmail3" placeholder="Correo">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputEmail3" class="col-lg-4 control-label">Rol</label>
-          <div class="col-lg-8">
-            <select class="form-control colorTexboxU">
-              <option value="Administrador">Administrador</option>
-              <option value="Invitado">Invitado</option>
-            </select>
-          </div>
-        </div>
-
-      </form>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class = "Formulario">
-      <form class="form-horizontal"> 
-        <div class="form-group">
-          <label for="inputPassword3" class="col-lg-4 control-label">Usuario</label>
-          <div class="col-lg-8">
-            <input type="text" class="form-control colorTexboxU" id="inputPassword3" placeholder="Usuario">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword3" class="col-lg-4 control-label">Contraseña</label>
-          <div class="col-lg-8">
-            <input type="password" class="form-control colorTexboxU" id="inputPassword3" placeholder="Contraseña">
-          </div>
-        </div>
-        <div class="form-group text">
-          <label for="inputPassword3" class="col-lg-4 control-label textconfirmar">Confirmar Contraseña</label>
-          <div class="col-lg-8">
-            <input type="password" class="form-control colorTexboxU" id="inputPassword3" placeholder="Confirmar Contraseña">
-          </div>
-        </div>
-
-
-      </form>
-    </div>
-  </div>
-</div>
-<div class ="row">
-
-  <div class="">
-    <div class="col-lg-12 botonesaplicacion text-center">
-      <span title="Nuevo" class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-      <span title="Guardar" class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span>
-      <span title="Cancelar" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-      <span title="Editar" class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-      <span title="Eliminar" class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-    </div>
-  </div>
-  <div  class="espaciotab">
-
-
-  </div>
-  <div class="container" >     
-
-    <table class="table table-bordered table-condensed table-striped">
-      <thead> 
-        <tr>
-          <th>Selecccionar</th>
-          <th>Nombre</th>
-          <th>Correo</th>
-          <th>Usuario</th>
-          <th>Rol</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="b b3">
-      <div class="col-lg-offset-4 col-lg-4 text-center  pcopy">
-        <a href="#!/copyRight"><button type="button" class="btn btn-lg btn-default">©Todos los Derechos Reservados</button></a>
       </div>
-
-
+    </div>
+    <div class="col-lg-4">
+      <div class = "Formulario">
+        <div class="form-horizontal"> 
+          <div class="form-group">
+            <label for="inputPassword3" class="col-lg-4 control-label">Celular</label>
+            <div class="col-lg-8">
+              <input ng-model="datosusu.celular" type="number" class="form-control colorTexboxU" id="inputPassword3" placeholder="Celular" required >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-lg-4 control-label">Usuario</label>
+            <div class="col-lg-8">
+              <input ng-model="datosusu.usuario" type="text" class="form-control colorTexboxU" id="inputPassword3" placeholder="Usuario" required >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-lg-4 control-label">Contraseña</label>
+            <div class="col-lg-8">
+              <input ng-model="datosusu.contrasena" type="password" class="form-control colorTexboxU" id="inputPassword3" placeholder="Contraseña" required>
+            </div>
+          </div>
+          <div class="form-group text">
+            <label for="inputPassword3" class="col-lg-4 control-label textconfirmar">Confirmar Contraseña</label>
+            <div class="col-lg-8">
+              <input ng-model="datosusu.confpass" type="password" class="form-control colorTexboxU" id="inputPassword3" placeholder="Confirmar Contraseña" required>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
+  <div class ="row">
 
-</div>
+    <div class="">
+      <div class="col-lg-12 botonesaplicacion text-center">
+        <!--        <span title="Nuevo" class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>-->
+        <!--        <span title="Guardar" class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span>-->
+        <button type="submit" class="glyphicon glyphicon-floppy-saved"></button>
+        <span title="Cancelar" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        <!--        <span title="Editar" class="glyphicon glyphicon-edit" aria-hidden="true"></span>-->
+        <!--        <span title="Eliminar" class="glyphicon glyphicon-trash" aria-hidden="true"></span>-->
+      </div>
+    </div>
+    <!--</form>-->
+    <div  class="espaciotab">
+
+
+    </div>
+    <div class="alert alert-success alert-dismissible mensaje" role="alert" ng-show="usuarioGuardado">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      Usuario Guardado
+    </div>
+    <!--    <div class="alert alert-success" ng-hide="success">Registro ingresado con éxito!!!</div>-->
+    <div class="container" >     
+
+      <table class="table table-bordered table-condensed table-striped">
+        <thead> 
+          <tr>
+            <th>Cedula</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Celular</th>
+            <th>Usuario</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="x in tabla">
+            <td>{{ x.usu_cedula}}</td>
+            <td>{{x.usu_nombre}}</td>
+            <td>{{x.usu_correo}}</td>
+            <td>{{x.usu_celular}}</td>
+            <td>{{x.usu_usuario}}</td>
+            <td>{{x.rol_nombre}}</td>
+            <td><span title="Editar" class="glyphicon glyphicon-edit" aria-hidden="true"></span> 
+              <span title="Eliminar" class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+        </tbody>
+      </table>
+
+      <div class="b b3">
+        <div class="col-lg-offset-4 col-lg-4 text-center  pcopy">
+          <a href="#!/copyRight"><button type="button" class="btn btn-lg btn-default">©Todos los Derechos Reservados</button></a>
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </div>
+</form>
