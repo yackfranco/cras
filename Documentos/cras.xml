@@ -104,7 +104,7 @@
         <CdTb mn="1" nm="ces_personal" oe="1" sch="public" zr="0"/>
         <ClPr cdCl="tip_id" prCl="tip_id"/>
       </Fk>
-      <Idx clu="0" ftx="0" nm="ces_personal_id_Idx" spa="0" unq="1">
+      <Idx clu="0" ftx="0" nm="ces_personal_id_Idx" spa="0" unq="0">
         <ClNs>tip_id</ClNs>
         <OptTx>USING btree</OptTx>
       </Idx>
@@ -460,7 +460,7 @@
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.diagramA" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.diagramA" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
