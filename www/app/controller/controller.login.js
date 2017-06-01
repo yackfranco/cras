@@ -2,29 +2,6 @@ angular.module('IMPERIUM').controller('loginController', ['$scope', 'securitySer
     $scope.datos = {};
     $scope.submit = function () {
 
-//      $.ajax({
-//        url: 'http://localhost/cras/www/server.php/login',
-//        type: 'POST',
-//        data: $scope.datos,
-//        success: function (response) {
-//          if (response.codigo == 500) {
-//            $scope.$apply(function () {
-//              $scope.usuarioErroneo = true;
-//              $scope.datos = {};
-//            });
-//          } else {
-//            $scope.$apply(function () {
-//              $sessionStorage.usuario = response.usuario[0];
-//              if ($sessionStorage.usuario.rol_id == rolAdmin) {
-//                $location.path('/menuPrincipal');
-//              } else {
-//                $location.path('/ces');
-//              }
-//            });
-//          }
-//        }
-//      });
-
       security.validateUserAndPassword($scope.datos).then(function successCallback(response) {
         console.log(response);
         $scope.usuarioErroneo = false;
