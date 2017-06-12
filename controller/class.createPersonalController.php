@@ -3,7 +3,7 @@
 class createPersonal extends controllerExtended {
 
   public function main(\request $request) {
-    $this->loadTablePersonal();
+    $this->loadTablePersonal(); 
 
     $personal = new personal();
     $personal->setNombre($request->getParam('nombre'));
