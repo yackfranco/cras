@@ -83,6 +83,9 @@
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
         <Cm>Numero de Ficha el cual hace referencia al Programa de Formacion  </Cm>
       </Cl>
+      <Cl au="0" df="" nm="per_nomfamiliar" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
       <Cl au="0" df="" nm="per_celfamiliar" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="15" sc="null" sg="1" un="0"/>
         <Cm>Numero del Celular de un familiar para contactar </Cm>
@@ -460,13 +463,12 @@
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.diagramA" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.diagramA" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (1)</TreePath>
     <TreePath>/Schemas (1)/public</TreePath>
-    <TreePath>/Schemas (1)/public/Tables (7)</TreePath>
     <TreePath>/Schemas (1)/public/Views (0)</TreePath>
     <TreePath>/Schemas (1)/public/Procedures (0)</TreePath>
     <TreePath>/Diagrams (1)</TreePath>
