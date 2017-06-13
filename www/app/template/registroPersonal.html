@@ -91,11 +91,12 @@
       <div class="alert alert-warning" ng-hide="warning">OJO apito que algo anda mal!!!</div>
       <div class="alert alert-danger alert-dismissible" role="alert" ng-hide="danger">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="habilitar()"><span aria-hidden="true">&times;</span></button>
-        LE HECHASTE LACA!!!
+        error En el registro
       </div>
 
     </div>
   </div>
+
 
   <div class="">
     <div class="col-lg-12 botonesaplicacion text-center">
@@ -110,7 +111,46 @@
       <button type="submit" title="Eliminar" class="glyphicon glyphicon-trash btncrud" ></button>
     </div>
   </div>
+  <div  class="espaciotab">
+
+
+  </div>
+  <table class="table table-bordered table-condensed table-striped">
+    <thead> 
+      <tr>
+        <th hidden>Id</th>
+        <th>Cedula</th>
+        <th>NIS</th>
+        <th>Cargo</th>
+        <th>Foto</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Genero</th>
+        <th>Ficha</th>
+        <th>Cel.Familiar</th>
+        <th>Nom.Familiar</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="x in tablaP">
+        <td hidden>{{ x.per_id}}</td>
+        <td>{{ x.per_identificacion}}</td>
+        <td>{{x.per_identificacion_aprendiz}}</td>
+        <td>{{x.tip_id}}</td>
+        <td>{{x.per_foto}}</td>
+        <td>{{x.per_nombre}}</td>
+        <td>{{x.per_apellidos}}</td>
+        <td>{{x.per_genero}}</td>
+        <td>{{x.per_ficha}}</td>
+        <td>{{x.per_celfamiliar}}</td>
+        <td>{{x.per_nomfamiliar}}</td>
+        <td><span title="Editar" class="glyphicon glyphicon-edit" aria-hidden="true"></span> 
+          <span title="Eliminar" class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+    </tbody>
+  </table>
 </form>
+
 <div class="">
   <div class="col-lg-offset-5 col-lg-2 botonCopyRigthPersonal">
     <button type="button" class="btn btn-group-sm btn-default btn-block  ">© Todos Los derechos reservados</button>

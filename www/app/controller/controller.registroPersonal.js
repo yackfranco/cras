@@ -25,6 +25,7 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
           $scope.success = true;
           $scope.warning = false;
           $scope.danger = true;
+          cargarTablaP();
         } else {
           $scope.success = true;
           $scope.warning = true;
@@ -41,10 +42,24 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
 
     $scope.habilitar = function () {
       $scope.disabledCelularFamilia = false;
+
+
     };
 
+    function cargarTablaP() {
+      personalServices.cargarTablaP.then(function successCallback(respTablaP) {
+        console.log(respTablaP);
+        $scope.tablaP = respTablaP.data.personal;
+      }, function errorCallback(respTablaP) {
+        console.log(respTablaP);
+      });
+    }
+    
+    cargarTablaP();
 
   }]);
+
+
 
 
 

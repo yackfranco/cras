@@ -52,8 +52,8 @@ class personalDAO extends dataSource implements IPersonal {
    * @return array of stdClass
    */
   public function select() {
-    $sql = 'SELECT per_id,per_identificacion,per_identificacion_aprendiz,id,per_foto,'
-            . 'per_nombre,per_apellidos,per_genero,per_ficha,per_celfamiliar  FROM ces_personal';
+    $sql = 'SELECT per_id,per_identificacion,per_identificacion_aprendiz,tip_id,per_foto,'
+            . 'per_nombre,per_apellidos,per_genero,per_ficha,per_celfamiliar,per_nomfamiliar  FROM ces_personal';
     return $this->query($sql);
   }
 

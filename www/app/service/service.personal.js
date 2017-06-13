@@ -15,4 +15,5 @@ angular.module('IMPERIUM').service('personalServices', ['$http', 'serverUrl', fu
     };
     
     // this.getPersonal = $http.get(serverUrl + 'getPersonal');
+     this.cargarTablaP = $http.get(serverUrl + 'cargarTablaP');
 }]);
