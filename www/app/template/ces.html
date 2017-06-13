@@ -6,7 +6,7 @@
 
     <div>
       <label class="labelNombre">Nombre Completo&nbsp;</label> <label class="labelNombreBD"> {{nombre}}</label>
-      <img src="img/salir.png" class="btnSalir">
+      <img ng-click="salir()" src="img/salir.png" class="btnSalir">
     </div>
     <div><center><label class="labelFechaCes">
 
@@ -29,7 +29,8 @@
     <div class="col-lg-6 panelform">
       <div class="panel panel-default foto" >
         <div class="panel-body">
-          Aqui va la foto, pero no se como poner un cuadro solo para la fotos
+          <img src=""> Aqui va la foto, pero no se como poner un cuadro solo para la fotos
+          <!--<img src="{{foto}}"> Aqui va la foto, pero no se como poner un cuadro solo para la fotos-->
         </div>
       </div>
     </div>
@@ -38,9 +39,9 @@
 
       <form class="form-horizontal formulario" id="formulario">
         <div class="form-group">
-          <label for="inputEmail3" class="col-lg-7 control-label labelFechaCes">Ingresar Identificacion</label>
+          <label for="inputEmail3" class="col-lg-7 control-label labelFechaCes" >Ingresar Identificacion</label>
           <div class="col-lg-5">
-            <input type="text" ng-model="identificacion"  ng-enter="consultarDocumento()" class="form-control colorTexbox" id="identificacion" placeholder="Ingresar Identificacion">
+            <input autofocus type="text" ng-model="identificacion"  ng-enter="consultarDocumento()" class="form-control colorTexbox" id="identificacion" placeholder="Ingresar Identificacion">
           </div>
         </div>
         <div class="form-group">
