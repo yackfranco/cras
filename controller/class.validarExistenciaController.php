@@ -3,46 +3,109 @@
 class validarExistencia extends controllerExtended {
 
   public function main(\request $request) {
+
     $this->loadTablePersonal();
 
     $PersonalDaoExt = new personalDAOExt($this->getConfig());
+    $registroPersonal = new registroPersonalDAOExt($this->getConfig());
+
+
     $row = $PersonalDaoExt->searchForIdentification($request->getParam('id'));
 
+    //se pregunta si la persona existe en la BD
     if (count($row) > 0) {
-
-      $registroPersonal = new registroPersonalDAOExt($this->getConfig());
+      //insertar o actualizar
+      //se trae el registro de la entrada esta llena y la salida esta vacia de acuerdo a la persona
       $validacion = $registroPersonal->validarEntrada($row[0]->per_id);
 
       if (count($validacion) > 0) {
-
+        //update
         $update = $registroPersonal->update($validacion[0]->reg_per_id);
-        echo 'actualizo';
+
+        $ultimoRegistro = $registroPersonal->validarEntrada2($validacion[0]->per_id);
         $answer = array(
-            'accion' => 'actualizar',
-            'row' => $update
+            'accion' => 'actualizo',
+            'persona' => $row,
+            'ultimoRegistro' => $ultimoRegistro
         );
-        
       } else {
-
+        //insert
         $insert = $registroPersonal->insert($row[0]->per_id);
-        echo 'inserto';
-
+        $ultimoRegistro = $registroPersonal->validarEntrada2($row[0]->per_id);
         $answer = array(
-            'accion' => 'insertar',
-            'row' => $insert
+            'accion' => 'inserto',
+            'persona' => $row,
+            'ultimoRegistro' => $ultimoRegistro
         );
       }
-      
     } else {
+      //mandarlo al Registrar Personal
       $answer = array(
-          'accion' => 'insertPersonal',
-          'row' => $row
+          'accion' => 'noExistePersona',
+           'persona' => $row
       );
     }
 
+
+
+
+
+
+
     $this->setParam('rsp', $answer);
     $this->setView('imprimirJson');
-    
+
+
+
+
+//    $answer = array();
+//    $this->loadTablePersonal();
+//
+//    $PersonalDaoExt = new personalDAOExt($this->getConfig());
+//    $row = $PersonalDaoExt->searchForIdentification($request->getParam('id'));
+//
+//    if (count($row) > 0) {
+//
+//      $registroPersonal = new registroPersonalDAOExt($this->getConfig());
+//      $validacion = $registroPersonal->validarEntrada($row[0]->per_id);
+//
+//
+//
+//      if (count($validacion) > 0) {
+//        $update = $registroPersonal->update($validacion[0]->reg_per_id);
+//        $traerRegistroCes = $registroPersonal->selectById($validacion[0]->reg_per_id);
+////        echo 'actualizo';
+//        $answer = array(
+//            'accion' => 'actualizar',
+//            'row' => $row,
+//            'EntradaSalida' => $traerRegistroCes
+//        );
+//        $this->setParam('rsp', $answer);
+//        $this->setView('imprimirJson');
+//      } else {
+////        echo "inserto";
+////        exit();
+//        $insert = $registroPersonal->insert($row[0]->per_id);
+//        $traerRegistroCes = $registroPersonal->selectById($validacion2[0]->reg_per_id);
+//        $validacion2 = $registroPersonal->validarEntrada2($row[0]->per_id);
+////        echo 'inserto';
+//
+//        $answer = array(
+//            'accion' => 'insertar',
+//            'row' => $row,
+//            'EntradaSalida' => $traerRegistroCes
+//        );
+//        $this->setParam('rsp', $answer);
+//        $this->setView('imprimirJson');
+//      }
+//    } else {
+//      $answer = array(
+//          'accion' => 'insertPersonal',
+//          'row' => $row
+//      );
+//      $this->setParam('rsp', $answer);
+//      $this->setView('imprimirJson');
+//    }
   }
 
   private function loadTablePersonal() {

@@ -109,7 +109,7 @@
             <td>{{x.usu_celular}}</td>
             <td>{{x.usu_usuario}}</td>
             <td>{{x.rol_nombre}}</td>
-            <td><span title="Editar" class="glyphicon glyphicon-edit" aria-hidden="true"></span> 
+            <td><span title="Editar" class="glyphicon glyphicon-edit" aria-hidden="true" data-toggle="modal" data-target="#myModal" ng-click="editar(x)"></span> 
               <span title="Eliminar" class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
         </tbody>
       </table>
@@ -126,3 +126,94 @@
 
   </div>
 </form>
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" data-keyboard="false" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+        <h4 class="modal-title" id="myModalLabel" style="font-size: 20px; text-align: center">Editar Usuario</h4>
+      </div>
+      <div class="modal-body">
+
+        <!--        <input type="text"ng-model="mod_usuario">-->
+        <form>
+          <div class="row">
+            <label for="inputPassword3" ng-model="modal.usuario" class="col-lg-12 control-label" style="text-align:center; font-size: 35px;">{{modtitulo}}</label>
+          </div>
+
+          <div class="row" style="margin-top: 3px;">
+            <label for="inputPassword3" class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Cedula</label>
+            <div class="col-lg-7">
+              <input ng-model="modal.cedula" type="number" class="form-control colorTexboxU" placeholder="Cedula">
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 3px;">
+            <label for="inputPassword3" class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Nombre</label>
+            <div class="col-lg-7">
+              <input ng-model="modal.nombre" type="text" class="form-control colorTexboxU" placeholder="Nombre">
+            </div>
+          </div>
+
+
+          <div class="row" style="margin-top: 3px;">
+            <label for="inputPassword3" class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Correo</label>
+            <div class="col-lg-7">
+              <input ng-model="modal.correo" type="email" class="form-control colorTexboxU" placeholder="Email">
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 3px;">
+            <label class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Celular</label>
+            <div class="col-lg-7">
+              <input ng-model="modal.celular" type="number" class="form-control colorTexboxU" placeholder="Celular">
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 3px;">
+            <div class="form-group">
+              <label  class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Rol</label>
+              <div class="col-lg-7">
+                <select ng-model="modal.rol" class="form-control colorTexboxU" required>
+                  <option value="Administrador">Administrador</option>
+                  <option value="Invitado">Invitado</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 3px;">
+            <label  class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Anterior Contraseña</label>
+            <div class="col-lg-7">
+              <input ng-model="modal.anteriorContra" type="password" class="form-control colorTexboxU" placeholder="Anterior Contraseña">
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 3px;">
+            <label  class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Nueva Contraseña</label>
+            <div class="col-lg-7">
+              <input ng-model="modal.contrasena" type="password" class="form-control colorTexboxU" placeholder="Nueva Contraseña">
+            </div>
+          </div>
+
+          <div class="alert alert-success" role="alert" ng-show="modalact">{{mensajeactualizar}}</div>
+          <div class="alert alert-warning" role="alert" ng-show="modalContraIncorrecta">{{mensajeactualizar}}</div>
+        </form>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cerrarModal()">Cerrar</button>
+        <button type="button" class="btn btn-primary" ng-click="editar(x, false)">Confirmar Editar</button>
+      </div>
+    </div>
+  </div>
+</div>

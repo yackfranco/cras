@@ -74,18 +74,22 @@ from ces_usuario as c inner join ces_rol as r on c.rol_id=r.rol_id';
    * @return integer
    */
   public function update(\usuario $usuario) {
-    $sql = 'UPDATE usuario SET usu_cedula = :cedula, usu_foto = :foto, usu_nombre = :nombre, usu_celular = :celular, usu_correo = :correo , usu_contrasena = :pass WHERE usu_id = :id';
+//    $sql = 'UPDATE ces_usuario SET usu_cedula = :cedula, usu_foto = :foto, usu_nombre = :nombre, usu_celular = :celular, usu_correo = :correo , usu_contrasena = :pass WHERE usu_usuario = :user';
+    $sql = 'UPDATE ces_usuario SET usu_cedula = :cedula, usu_nombre = :nombre, usu_celular = :celular, usu_correo = :correo , usu_contrasena = :pass, rol_id = :rol WHERE usu_usuario = :user';
     $params = array(
         ':cedula' => $usuario->getCedula(),
-        ':foto' => $usuario->getFoto(),
+//        ':foto' => $usuario->getFoto(),
         ':nombre' => $usuario->getNombre(),
         ':celular' => $usuario->getCelular(),
         ':correo' => $usuario->getCorreo(),
-        ':contrasena' => $usuario->getContrasena(),
+//        ':contrasena' => $usuario->getContrasena(),
         ':user' => $usuario->getUsuario(),
         ':pass' => $usuario->getContrasena(),
-        ':id' => $usuario->getId()
+        ':rol'=>$usuario->getRol_id()
+//        ':id' => $usuario->getId()
     );
+//    print_r($params);
+//    exit();
     return $this->execute($sql, $params);
   }
 
