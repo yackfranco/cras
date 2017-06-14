@@ -7,7 +7,7 @@ class cargarTablaP extends controllerExtended {
       $this->loadTablePersonal();
 
 
-      $personalDAO = new personalDAO($this->getConfig()); 
+      $personalDAO = new personalDAOExt($this->getConfig()); 
       $respuesta1 = $personalDAO->select();
       $respuesta2 = array(
           'codigo' => (count($respuesta1) > 0) ? 200 : 500,

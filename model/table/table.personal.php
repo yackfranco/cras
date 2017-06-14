@@ -24,7 +24,7 @@ class personal {
   private $genero;
   private $ficha;
   private $celFamiliar;
-  private $nomfamiliar;
+
   private $create_at;
   private $update_at;
   private $delete_at;
@@ -41,13 +41,6 @@ class personal {
    * Obtiene la identificacion de la persona 
    * @return string
    */
-  public function getNomfamiliar() {
-    return $this->nomfamiliar;
-  }
-
-  public function setNomfamiliar($nomfamiliar) {
-    $this->nomfamiliar = $nomfamiliar;
-  }
 
   public function getIdentificacion() {
     return $this->identificacion;
@@ -145,7 +138,7 @@ class personal {
    * Setea el ID del registro
    * @param Integer $id
    */
-  public function setId(integer $id) {
+  public function setId($id) {
     $this->id = $id;
   }
 
@@ -153,7 +146,7 @@ class personal {
    * Setea el numero de informacion de la persona
    * @param string
    */
-  public function setIdentificacion(string $identificacion) {
+  public function setIdentificacion($identificacion) {
     $this->identificacion = $identificacion;
   }
 

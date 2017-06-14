@@ -41,16 +41,9 @@
             <option value="2">Instructor</option>
             <option value="3">Aprendiz</option>
             <option value="4">Otro</option>
-
           </select>
         </div>
       </div>
-      <div class="form-group anchura">
-        <label for="nombrefamiliar" class=" col-lg-5 control-label labelpersonal">Nombre Familiar</label>
-        <div class="col-lg-6">
-          <input ng-model="personal.nombre_familiar" type="text" class=" form-control colorformulario" id="Nombrefamiliar" placeholder="Ingresar Nombre Familiar">
-        </div>
-      </div>        
     </div>
 
 
@@ -91,13 +84,10 @@
       <div class="alert alert-warning" ng-hide="warning">OJO apito que algo anda mal!!!</div>
       <div class="alert alert-danger alert-dismissible" role="alert" ng-hide="danger">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="habilitar()"><span aria-hidden="true">&times;</span></button>
-        error En el registro
+        Error En el Registro
       </div>
-
     </div>
   </div>
-
-
   <div class="">
     <div class="col-lg-12 botonesaplicacion text-center">
       <!--      <span title="Nuevo" class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>-->
@@ -118,34 +108,34 @@
   <table class="table table-bordered table-condensed table-striped">
     <thead> 
       <tr>
+        <th>Foto</th>
         <th hidden>Id</th>
-        <th>Cedula</th>
+        <th>Identificacion</th>
         <th>NIS</th>
         <th>Cargo</th>
-        <th>Foto</th>
         <th>Nombre</th>
         <th>Apellido</th>
         <th>Genero</th>
         <th>Ficha</th>
         <th>Cel.Familiar</th>
-        <th>Nom.Familiar</th>
+
         <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="x in tablaP">
+        <td>{{x.per_foto}}</td>
         <td hidden>{{ x.per_id}}</td>
         <td>{{ x.per_identificacion}}</td>
         <td>{{x.per_identificacion_aprendiz}}</td>
-        <td>{{x.tip_id}}</td>
-        <td>{{x.per_foto}}</td>
+        <td>{{x.tip_tipo_persona}}</td>
         <td>{{x.per_nombre}}</td>
         <td>{{x.per_apellidos}}</td>
         <td>{{x.per_genero}}</td>
         <td>{{x.per_ficha}}</td>
         <td>{{x.per_celfamiliar}}</td>
-        <td>{{x.per_nomfamiliar}}</td>
-        <td><span title="Editar" class="glyphicon glyphicon-edit" aria-hidden="true"></span> 
+
+        <td><span title="Editar" class="glyphicon glyphicon-edit" ng-click="editar(x)" data-toggle="modal" data-target="#modalEditar" aria-hidden="true"></span> 
           <span title="Eliminar" class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
     </tbody>
   </table>
@@ -154,5 +144,107 @@
 <div class="">
   <div class="col-lg-offset-5 col-lg-2 botonCopyRigthPersonal">
     <button type="button" class="btn btn-group-sm btn-default btn-block  ">© Todos Los derechos reservados</button>
+  </div>
+</div>
+
+
+
+<!--//MODAL-->
+<div class="modal fade" id="modalEditar" tabindex="-1" data-keyboard="false" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+        <h4 class="modal-title" id="myModalLabel" style="font-size: 20px; text-align: center">Editar Personal</h4>
+      </div>
+      <div class="modal-body">
+
+        <!--        <input type="text"ng-model="mod_usuario">-->
+        <form ng-submit="editar(x, false)">
+          <!--          <div class="row">
+                      <label for="inputPassword3" ng-model="modal.nombre" class="col-lg-12 control-label" style="text-align:center; font-size: 35px;">{{modtitulo}}</label>
+                    </div>-->
+
+          <div class="row" style="margin-top: 3px;">
+            <label for="inputPassword3" class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Nombre</label>
+            <div class="col-lg-7">
+              <input ng-model="modal.nombre" type="text" class="form-control colorTexboxU" placeholder="Nombre">
+            </div>
+          </div>
+          <div class="row" style="margin-top: 3px;">
+            <label  class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Apellido</label>
+            <div class="col-lg-7">
+              <input ng-model="modal.apellido" type="text" class="form-control colorTexboxU" placeholder="Apellido">
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 3px;">
+            <label for="inputPassword3" class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Identificacion</label>
+            <div class="col-lg-7">
+              <input ng-model="modal.identificacionP" type="text" class="form-control colorTexboxU" placeholder="Identificacion">
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 3px;">
+            <label  class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Genero</label>
+            <div class="col-lg-7">
+              <select ng-model="modal.genero" class="form-control colorformulario" required>
+                <option value="">Seleccione genero</option>
+                <option ng-value="masculino">Masculino</option>
+                <option ng-value="femenino">Femenino</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 3px;">
+            <label for="inputPassword3" class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">NIS</label>
+            <div class="col-lg-7">
+              <input ng-model="modal.nis" type="text" class="form-control colorTexboxU" placeholder="NIS">
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 3px;">
+            <label  class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Ficha</label>
+            <div class="col-lg-7">
+              <input ng-model="modal.ficha" type="text" class="form-control colorTexboxU" placeholder="Ficha">
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 3px;">
+            <div class="form-group">
+              <label  class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Cargo</label>
+              <div class="col-lg-7">
+
+                <select ng-model="modal.cargo" class="form-control colorformulario" required>
+                  <option value="">Seleccione cargo</option>
+                  <option value="1">Funcionario</option>
+                  <option value="2">Instructor</option>
+                  <option value="3">Aprendiz</option>
+                  <option value="4">Otro</option>
+                </select>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 3px;">
+            <label class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Celular Familiar</label>
+            <div class="col-lg-7">
+              <input ng-model="modal.cel_familiar" type="text" class="form-control colorTexboxU" placeholder="Celular Familiar">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cerrarModal()">Cerrar</button>
+            <button class="btn btn-primary" type="submit">Confirmar Editar</button>
+          </div>
+        </form>
+        <!--        <div class="alert alert-success" role="alert" ng-show="modalact">{{mensajeactualizar}}</div>
+                <div class="alert alert-warning" role="alert" ng-show="modalContraIncorrecta">{{mensajeactualizar}}</div>-->
+
+
+
+      </div>
+
+    </div>
   </div>
 </div>

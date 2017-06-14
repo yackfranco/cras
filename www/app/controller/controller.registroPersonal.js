@@ -1,4 +1,4 @@
-angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', 'personalServices', 'masculino', 'femenino', function ($scope, personalServices, masculino, femenino) {
+angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', 'personalServices', '$location', 'masculino', 'femenino', function ($scope, personalServices, $location, masculino, femenino) {
 
     $scope.personal = {};
     $scope.success = true;
@@ -7,6 +7,7 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
     $scope.disabledCelularFamilia = false;
     $scope.masculino = masculino;
     $scope.femenino = femenino;
+    $scope.modal = {};
 
 
 
@@ -54,7 +55,40 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
         console.log(respTablaP);
       });
     }
-    
+
+
+    $scope.editar = function (x, $des = true) {
+      if ($des) {
+
+        $scope.modal.nombre = x.per_nombre;
+        $scope.modal.cedula = x.per_identificacion;
+        $scope.modal.apellido = x.per_apellidos;
+        $scope.modal.identificacionP = x.per_identificacion;
+        $scope.modal.genero = x.genero;
+        $scope.modal.nis = x.per_identificacion_aprendiz;
+        $scope.modal.cargo = x.tip_id;
+        $scope.modal.ficha = x.per_ficha;
+        $scope.modal.cel_familiar = x.per_celfamiliar;
+        $scope.modal.id = x.per_id;
+
+      } else {
+
+        personalServices.updatePersonal($scope.modal).then(function successCallback(response) {
+          console.log(response);
+          $scope.contactoEditado = false;
+          $scope.edit = {};
+          if (response.data.code == 500) {
+          } else {
+            $scope.contactoEditado = true;
+            $scope.edit = '';
+            $('#modalEditar').modal('hide');
+            $scope.tablaP = response.data.answer;
+          }
+        }, function errorCallback(response) {
+          console.error(response);
+        });
+    }
+    };
     cargarTablaP();
 
   }]);

@@ -10,7 +10,6 @@ class createPersonal extends controllerExtended {
     $personal->setIdentificacion($request->getParam('identificacionP'));
     $personal->setIdentificacionAprendiz($request->getParam('nis'));
     $personal->setIdTipoPersona($request->getParam('cargo'));
-    $personal->setNomfamiliar($request->getParam('nombre_familiar'));
     $personal->setGenero($request->getParam('genero'));
     $personal->setFoto('a');
     $personal->setApellidos($request->getParam('apellido'));
