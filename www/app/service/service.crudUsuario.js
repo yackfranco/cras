@@ -4,10 +4,18 @@ angular.module('IMPERIUM').service('crudUsuarioService', ['$http', 'serverUrl', 
       return $http.post(serverUrl + 'guardarUsuario', $.param(data));
     };
     
+    this.editarUsuario = function (data){
+     return $http.post(serverUrl + 'updateUsuario', $.param(data));
+   };
+   this.eliminarUsuario = function (data){
+     return $http.post(serverUrl + 'deleteUsuario', $.param(data));
+   };
 //    this.cargarTabla = function (data){
 //      return $http.post(serverUrl + '')
 //    }
    this.cargarTabla = $http.get(serverUrl + 'cargarTabla');
+   
+   
 }]);
 
 

@@ -41,7 +41,7 @@ class registroPersonalDAO extends dataSource implements IregistroPersonal {
    * @return array of stdClass
    */
   public function selectById($id) {
-    $sql = 'SELECT reg_per_id FROM ces_registro_personal WHERE reg_per_id = :id';
+    $sql = 'SELECT reg_per_id, per_id, reg_per_entrada,reg_per_salida FROM ces_registro_personal WHERE reg_per_id = :id';
     $params = array(
         ':id' => $id
     );
