@@ -4,27 +4,24 @@ class updateUsuario extends controllerExtended {
 
   public function main(\request $request) {
     try {
-      $respuesta2 = array();
       $this->loadTableUsuario();
-//      echo $request->getParam('anteriorContra');
-//      exit();
+
+     
       $usuario = new usuario();
       $usuario->setCedula($request->getParam('cedula'));
       $usuario->setCelular($request->getParam('celular'));
       $usuario->setCorreo($request->getParam('correo'));
       $usuario->setNombre($request->getParam('nombre'));
-      $usuario->setContrasena(hash('md5',$request->getParam('contrasena')));
-      $usuario->setUsuario($request->getParam('usuario'));
-
+      $usuario->setContrasena(hash('md5',$request->getParam('contrasena')));      
+      $usuario->setUsuario($request->getParam('usuario'));     
+      
       $usuarioDAO = new usuarioDAOExt($this->getConfig());
-
+      
       if ($request->getParam('rol') == "admin" || $request->getParam('rol') == "Administrador") {
         $usuario->setRol_id(1);
       } else {
         $usuario->setRol_id(2);
       }
-      
-
       //Se pregunta si la contraseña llego vacia o con algun dato
       if ($request->getParam('contrasena') == '') {
         //se hace el update sin la contraseña
@@ -60,8 +57,9 @@ class updateUsuario extends controllerExtended {
       }
       $this->setParam('rsp', $respuesta2);
       $this->setView('imprimirJson');
+      
     } catch (Exception $exc) {
-      echo $exc->getMessage();
+       echo $exc->getMessage();
     }
   }
 

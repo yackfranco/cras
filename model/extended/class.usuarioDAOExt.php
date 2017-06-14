@@ -8,13 +8,12 @@ class usuarioDAOExt extends usuarioDAO {
         ':user' => $usuario,
         ':pass' => $contrasena,
     );
-    
+
     return $this->query($sql, $params);
   }
-  
-  
+
   public function updatesincontra(\usuario $usuario) {
-    $sql = 'UPDATE ces_usuario SET usu_cedula = :cedula, usu_nombre = :nombre, usu_celular = :celular, usu_correo = :correo, rol_id = :rol WHERE usu_usuario = :user';
+    $sql = 'UPDATE ces_usuario SET usu_cedula = :cedula, usu_nombre = :nombre, usu_celular = :celular, usu_correo = :correo, rol_id = :rol WHERE usu_usuario =:user';
     $params = array(
         ':cedula' => $usuario->getCedula(),
 //        ':foto' => $usuario->getFoto(),
@@ -23,11 +22,11 @@ class usuarioDAOExt extends usuarioDAO {
         ':correo' => $usuario->getCorreo(),
 //        ':contrasena' => $usuario->getContrasena(),
         ':user' => $usuario->getUsuario(),
-         ':rol'=>$usuario->getRol_id(),
+        ':rol' => $usuario->getRol_id(),
 //        ':pass' => $usuario->getContrasena()
 //        ':id' => $usuario->getId()
     );
     return $this->execute($sql, $params);
   }
-  
+
 }

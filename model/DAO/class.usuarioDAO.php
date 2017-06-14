@@ -7,20 +7,20 @@ class usuarioDAO extends dataSource implements IUsuario {
 
   /**
    * funcion para hacer borrado logico o permanente
-   * @param type $id
+   * @param type $usu_id
    * @param type $logico
    * @return integer
    */
-  public function delete($id, $logico = true) {
+  public function delete($usu_id, $logico = true) {
 
     if ($logico === true) {
-      $sql = 'UPDATE FROM ces_usuario SET usu_delete_at = now() WHERE usu_id = :id';
+      $sql = 'UPDATE ces_usuario SET usu_delete_at = now() WHERE usu_id = :id';
     } else {
-      $sql = 'DELETE FROM ces_usuario WHERE usu_id = :id';
+      $sql = 'DELETE ces_usuario WHERE usu_id = :id';
     }
 
     $params = array(
-        ':id' => $id
+        ':id' =>(integer) $usu_id
     );
     return $this->execute($sql, $params);
   }
@@ -31,7 +31,7 @@ class usuarioDAO extends dataSource implements IUsuario {
    * @return integer
    */
   public function insert(\usuario $usuario) {
-    $sql = 'INSERT INTO ces_usuario (usu_celular,usu_cedula, usu_nombre, usu_correo, usu_usuario, usu_contrasena, rol_id, usu_create_at) VALUES (:cedula, :nombre, :celular, :correo, :user, :pass, :rol_id, now())';
+    $sql = 'INSERT INTO ces_usuario (usu_cedula, usu_nombre,usu_celular, usu_correo, usu_usuario, usu_contrasena, rol_id, usu_create_at) VALUES (:cedula, :nombre, :celular, :correo, :user, :pass, :rol_id, now())';
     $params = array(
         ':cedula' => $usuario->getCedula(),
 //            ':foto' => $usuario->getFoto(),
@@ -50,8 +50,8 @@ class usuarioDAO extends dataSource implements IUsuario {
    * @return array of stdClass
    */
   public function select() {
-    $sql = 'select c.usu_cedula,c.usu_nombre,c.usu_correo,c.usu_celular,c.usu_usuario,r.rol_nombre
-from ces_usuario as c inner join ces_rol as r on c.rol_id=r.rol_id';
+    $sql = 'select c.usu_id ,c.usu_cedula,c.usu_nombre,c.usu_celular,c.usu_correo,c.usu_usuario,r.rol_nombre
+from ces_usuario as c inner join ces_rol as r on c.rol_id=r.rol_id WHERE usu_delete_at IS NULL';
     return $this->query($sql);
   }
 
@@ -74,7 +74,7 @@ from ces_usuario as c inner join ces_rol as r on c.rol_id=r.rol_id';
    * @return integer
    */
   public function update(\usuario $usuario) {
-//    $sql = 'UPDATE ces_usuario SET usu_cedula = :cedula, usu_foto = :foto, usu_nombre = :nombre, usu_celular = :celular, usu_correo = :correo , usu_contrasena = :pass WHERE usu_usuario = :user';
+//    $sql = 'UPDATE usuario SET usu_cedula = :cedula, usu_foto = :foto, usu_nombre = :nombre, usu_celular = :celular, usu_correo = :correo , usu_contrasena = :pass WHERE usu_id = :id';
     $sql = 'UPDATE ces_usuario SET usu_cedula = :cedula, usu_nombre = :nombre, usu_celular = :celular, usu_correo = :correo , usu_contrasena = :pass, rol_id = :rol WHERE usu_usuario = :user';
     $params = array(
         ':cedula' => $usuario->getCedula(),
@@ -85,11 +85,8 @@ from ces_usuario as c inner join ces_rol as r on c.rol_id=r.rol_id';
 //        ':contrasena' => $usuario->getContrasena(),
         ':user' => $usuario->getUsuario(),
         ':pass' => $usuario->getContrasena(),
-        ':rol'=>$usuario->getRol_id()
 //        ':id' => $usuario->getId()
     );
-//    print_r($params);
-//    exit();
     return $this->execute($sql, $params);
   }
 

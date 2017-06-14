@@ -1,7 +1,7 @@
-angular.module('IMPERIUM').controller('registrarUsuarioController', ['$scope', 'crudUsuarioService', 'rolAdmin', 'rolCelador', function ($scope, crudUsuarioService, rolAdmin, rolCelador) {
+angular.module('IMPERIUM').controller('registrarUsuarioController', ['$scope', 'crudUsuarioService', 'rolAdmin', 'rolCelador', '$timeout', function ($scope, crudUsuarioService, rolAdmin, rolCelador, timeout) {
+
     cargarTabla();
     $scope.datosusu = {};
-
     $scope.modalact = false;
     $scope.usuarioGuardado = false;
 
@@ -23,6 +23,8 @@ angular.module('IMPERIUM').controller('registrarUsuarioController', ['$scope', '
         console.log(respuesta);
       });
     };
+
+
 
 
     function cargarTabla() {
@@ -48,12 +50,8 @@ angular.module('IMPERIUM').controller('registrarUsuarioController', ['$scope', '
         $scope.modal.correo = x.usu_correo;
         $scope.modal.celular = parseInt(x.usu_celular);
 
-
-        $scope.modtitulo = x.usu_usuario;
-
+        $scope.modtitulo = x.usu_usario;
       } else {
-//        
-//        console.log($scope.modal);
         crudUsuarioService.editarUsuario($scope.modal).then(function successCallback(respuesta) {
           console.log(respuesta);
           $scope.tabla = respuesta.data.usuario;
@@ -69,27 +67,48 @@ angular.module('IMPERIUM').controller('registrarUsuarioController', ['$scope', '
             $scope.mensajeactualizar = "Su registro se ha Actualizado correctamente";
             $scope.modalact = true;
           }
-          
-          if(respuesta.data.mensaje=="contraseñaIncorrecto"){
+
+          if (respuesta.data.mensaje == "contraseñaIncorrecto") {
             $scope.mensajeactualizar = "Contraseña Incorrecta";
             $scope.modalContraIncorrecta = true;
           }
 
-        }, function errorCallback(respuesta) {
+        }, function errorlCallback(respuesta) {
 
         });
-//          console.log($scope.modal);
     }
-//      console.log($scope.modal);
+    };
+    $scope.eliminar = function (x) {
+      $('#myModaleli').modal('toggle');
+      $scope.nombre = x.usu_nombre;
+//      console.log(x.usu_id);
+      $scope.ideliminar = x.usu_id;
+    };
 
-    }
+    $scope.submitEliminar = function () {
+//      console.log($scope.ideliminar);
+      crudUsuarioService.eliminarUsuario({id: $scope.ideliminar}).then(function successCallback(respuesta) {
+        console.log(respuesta);
+        if (respuesta.data.codigo = 500) {
+        } else {
+          $timeout(function () {
+            window.location.reload();
+          }, 1000);
+        }
+        $scope.tabla = respuesta.data.usuario;
+        $('#myModaleli').modal('hide');
+        location.reload(true);
+      }, function errorCallback(respuesta) {
+        console.log(respuesta);
+      });
+    };
+
 
     $scope.cerrarModal = function () {
-//      console.log("fokiu");
       $scope.modalact = false;
-       $scope.modalContraIncorrecta = false;
+      $scope.modalContraIncorrecta = false;
       $scope.modal = {};
-    }
+    };
 
   }]);
 
