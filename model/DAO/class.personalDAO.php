@@ -12,10 +12,11 @@ class personalDAO extends dataSource implements IPersonal {
    * @return Integer
    */
   public function delete(int $id, bool $logico = true) {
-    if ($logico)
-      $sql = 'UPDATE FROM ces_personal SET ces_delete_at = now() WHERE per_id = :id';
-    else
-      $sql = 'DELETE FROM usuario WHERE id = :id';
+    if ($logico) {
+      $sql = 'UPDATE FROM ces_personal SET ces_delete_at = now() WHERE ces_delete_at IS NULL AND per_id = :id';
+    } else {
+      $sql = 'DELETE FROM ces_personal WHERE per_id = :id';
+    }
 
     $params = array(
         ':id' => $id
@@ -39,7 +40,7 @@ class personalDAO extends dataSource implements IPersonal {
         ':foto' => $personal->getFoto(),
         ':nombre' => $personal->getNombre(),
         ':apellidos' => $personal->getApellidos(),
-        ':genero' => ($personal->getGenero() == 'true') ? 't' : 'f',
+        ':genero' => $personal->getGenero(),
         ':ficha' => $personal->getFicha(),
         ':celfamiliar' => $personal->getCelFamiliar(),
     );
@@ -62,8 +63,8 @@ class personalDAO extends dataSource implements IPersonal {
    * @return array of stdClass
    */
   public function selectById($id) {
-    $sql = 'SELECT per_identificacion,per_identificacion_aprendiz,per_foto,per_nombre,per_apellidos,per_genero,per_ficha,per_celfamiliar '
-            . ' FROM ces_personal WHERE per_identificacion = :id1 OR per_identificacion_aprendiz=:id2';
+    $sql = 'SELECT p.per_identificacion,p.per_identificacion_aprendiz,t.tip_tipo_persona,p.per_foto,p.per_nombre,p.per_apellidos,p.per_genero,p.per_ficha,p.per_celfamiliar FROM ces_personal as p inner join ces_tipo_persona as t on p.tip_id=t.tip_id WHERE per_identificacion=:id1 OR per_identificacion_aprendiz=:id2';
+    
     $params = array(
         ':id1' =>(string)$id,
         ':id2' =>(integer) $id

@@ -3,8 +3,8 @@
  */
 angular.module('IMPERIUM').constant('rolAdmin', 1);
 angular.module('IMPERIUM').constant('rolCelador', 2);
-angular.module('IMPERIUM').constant('masculino', 'true');
-angular.module('IMPERIUM').constant('femenino', 'false');
+//angular.module('IMPERIUM').constant('masculino', 'true');
+//angular.module('IMPERIUM').constant('femenino', 'false');
 angular.module('IMPERIUM').constant('serverUrl', 'http://localhost/cras/www/server.php/');
 
 /**

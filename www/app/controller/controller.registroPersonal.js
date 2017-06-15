@@ -1,12 +1,12 @@
-angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', 'personalServices', '$location', 'masculino', 'femenino', function ($scope, personalServices, $location, masculino, femenino) {
+angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', 'personalServices', '$location', function ($scope, personalServices, $location) {
 
     $scope.personal = {};
     $scope.success = true;
     $scope.warning = true;
     $scope.danger = true;
     $scope.disabledCelularFamilia = false;
-    $scope.masculino = masculino;
-    $scope.femenino = femenino;
+//    $scope.masculino = masculino;
+//    $scope.femenino = femenino;
     $scope.modal = {};
     $scope.mostrarTabla = false;
 
