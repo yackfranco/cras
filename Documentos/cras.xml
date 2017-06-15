@@ -325,13 +325,13 @@
       <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ff6666ff" sch="public" tbl="ces_usuario" x="107" y="33"/>
-    <TbGl bkCl="ff6666ff" sch="public" tbl="ces_equipo" x="167" y="221"/>
-    <TbGl bkCl="ff6666ff" sch="public" tbl="ces_personal" x="472" y="202"/>
-    <TbGl bkCl="ff6666ff" sch="public" tbl="ces_registro_equipo" x="218" y="389"/>
-    <TbGl bkCl="ff6666ff" sch="public" tbl="ces_registro_personal" x="579" y="402"/>
-    <TbGl bkCl="ff6666ff" sch="public" tbl="ces_rol" x="488" y="46"/>
-    <TbGl bkCl="ff6666ff" sch="public" tbl="ces_tipo_persona" x="857" y="232"/>
+    <TbGl bkCl="ff6666ff" sch="public" tbl="ces_usuario" x="167" y="100"/>
+    <TbGl bkCl="ff6666ff" sch="public" tbl="ces_equipo" x="227" y="288"/>
+    <TbGl bkCl="ff6666ff" sch="public" tbl="ces_personal" x="532" y="269"/>
+    <TbGl bkCl="ff6666ff" sch="public" tbl="ces_registro_equipo" x="278" y="456"/>
+    <TbGl bkCl="ff6666ff" sch="public" tbl="ces_registro_personal" x="639" y="469"/>
+    <TbGl bkCl="ff6666ff" sch="public" tbl="ces_rol" x="548" y="113"/>
+    <TbGl bkCl="ff6666ff" sch="public" tbl="ces_tipo_persona" x="917" y="299"/>
     <FkGl bkCl="ff000000" childEdge="" nm="public.ces_personal.fk_ces_personal_ces_tipo_persona" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
