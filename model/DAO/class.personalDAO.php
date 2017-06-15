@@ -29,7 +29,7 @@ class personalDAO extends dataSource implements IPersonal {
    * @return Integer
    */
   public function insert(\personal $personal) {
-    
+
     $sql = 'INSERT INTO ces_personal (per_identificacion,per_identificacion_aprendiz,tip_id,per_foto,per_nombre,per_apellidos,per_genero,per_ficha,per_celfamiliar,ces_create_at)
      VALUES (:identificacion,:identAprendiz,:idTipoPersonal,:foto,:nombre,:apellidos,:genero,:ficha,:celfamiliar,now())';
     $params = array(
@@ -61,12 +61,16 @@ class personalDAO extends dataSource implements IPersonal {
    * @param integer $id
    * @return array of stdClass
    */
-  public function selectById(int $id) {
-    $sql = 'SELECT per_identificacion,per_identificacion_aprendiz,id,per_foto,'
-            . 'per_nombre,per_apellidos,per_genero,per_ficha,per_celfamiliar  FROM ces_personal WHERE per_id=:id';
+  public function selectById($id) {
+    $sql = 'SELECT per_identificacion,per_identificacion_aprendiz,per_foto,per_nombre,per_apellidos,per_genero,per_ficha,per_celfamiliar '
+            . ' FROM ces_personal WHERE per_identificacion = :id1 OR per_identificacion_aprendiz=:id2';
     $params = array(
-        ':id' => $id
+        ':id1' =>(string)$id,
+        ':id2' =>(integer) $id
     );
+
+//    print_r($id);
+//    exit();
     return $this->query($sql, $params);
   }
 
@@ -81,7 +85,7 @@ class personalDAO extends dataSource implements IPersonal {
     $sql = 'UPDATE ces_personal SET per_identificacion=:identificacion,per_identificacion_aprendiz=:identAprendiz,tip_id=:idTipoPersonal,per_foto=:foto,'
             . 'per_nombre=:nombre,per_apellidos=:apellidos,per_genero=:genero,per_ficha=:ficha,per_celfamiliar=:celfamiliar WHERE per_id=:id';
     $params = array(
-        ':id' =>(integer) $personal->getId(),
+        ':id' => (integer) $personal->getId(),
         ':identificacion' => $personal->getIdentificacion(),
         ':identAprendiz' => $personal->getIdentificacionAprendiz(),
         ':idTipoPersonal' => $personal->getIdTipoPersona(),

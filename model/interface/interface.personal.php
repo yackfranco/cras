@@ -14,7 +14,7 @@ interface IPersonal {
    *  Metodo para seleccionar un Registro buscado por el id
    * @param integer $id
    */
-  public function selectById(int $id);
+  public function selectById($id);
 
   /**
    *  Metodo para insertar la persona en la BD

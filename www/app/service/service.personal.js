@@ -14,6 +14,10 @@ angular.module('IMPERIUM').service('personalServices', ['$http', 'serverUrl', fu
       return $http.post(serverUrl + 'deletePersonal', $.param(data));
     };
     
+      this.searchPersonal = function (data) {
+      return $http.post(serverUrl + 'buscarPersonal', $.param(data));
+    };
+    
     // this.getPersonal = $http.get(serverUrl + 'getPersonal');
      this.cargarTablaP = $http.get(serverUrl + 'cargarTablaP');
 }]);

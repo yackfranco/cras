@@ -8,6 +8,7 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
     $scope.masculino = masculino;
     $scope.femenino = femenino;
     $scope.modal = {};
+    $scope.mostrarTabla = false;
 
 
 
@@ -89,7 +90,26 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
         });
     }
     };
-    cargarTablaP();
+
+    $scope.buscar = function () {
+      console.log($scope.textoBuscar);
+      personalServices.searchPersonal({id: $scope.textoBuscar}).then(function successCallback(response) {
+        console.log(response);
+        $scope.mostrarTabla = true;
+        if (response.data.codigo == 200) {
+          $scope.tablaP = response.data.usuario;
+          $('#modalBuscar').modal('hide');
+        } else {
+          $scope.mostrarTabla = false;
+           $('#modalBuscar').modal('hide');
+        }
+        $scope.textoBuscar="";
+
+      }, function errorCallback(response) {
+        console.error(response);
+      });
+    }
+//    cargarTablaP();
 
   }]);
 

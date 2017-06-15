@@ -94,18 +94,18 @@
       <!--<button type="submit" title="Nuevo" class="glyphicon glyphicon-plus-sign"></button>-->
       <button type="submit" title="Guardar" class="glyphicon glyphicon-floppy-saved btncrud"></button>
       <!--<span title="Cancelar" class="glyphicon glyphicon-remove" aria-hidden="true"></span>-->
-      <button type="submit" title="Cancelar" class="glyphicon glyphicon-remove btncrud"></button>
-      <!--<span title="Editar" class="glyphicon glyphicon-edit" aria-hidden="true"></span>-->
-      <button type="submit" title="Editar" class="glyphicon glyphicon-edit btncrud" ></button>
+      <button  title="Cancelar" class="glyphicon glyphicon-remove btncrud"></button>
+      <span title="Buscar" class="glyphicon glyphicon-search btncrud" aria-hidden="true" data-toggle="modal" data-target="#modalBuscar"></span>
+      <!--<button  title="Buscar" class="glyphicon glyphicon-search btncrud" ></button>-->
       <!--<span title="Eliminar" class="glyphicon glyphicon-trash" aria-hidden="true"></span>-->
-      <button type="submit" title="Eliminar" class="glyphicon glyphicon-trash btncrud" ></button>
+      <!--<button type="submit" title="Eliminar" class="glyphicon glyphicon-trash btncrud" ></button>-->
     </div>
   </div>
   <div  class="espaciotab">
 
 
   </div>
-  <table class="table table-bordered table-condensed table-striped">
+  <table class="table table-bordered table-condensed table-striped" ng-show="mostrarTabla">
     <thead> 
       <tr>
         <th>Foto</th>
@@ -245,6 +245,32 @@
 
       </div>
 
+    </div>
+  </div>
+</div>
+
+
+
+<!-- MODAL BUSCAR -->
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="modalBuscar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        Digite la identificacion de la persona a buscar
+        <input type="number" ng-model="textoBuscar">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" ng-click="buscar()">Buscar</button>
+      </div>
     </div>
   </div>
 </div>
