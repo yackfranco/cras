@@ -25,6 +25,7 @@
             <label for="inputEmail3" class="col-lg-4 control-label">Rol</label>
             <div class="col-lg-8">
               <select ng-model="datosusu.rol" class="form-control colorTexboxU" required>
+                <option value="">Seleccione un Rol</option>
                 <option value="Administrador">Administrador</option>
                 <option value="Invitado">Invitado</option>
               </select>
@@ -68,11 +69,11 @@
   <div class ="row">
 
     <div class="">
-      <div class="col-lg-12 botonesaplicacion text-center">
+      <div class="col-lg-12 botonesaplicacion1 text-center">
         <!--        <span title="Nuevo" class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>-->
         <!--        <span title="Guardar" class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span>-->
-        <button type="submit" class="glyphicon glyphicon-floppy-saved"></button>
-        <span title="Cancelar" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        <button type="submit" title="Guardar" class="glyphicon glyphicon-floppy-saved btncrudUsuario"></button>
+        <button type="reset" title="Cancelar" class="glyphicon glyphicon-remove btncrudUsuario" ></button>
         <!--        <span title="Editar" class="glyphicon glyphicon-edit" aria-hidden="true"></span>-->
         <!--        <span title="Eliminar" class="glyphicon glyphicon-trash" aria-hidden="true"></span>-->
       </div>
