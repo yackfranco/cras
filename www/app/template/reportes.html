@@ -1,63 +1,61 @@
-<div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
-  <div class="">
+<!--reporte por identificacion-->
+<form ng-submit="reporteIndentificacion()">
+  <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
+    <div class="">
+      <div class="form-group subTitulos">
+        <label class="headsReportes">Reporte por Identificación</label>
+        <button type="submit"><img src="img/Print-01.png" class="imgreportes"></button>
+      </div>
 
-    <div class="form-group subTitulos">
-      <label class="headsReportes">Reporte por Identificación</label>
-      <img src="img/Print-01.png" class="imgreportes">
+      <div class="col-lg-offset-3 col-lg-6 form-group subTitulos">
+        <label class="subsReportes">Identificación</label>
+        <input type="Text" class="form-control colorTexbox" id="usuario" placeholder="Identificación" required  ng-model="reporteId.Iidentificacion" >
+        <label class="subsReportes">Fecha Inicial</label>
+        <input type="date" class="form-control colorTexbox" id="usuario" placeholder="" required ng-model="reporteId.IfechaInicio">
+        <label class="subsReportes">Fecha Final</label>
+        <input type="date" class="form-control colorTexbox" id="usuario" placeholder="" required ng-model="reporteId.IfechaFinal">
+      </div>
     </div>
-
-    <div class="col-lg-offset-3 col-lg-6 form-group subTitulos">
-
-      <label class="subsReportes">Identificación</label>
-      <input type="Text" class="form-control colorTexbox" id="usuario" placeholder="Identificación">
-      <label class="subsReportes">Fecha Inicial</label>
-      <input type="date" class="form-control colorTexbox" id="usuario" placeholder="">
-      <label class="subsReportes">Fecha Final</label>
-      <input type="date" class="form-control colorTexbox" id="usuario" placeholder="">
-
-    </div>
-
   </div>
-</div>
+</form>
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------->
 
-<div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
-  <div class="">
+<!--reporte total-->
+<form ng-submit="submit()">
+  <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
+    <div class="">
+      <div class="form-group subTitulos">
+        <label class="headsReportes">Reporte Entradas Totales</label>
+        <a href="#!/reporteTotal"><button type="submit"><img src="img/Print-01.png" class="imgreportes"></button></a>
+      </div>
 
-    <div class="form-group subTitulos">
-      <label class="headsReportes">Reporte Entradas Totales</label>
-      <img src="img/Print-01.png" class="imgreportes">
+      <div class="col-lg-offset-3 col-lg-6 form-group subTitulos">
+        <label class="subsReportes">Fecha Inicial</label>
+        <input type="date" class="form-control colorTexbox" id="usuario" placeholder="">
+        <label class="subsReportes">Fecha Final</label>
+        <input type="date" class="form-control colorTexbox" id="usuario" placeholder="">
+      </div>
     </div>
-
-    <div class="col-lg-offset-3 col-lg-6 form-group subTitulos">
-
-      <label class="subsReportes">Fecha Inicial</label>
-      <input type="date" class="form-control colorTexbox" id="usuario" placeholder="">
-      <label class="subsReportes">Fecha Final</label>
-      <input type="date" class="form-control colorTexbox" id="usuario" placeholder="">
-
-    </div>
-
   </div>
-</div>
+</form>
+<!-------------------------------------------------------------------------------------------------------------------------------------------------->
 
-<div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
-  <div class="">
+<!--reporte por grafica-->
+<form ng-submit="submit()">
+  <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
+    <div class="">
+      <div class="form-group subTitulos">
+        <label class="headsReportes">Reporte Conteos con Graficas</label>
+        <a href="#!/reporteGrafica"><button type="submit"><img src="img/Print-01.png" class="imgreportes"></button></a>
+      </div>
 
-    <div class="form-group subTitulos">
-      <label class="headsReportes">Reporte Conteos con Graficas</label>
-      <img src="img/Print-01.png" class="imgreportes">
+      <div class="col-lg-offset-3 col-lg-6 form-group subTitulos">
+        <label  class="subsReportes">Fecha Inicial</label>
+        <input ng-model="fechaInicio" type="date" class="form-control colorTexbox" id="usuario" placeholder="" required>
+        <label class="subsReportes">Fecha Final</label>
+        <input ng-model="fechaFin" type="date" class="form-control colorTexbox" id="usuario" placeholder="" required>
+      </div>
     </div>
-
-    <div class="col-lg-offset-3 col-lg-6 form-group subTitulos">
-
-      <label class="subsReportes">Fecha Inicial</label>
-      <input type="date" class="form-control colorTexbox" id="usuario" placeholder="">
-      <label class="subsReportes">Fecha Final</label>
-      <input type="date" class="form-control colorTexbox" id="usuario" placeholder="">
-
-    </div>
-
   </div>
-</div>
-
+</form>
 <a href="#!/menuPrincipal"><image class="home" src="img/house.png"></a>

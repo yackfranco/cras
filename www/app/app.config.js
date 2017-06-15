@@ -78,5 +78,21 @@ angular.module('IMPERIUM').config(['$routeProvider', '$httpProvider', function c
               templateUrl: 'app/template/registrarUsuario.html',
               middleware: ['comprobarSession']
             }).
+            when('/reporteIdentificacion', {
+              controller: 'identificacionController',
+              templateUrl: 'app/template/reporteIdentificacion.html',
+              middleware: ['comprobarSession']
+            }).
+                    when('/reporteGrafica', {
+              controller: 'graficaController',
+              templateUrl: 'app/template/reporteGrafica.html',
+              middleware: ['comprobarSession']
+            }).
+                    when('/reporteTotal', {
+              controller: 'totalController',
+              templateUrl: 'app/template/reporteTotal.html',
+              middleware: ['comprobarSession']
+            }).
             otherwise('/');
+    
   }]);
