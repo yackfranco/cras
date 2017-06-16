@@ -59,29 +59,39 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
 
 
     $scope.editar = function (x, $des = true) {
+//      console.log(x.tip_tipo_persona);
       if ($des) {
 
         $scope.modal.nombre = x.per_nombre;
         $scope.modal.cedula = x.per_identificacion;
         $scope.modal.apellido = x.per_apellidos;
         $scope.modal.identificacionP = x.per_identificacion;
-        $scope.modal.genero = x.genero;
+        $scope.modal.genero = x.per_genero;
         $scope.modal.nis = x.per_identificacion_aprendiz;
-        $scope.modal.cargo = x.tip_id;
+        if(x.tip_tipo_persona == "aprendiz")
+        {
+          $scope.modal.cargo = 1;
+//          $scope.cargo="aprendiz";
+        }else{
+          $scope.modal.cargo = 2;
+//          $scope.cargo="instructor";
+        }
+//        $scope.modal.cargo = x.tip_tipo_persona;
         $scope.modal.ficha = x.per_ficha;
         $scope.modal.cel_familiar = x.per_celfamiliar;
         $scope.modal.id = x.per_id;
 
       } else {
-
+//        console.log( $scope.modal);
         personalServices.updatePersonal($scope.modal).then(function successCallback(response) {
-          console.log(response);
+//          console.log(response);
           $scope.contactoEditado = false;
           $scope.edit = {};
           if (response.data.code == 500) {
           } else {
-            $scope.contactoEditado = true;
-            $scope.edit = '';
+//            console.log(response);
+//            $scope.contactoEditado = true;
+//            $scope.edit = '';
             $('#modalEditar').modal('hide');
             $scope.tablaP = response.data.answer;
           }
@@ -101,9 +111,9 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
           $('#modalBuscar').modal('hide');
         } else {
           $scope.mostrarTabla = false;
-           $('#modalBuscar').modal('hide');
+          $('#modalBuscar').modal('hide');
         }
-        $scope.textoBuscar="";
+        $scope.textoBuscar = "";
 
       }, function errorCallback(response) {
         console.error(response);
