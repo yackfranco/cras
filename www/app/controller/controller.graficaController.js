@@ -1,8 +1,9 @@
-angular.module('IMPERIUM').controller('graficaController', ['$scope', '$timeout', function ($scope, $timeout) {
+angular.module('IMPERIUM').controller('graficaController', ['$scope', 'servidorService', '$timeout', function ($scope, servidorService, $timeout) {
     $scope.fechaInicio = '';
     $scope.fechaFin = '';
-
-
+    $scope.labels = [];
+    $scope.data = [[],[]];
+    $scope.series = ['Entrada', 'Salida'];
     $scope.options = {
       elements: {
         line: {
@@ -10,12 +11,23 @@ angular.module('IMPERIUM').controller('graficaController', ['$scope', '$timeout'
         }
       }
     };
-    $scope.labels = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
-    $scope.series = ['Series A', 'Series B'];
-    $scope.data = [
-      [65, 59, 80, 81, 56, 55, 40,30,54,14,78,10],
-      [28, 48, 40, 19, 83, 27, 90,87,21,13,84,12]
-    ];
+
+    servidorService.obtenergra.then(function succesCallback(response) {
+      console.log(response);
+      
+      angular.forEach(response.data.datos, function (value, key) {
+        $scope.labels.push(value.fecha);
+        $scope.data[0].push(value.cantidad_entradas);
+        $scope.data[1].push(value.cantidad_salidas);
+      });
+      
+    }, function errorCallback(response) {
+      console.log(response);
+    });
+
+
+
+    
 
   }]);
 

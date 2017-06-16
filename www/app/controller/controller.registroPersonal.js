@@ -108,7 +108,7 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
       }, function errorCallback(response) {
         console.error(response);
       });
-    }
+    };
 //    cargarTablaP();
 
   }]);
