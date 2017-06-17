@@ -63,7 +63,7 @@ class personalDAO extends dataSource implements IPersonal {
    * @return array of stdClass
    */
   public function selectById($id) {
-    $sql = 'SELECT p.per_identificacion,p.per_identificacion_aprendiz,t.tip_tipo_persona,p.per_foto,p.per_nombre,p.per_apellidos,p.per_genero,p.per_ficha,p.per_celfamiliar FROM ces_personal as p inner join ces_tipo_persona as t on p.tip_id=t.tip_id WHERE per_identificacion=:id1 OR per_identificacion_aprendiz=:id2';
+    $sql = 'SELECT p.per_id,p.per_identificacion,p.per_identificacion_aprendiz,t.tip_tipo_persona,p.per_foto,p.per_nombre,p.per_apellidos,p.per_genero,p.per_ficha,p.per_celfamiliar FROM ces_personal as p inner join ces_tipo_persona as t on p.tip_id=t.tip_id WHERE per_identificacion=:id1 OR per_identificacion_aprendiz=:id2';
     
     $params = array(
         ':id1' =>(string)$id,
@@ -81,12 +81,13 @@ class personalDAO extends dataSource implements IPersonal {
    * @return Integer
    */
   public function update(\personal $personal) {
-
+//    print_r($personal);
+//    exit();
 
     $sql = 'UPDATE ces_personal SET per_identificacion=:identificacion,per_identificacion_aprendiz=:identAprendiz,tip_id=:idTipoPersonal,per_foto=:foto,'
             . 'per_nombre=:nombre,per_apellidos=:apellidos,per_genero=:genero,per_ficha=:ficha,per_celfamiliar=:celfamiliar WHERE per_id=:id';
     $params = array(
-        ':id' => (integer) $personal->getId(),
+        ':id' => $personal->getId(),
         ':identificacion' => $personal->getIdentificacion(),
         ':identAprendiz' => $personal->getIdentificacionAprendiz(),
         ':idTipoPersonal' => $personal->getIdTipoPersona(),
