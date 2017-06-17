@@ -136,7 +136,7 @@
         <td>{{x.per_celfamiliar}}</td>
 
         <td><span title="Editar" class="glyphicon glyphicon-edit" ng-click="editar(x)" data-toggle="modal" data-target="#modalEditar" aria-hidden="true"></span> 
-          <span title="Eliminar" class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
+          <span title="Eliminar" class="glyphicon glyphicon-trash" ng-click="eliminarP(x)"aria-hidden="true"></span></td>
     </tbody>
   </table>
 </form>
@@ -271,4 +271,28 @@
       </div>
     </div>
   </div>
+</div>
+
+<!-- Modal Eliminar -->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" id="modalEliminar" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"><i class="fa fa-trash"></i>
+                    Eliminar esta Persona?</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-success" ng-show="contactoEliminado">
+                    <center>Persona Eliminada</center>
+                </div>
+                <center>
+                    <h4>¿Esta seguro?</h4>
+                    <p>Se va a eliminar esta Persona</p>
+                    <h3>{{nombre}}</h3>
+                </center>
+                <button ng-click="submitEliminarPersonal()" type="button" class="btn btn-danger btn-block btn-sm">Eliminar</button>
+            </div>
+        </div>
+    </div>
 </div>

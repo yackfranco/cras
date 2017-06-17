@@ -1,3 +1,4 @@
+
 angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', 'personalServices', '$location', function ($scope, personalServices, $location) {
 
     $scope.personal = {};
@@ -42,7 +43,7 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
       });
     };
 
-    $scope.habilitar = function () {
+    $scope.habilitar = function () { 
       $scope.disabledCelularFamilia = false;
 
 
@@ -68,11 +69,11 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
         $scope.modal.identificacionP = x.per_identificacion;
         $scope.modal.genero = x.per_genero;
         $scope.modal.nis = x.per_identificacion_aprendiz;
-        if(x.tip_tipo_persona == "aprendiz")
+        if (x.tip_tipo_persona == "aprendiz")
         {
           $scope.modal.cargo = 1;
 //          $scope.cargo="aprendiz";
-        }else{
+        } else {
           $scope.modal.cargo = 2;
 //          $scope.cargo="instructor";
         }
@@ -118,7 +119,38 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
       }, function errorCallback(response) {
         console.error(response);
       });
+    }
+
+    $scope.eliminarP = function (x) {
+      $('#modalEliminar').modal('toggle');
+      $scope.nombre = x.per_nombre;
+//      console.log(x.usu_id);
+      $scope.ideliminar = x.per_id;
     };
+
+    $scope.submitEliminarPersonal = function () {
+      personalServices.deletePersonal({id: $scope.ideliminar}).then(function successCallback(respuesta) {
+//        console.log(respuesta);
+        if (respuesta.data.codigo = 200) {
+          $('#modalEliminar').modal('hide');
+          location.reload(true);
+        } else {
+          console.error("Error");
+        }
+//          $scope.mostrarTabla = false;
+//        } else {
+//          $('#modalEliminar').modal('hide');
+//          $scope.mostrarTabla = false;
+//        }
+//        $scope.tabla = respuesta.data.usuario;
+
+//        $('#modalEliminar').modal('hide');
+//        location.reload(true);
+      }, function errorCallback(respuesta) {
+//        console.log(respuesta);
+      });
+    };
+
 //    cargarTablaP();
 
   }]);

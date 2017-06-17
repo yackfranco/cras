@@ -13,13 +13,13 @@ class personalDAO extends dataSource implements IPersonal {
    */
   public function delete(int $id, bool $logico = true) {
     if ($logico) {
-      $sql = 'UPDATE FROM ces_personal SET ces_delete_at = now() WHERE ces_delete_at IS NULL AND per_id = :id';
+      $sql = 'UPDATE ces_personal SET ces_delete_at = now() WHERE ces_delete_at IS NULL AND per_id = :id';
     } else {
-      $sql = 'DELETE FROM ces_personal WHERE per_id = :id';
+      $sql = 'DELETE FROM ces_personal WHERE per_id = :id AND delete_at is NULL';
     }
 
     $params = array(
-        ':id' => $id
+        ':id' => (integer) $id
     );
     return $this->execute($sql, $params);
   }
@@ -63,7 +63,7 @@ class personalDAO extends dataSource implements IPersonal {
    * @return array of stdClass
    */
   public function selectById($id) {
-    $sql = 'SELECT p.per_id,p.per_identificacion,p.per_identificacion_aprendiz,t.tip_tipo_persona,p.per_foto,p.per_nombre,p.per_apellidos,p.per_genero,p.per_ficha,p.per_celfamiliar FROM ces_personal as p inner join ces_tipo_persona as t on p.tip_id=t.tip_id WHERE per_identificacion=:id1 OR per_identificacion_aprendiz=:id2';
+    $sql = 'SELECT p.per_id,p.per_identificacion,p.per_identificacion_aprendiz,t.tip_tipo_persona,p.per_foto,p.per_nombre,p.per_apellidos,p.per_genero,p.per_ficha,p.per_celfamiliar FROM ces_personal as p inner join ces_tipo_persona as t on p.tip_id=t.tip_id WHERE  ces_delete_at IS NULL AND( per_identificacion=:id1 OR per_identificacion_aprendiz=:id2)';
     
     $params = array(
         ':id1' =>(string)$id,
