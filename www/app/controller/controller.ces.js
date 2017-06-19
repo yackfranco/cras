@@ -16,7 +16,11 @@ $scope.focus = true;
           $tiempo = 1000;
           //Entrada
           $scope.nombre = (respuesta.data.persona[0].per_nombre) + " " + (respuesta.data.persona[0].per_apellidos);
-          $scope.horaE = respuesta.data.ultimoRegistro[0].reg_per_entrada;
+          console.log(respuesta.data.ultimoRegistro[0].reg_per_entrada);
+//          $scope.horaE = respuesta.data.ultimoRegistro[0].reg_per_entrada;
+          $scope.horaE = moment(respuesta.data.ultimoRegistro[0].reg_per_entrada,'YYYY-MM-DD H:mm:ss').format('H:mm:ss');
+//          console.log($hora);
+//          $scope.horaE = $hora;
           $scope.ficha = respuesta.data.persona[0].per_ficha
           $scope.horaS = "";
           $scope.foto = respuesta.data.persona[0].per_foto;
@@ -28,8 +32,8 @@ $scope.focus = true;
           $tiempo = 1000;
           //Salida
           $scope.nombre = (respuesta.data.persona[0].per_nombre) + " " + (respuesta.data.persona[0].per_apellidos);
-          $scope.horaE = respuesta.data.ultimoRegistro[0].reg_per_entrada;
-          $scope.horaS = respuesta.data.ultimoRegistro[0].reg_per_salida;
+          $scope.horaE = moment(respuesta.data.ultimoRegistro[0].reg_per_entrada,'YYYY-MM-DD H:mm:ss').format('HH:mm:ss');
+          $scope.horaS = moment(respuesta.data.ultimoRegistro[0].reg_per_salida,'YYYY-MM-DD H:mm:ss').format('HH:mm:ss');
           $scope.ficha = respuesta.data.persona[0].per_ficha;
           $scope.foto = respuesta.data.persona[0].per_foto;
           $scope.alertaEntrada = false;
