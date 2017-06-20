@@ -28,17 +28,17 @@ class registroPersonalDAOExt extends registroPersonalDAO {
     return $this->query($sql, $params);
   }
 
-  public function selectEntradaSalida($fechainicio, $fechasalida) {
+  public function selectEntradaSalida($fechainicio, $fechafin) { 
     $sql = "select
             count(reg_per_entrada) as cantidad_entradas,
             count(reg_per_salida) as cantidad_salidas,
             reg_per_entrada::DATE as fecha
             from ces_registro_personal
-            WHERE (reg_per_entrada BETWEEN 'reg_per_entrada = :fecha_inicio' AND 'reg_per_salida = :fecha_salida')
+            WHERE (reg_per_entrada BETWEEN :fecha_inicio AND :fecha_fin)
             GROUP BY fecha";
     $param = array(
-        ':fecha_inicio' => $fechainicio . ' 00:00:00',
-        ':fecha_salida' => $fechasalida . ' 23:59:59'
+        ':fecha_inicio' => $fechainicio,
+        ':fecha_fin' => $fechafin
     );
     return $this->query($sql, $param);
   }

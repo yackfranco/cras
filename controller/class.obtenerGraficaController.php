@@ -8,10 +8,13 @@ class obtenerGrafica extends controllerExtended {
 
 
       $fechainicio = $request->getParam('fechaInicio');
-      $fechasalida = $request->getParam('fechaFin');
+      $fechafin = $request->getParam('fechaFin');
 
+//      print_r($request);
+//      exit();
+      
       $registroPersonalDAO = new registroPersonalDAOExt($this->getConfig());
-      $respuesta1 = $registroPersonalDAO->selectEntradaSalida($fechainicio, $fechasalida);
+      $respuesta1 = $registroPersonalDAO->selectEntradaSalida($fechainicio, $fechafin); //$fechainicio, $fechafin
       $respuesta2 = array(
           'code' => ($respuesta1 > 0) ? 200 : 500,
           'datos' => $respuesta1
