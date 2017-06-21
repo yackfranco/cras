@@ -21,19 +21,19 @@
 <!-------------------------------------------------------------------------------------------------------------------------------------------------------->
 
 <!--reporte total-->
-<form ng-submit="submit()">
+<form ng-submit="reporteTotal()">
   <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">
     <div class="">
       <div class="form-group subTitulos">
         <label class="headsReportes">Reporte Entradas Totales</label>
-        <a href="#!/reporteTotal"><button type="submit"><img src="img/Print-01.png" class="imgreportes"></button></a>
+        <button type="submit"><img src="img/Print-01.png" class="imgreportes"></button>
       </div>
 
       <div class="col-lg-offset-3 col-lg-6 form-group subTitulos">
         <label class="subsReportes">Fecha Inicial</label>
-        <input type="date" class="form-control colorTexbox" id="usuario" placeholder="">
+        <input type="date" class="form-control colorTexbox" id="usuario" placeholder="" required ng-model="reporteTot.fechInicio">
         <label class="subsReportes">Fecha Final</label>
-        <input type="date" class="form-control colorTexbox" id="usuario" placeholder="">
+        <input type="date" class="form-control colorTexbox" id="usuario" placeholder="" required ng-model="reporteTot.fechFin">
       </div>
     </div>
   </div>

@@ -28,14 +28,51 @@ class personalDAOExt extends personalDAO {
     return $this->query($sql, $params);
   }
 
-  public function reportesPorId($id, $fechaInicial, $fechaFinal) {
-    $sql = 'select p.per_id,p.per_identificacion,p.per_identificacion_aprendiz,p.tip_id,p.per_foto, p.per_nombre,p.per_apellidos,p.per_genero,p.per_ficha,p.per_celfamiliar,r.reg_per_id,r.reg_per_entrada,r.reg_per_salida from ces_personal as p inner join ces_registro_personal as r ON p.per_id = r.per_id WHERE p.per_identificacion = :id AND r.reg_per_entrada = :fechaInicial AND r.reg_per_salida = :fechaFinal';
+  public function reportesPorId($id, $fi, $ff) {
+    $sql = 'select 
+            p.per_id,p.per_identificacion,
+            p.per_identificacion_aprendiz,
+            p.tip_id,p.per_foto, 
+            p.per_nombre,
+            p.per_apellidos,
+            p.per_genero,
+            p.per_ficha,
+            p.per_celfamiliar,
+            r.reg_per_id,
+            r.reg_per_entrada,
+            r.reg_per_salida 
+            from ces_personal as p inner join ces_registro_personal as r ON p.per_id = r.per_id 
+            WHERE (reg_per_entrada BETWEEN :fechaInicial AND :fechaFinal)AND p.per_identificacion = :id
+            group by p.per_id,r.reg_per_id';
     $params = array(
-        ':id' => (string) $id,
-        ':fechaInicial' => (string) $fechaInicial,
-        ':fechaFinal' => (string) $fechaFinal
+        ':id' => $id,
+        ':fechaInicial' => $fi,
+        ':fechaFinal' => $ff
     );
     return $this->query($sql, $params);
   }
-
+  
+  public function reporteTotal($fecini, $fecfin) {
+    $sql = 'select 
+            p.per_id,p.per_identificacion,
+            p.per_identificacion_aprendiz,
+            p.tip_id,p.per_foto, 
+            p.per_nombre,
+            p.per_apellidos,
+            p.per_genero,
+            p.per_ficha,
+            p.per_celfamiliar,
+            r.reg_per_id,
+            r.reg_per_entrada,
+            r.reg_per_salida 
+            from ces_personal as p inner join ces_registro_personal as r ON p.per_id = r.per_id 
+            WHERE (reg_per_entrada BETWEEN :fechaInicial AND :fechaFinal)
+            group by p.per_id,r.reg_per_id';
+    $params = array(
+        ':fechaInicial' => $fecini,
+        ':fechaFinal' => $fecfin
+    );
+    return $this->query($sql, $params);
+  }
+ 
 }

@@ -1,37 +1,41 @@
 <div class="container container-fluid" style="margin-top:30px;">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>per_id</th>
-        <th>Identificacion</th>
-        <th>Identificacion Aprendiz</th>
-        <th>tip_id</th>
-        <th>Foto</th>
-        <th>Nombre</th>
-        <th>Apellidos</th>
-        <th>Genero</th>
-        <th>Ficha</th>
-        <th>Celular de Familiar</th>
-        <th>Registro de Entrada</th>
-        <th>Registro de Salida</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="data in tablaIden">
-        <td>{{data.per_id}}</td>
-        <td>{{data.per_identificacion}}</td>
-        <td>{{data.per_identificacion_aprendiz}}</td>
-        <td>{{data.tip_id}}</td>
-        <td>{{data.per_foto}}</td>    
-        <td>{{data.per_nombre}}</td>
-        <td>{{data.per_apellidos}}</td>
-        <td>{{data.per_genero}}</td>
-        <td>{{data.per_ficha}}</td>
-        <td>{{data.per_celfamiliar}}</td>
-        <td>{{data.reg_per_entrada}}</td>
-        <td>{{data.reg_per_salida}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <h1>Reporte por Identificacion</h1>
+
+  <div class="tabla">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>per_id</th>
+          <th>Identificacion</th>
+          <th>Identificacion Aprendiz</th>
+          <th>tip_id</th>
+          <th>Foto</th>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>Genero</th>
+          <th>Ficha</th>
+          <th>Celular de Familiar</th>
+          <th>Registro de Entrada</th>
+          <th>Registro de Salida</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="data in tablaIden">
+          <td>{{data.per_id}}</td>
+          <td>{{data.per_identificacion}}</td>
+          <td>{{data.per_identificacion_aprendiz}}</td>
+          <td>{{data.tip_id}}</td>
+          <td>{{data.per_foto}}</td>    
+          <td>{{data.per_nombre}}</td>
+          <td>{{data.per_apellidos}}</td>
+          <td>{{data.per_genero}}</td>
+          <td>{{data.per_ficha}}</td>
+          <td>{{data.per_celfamiliar}}</td>
+          <td>{{data.reg_per_entrada}}</td>
+          <td>{{data.reg_per_salida}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 

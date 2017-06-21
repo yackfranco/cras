@@ -1,18 +1,17 @@
 <?php
 
-class cargarTablaIdentificacion extends controllerExtended{
+class cargarTablaTotal extends controllerExtended{
   
   public function main(\request $request) {
     try {
-      $this->loadTableIdentificacion();
+      $this->loadTableTotal();
       
       
-      $id = $request->getParam('Iidentificacion');
-      $fi = $request->getParam('IfechaInicio');
-      $ff = $request->getParam('IfechaFinal');
-      
+      $fecini = $request->getParam('fechInicio');
+      $fecfin = $request->getParam('fechFin');
+            
       $personalDAO = new personalDAOExt($this->getConfig());
-      $respuesta1 = $personalDAO->reportesPorId($id,$fi,$ff);
+      $respuesta1 = $personalDAO->reporteTotal($fecini,$fecfin);
       $respuesta2 = array(
           'codigo' => (count($respuesta1) > 0) ? 200 : 500,
           'usuario' => $respuesta1
@@ -24,7 +23,7 @@ class cargarTablaIdentificacion extends controllerExtended{
       echo $exc->getMessage();
     }
   }
-  private function loadTableIdentificacion(){
+  private function loadTableTotal(){
     require $this->getConfig()->getPath() . 'model/table/table.personal.php';
     require $this->getConfig()->getPath() . 'model/interface/interface.personal.php';
     require $this->getConfig()->getPath() . 'model/DAO/class.personalDAO.php';
