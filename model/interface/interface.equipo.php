@@ -14,7 +14,7 @@ interface IEquipo {
    * metodo para seleccionar un registro especifico de la BD
    * @param integer $id
    */
-  public function selectById(integer $id);
+  public function selectById($id);
           
   /**
    * metodo para insertar un equipo en la BD

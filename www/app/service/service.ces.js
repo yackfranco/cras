@@ -1,5 +1,10 @@
 angular.module('IMPERIUM').service('cesServices', ['$http', 'serverUrl', function ($http, serverUrl) {
 
+    this.cesPc = function (data) {
+      return $http.post(serverUrl + 'cesPc', $.param(data));
+    };
+
+
     this.validarEntrada = function (data) {
       return $http.post(serverUrl + 'validarEntrada', $.param(data));
     };

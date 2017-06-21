@@ -115,7 +115,7 @@ class equipo {
      * Setea el Id del equipo
      * @param Integer $id
      */
-    public function setId(integer $id) {
+    public function setId($id) {
         $this->id = $id;
     }
     

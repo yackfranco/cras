@@ -24,10 +24,11 @@ class registroEquipoDAO extends dataSource implements IregistroEquipo {
    * @return Integer
    */
   public function insert(\registroEquipo $reEquipo) {
-    $sql = 'INSERT INTO ces_registro_equipo (fecha_entrada,fecha_salida) VALUES (:entrada,:salida) ';
+    $sql = 'INSERT INTO ces_registro_equipo (equi_id,reg_per_id,fecha_entrada) VALUES (:id,:reg_per_id,now()) ';
     $params = array(
-        ':entrada' => $reEquipo->getEntrada(),
-        ':salida' => $reEquipo->getSalida(),
+        ':id'=>$reEquipo->getEquiId(),
+        ':reg_per_id'=>$reEquipo->getRegPerId()
+        
     );
     return $this->execute($sql, $params);
   }
@@ -37,7 +38,7 @@ class registroEquipoDAO extends dataSource implements IregistroEquipo {
    * @return array of stdClass
    */
   public function select() {
-    $sql = 'SELECT reg_equi_id, equi_id, reg_per_id, fecha_entrada,fecha_salida FROM ces_registro_equipo  ';
+    $sql = 'SELECT reg_equi_id, equi_id, reg_per_id FROM ces_registro_equipo  ';
     return $this->query($sql);
   }
 

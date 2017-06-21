@@ -7,98 +7,113 @@
     <div>
       <label class="labelNombre">Nombre Completo&nbsp;</label> <label class="labelNombreBD"> {{nombre}}</label>
       <img ng-click="salir()" src="img/salir.png" class="btnSalir">
-    <!--</div>-->
-    <div><center><label class="labelFechaCes">
+      <!--</div>-->
+      <div><center><label class="labelFechaCes">
 
-          <!--fecha y hora-->
-
-
-          <label id="reloj" style="font-size:20px;"></label>
+            <!--fecha y hora-->
 
 
+            <label id="reloj" style="font-size:20px;"></label>
 
 
 
 
-        </label></center></div>
+
+
+          </label></center></div>
+    </div>
   </div>
-</div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-6 panelform">
-      <div class="panel foto" >
-        <div class="panel-body">
-          <!--<img src=""> Aqui va la foto, pero no se como poner un cuadro solo para la fotos-->
-          <img src="{{foto}}" style="height: 350px;border: 2px solid orange" ng-show="ShowFoto"> 
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 panelform">
+        <div class="panel foto" >
+          <div class="panel-body">
+            <!--<img src=""> Aqui va la foto, pero no se como poner un cuadro solo para la fotos-->
+            <img src="{{foto}}" style="height: 350px;border: 2px solid orange" ng-show="ShowFoto"> 
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-lg-6 panelform">
+      <div class="col-lg-6 panelform">
 
-      <form class="form-horizontal formulario" id="formulario">
-        <div class="form-group">
-          <label for="inputEmail3" class="col-lg-7 control-label labelFechaCes" >Ingresar Identificacion</label>
-          <div class="col-lg-5">
-            <input autofocus type="text" ng-model="identificacion"  ng-enter="consultarDocumento()" class="form-control colorTexbox" id="identificacion" placeholder="Ingresar Identificacion">
+        <form class="form-horizontal formulario" id="formulario">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-lg-7 control-label labelFechaCes" >Ingresar Identificacion</label>
+            <div class="col-lg-5">
+              <input autofocus type="text" ng-model="identificacion"  ng-enter="consultarDocumento()" class="form-control colorTexbox" id="identificacion" placeholder="Ingresar Identificacion">
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword3" class="col-lg-7 control-label labelFechaCes">Identificacion</label>
-          <div class="col-lg-5">
-            <input type="text" ng-model="identificacion2" class="form-control colorTexbox" id="ident" placeholder="Identificacion">
+          <div class="form-group">
+            <label for="inputPassword3" class="col-lg-7 control-label labelFechaCes">Identificacion</label>
+            <div class="col-lg-5">
+              <input type="text" ng-model="identificacion2" class="form-control colorTexbox" id="ident" placeholder="Identificacion">
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="inputEmail3" class="col-lg-7 control-label labelFechaCes">Hora Entrada</label>
-          <div class="col-lg-5">
-            <input type="datetime" ng-model="horaE" class="form-control colorTexbox" id="horaEntrada" placeholder="Hora Entrada">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-lg-7 control-label labelFechaCes">Hora Entrada</label>
+            <div class="col-lg-5">
+              <input type="datetime" ng-model="horaE" class="form-control colorTexbox" id="horaEntrada" placeholder="Hora Entrada">
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword3" class="col-lg-7 control-label labelFechaCes">Hora Salida</label>
-          <div class="col-lg-5">
-            <input type="datetime" ng-model="horaS" class="form-control colorTexbox" id="horaSalida" placeholder="Hora Salida">
+          <div class="form-group">
+            <label for="inputPassword3" class="col-lg-7 control-label labelFechaCes">Hora Salida</label>
+            <div class="col-lg-5">
+              <input type="datetime" ng-model="horaS" class="form-control colorTexbox" id="horaSalida" placeholder="Hora Salida">
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword3"  class="col-lg-7 control-label labelFechaCes">Ficha</label>
-          <div class="col-lg-5">
-            <input type="text" class="form-control colorTexbox" id="inputPassword3" placeholder="Ficha" ng-model="ficha">
+          <div class="form-group">
+            <label for="inputPassword3"  class="col-lg-7 control-label labelFechaCes">Ficha</label>
+            <div class="col-lg-5">
+              <input type="text" class="form-control colorTexbox" id="inputPassword3" placeholder="Ficha" ng-model="ficha">
+            </div>
           </div>
-        </div>
 
-        <div class="form-group" ng-show="RegistroEquipo">
-          <label for="inputPassword3" class="col-lg-7 control-label labelFechaCes">Registrar Equipo</label>
-          <div class="col-lg-5">
-            <input type="text" ng-model="registroEquipo" class="form-control colorTexbox" id="inputPassword3" placeholder="Registrar Equipo">
+          <div class="form-group"  ng-show="RegistroEquipo">
+            <label for="inputPassword3" class="col-lg-7 control-label labelFechaCes">Registrar Equipo</label>
+            <div class="col-lg-5">
+              <input type="text" ng-model="registroEquipo" class="form-control colorTexbox" id="inputPassword3" placeholder="Registrar Equipo" ng-enter="registrarPc()">
+            </div>
           </div>
-        </div>
 
-      </form>
-      <div class="form-group">
-        <div class="col-lg-offset-7 col-lg-5">
-          <a  ng-click="registrarEquipo()" class="btn btn-default btn-block">Registrar equipo</a>
+        </form>
+        <div class="form-group">
+          <div class="col-lg-offset-7 col-lg-5">
+            <a  ng-click="registrarEquipo()" class="btn btn-default btn-block">Registrar equipo</a>
+          </div>
         </div>
       </div>
+<!--ng-show="tablaPc"-->
+      <table class="table table-striped" >
+        <thead>
+        <th>Tipo</th>
+        <th>Serial</th>
+        <th>Marca</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>portatil</td>
+            <td>1qqwrq3t123</td>
+            <td>HP</td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
 
+    <div class="alert alert-warning alert-dismissible alertas" role="alert" ng-show="alertaSalida">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      Que tengas un buen viaje.
+    </div>
+
+    <div class="alert alert-success alert-dismissible alertas" role="alert"  ng-show="alertaEntrada">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      Que tu dia sea productivo.
+    </div>
+
+
+
   </div>
-
-  <div class="alert alert-warning alert-dismissible alertas" role="alert" ng-show="alertaSalida">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    Que tengas un buen viaje.
-  </div>
-
-  <div class="alert alert-success alert-dismissible alertas" role="alert"  ng-show="alertaEntrada">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    Que tu dia sea productivo.
-  </div>
-
-
-
-</div>
 
 
 

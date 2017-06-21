@@ -61,7 +61,7 @@ class equipoDAO extends dataSource implements IEquipo {
    * @param integer $id
    * @return array of stdClass
    */
-  public function selectById(integer $id) {
+  public function selectById($id) {
     $sql = 'SELECT equi_id,equi_tipo,equi_serial,equi_marca,'
             . 'equi_codbarras,equi_observaciones FROM ces_equipo WHERE equi_id = :id';
     $params = array(

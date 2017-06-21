@@ -57,55 +57,6 @@ class validarExistencia extends controllerExtended {
 
 
 
-
-//    $answer = array();
-//    $this->loadTablePersonal();
-//
-//    $PersonalDaoExt = new personalDAOExt($this->getConfig());
-//    $row = $PersonalDaoExt->searchForIdentification($request->getParam('id'));
-//
-//    if (count($row) > 0) {
-//
-//      $registroPersonal = new registroPersonalDAOExt($this->getConfig());
-//      $validacion = $registroPersonal->validarEntrada($row[0]->per_id);
-//
-//
-//
-//      if (count($validacion) > 0) {
-//        $update = $registroPersonal->update($validacion[0]->reg_per_id);
-//        $traerRegistroCes = $registroPersonal->selectById($validacion[0]->reg_per_id);
-////        echo 'actualizo';
-//        $answer = array(
-//            'accion' => 'actualizar',
-//            'row' => $row,
-//            'EntradaSalida' => $traerRegistroCes
-//        );
-//        $this->setParam('rsp', $answer);
-//        $this->setView('imprimirJson');
-//      } else {
-////        echo "inserto";
-////        exit();
-//        $insert = $registroPersonal->insert($row[0]->per_id);
-//        $traerRegistroCes = $registroPersonal->selectById($validacion2[0]->reg_per_id);
-//        $validacion2 = $registroPersonal->validarEntrada2($row[0]->per_id);
-////        echo 'inserto';
-//
-//        $answer = array(
-//            'accion' => 'insertar',
-//            'row' => $row,
-//            'EntradaSalida' => $traerRegistroCes
-//        );
-//        $this->setParam('rsp', $answer);
-//        $this->setView('imprimirJson');
-//      }
-//    } else {
-//      $answer = array(
-//          'accion' => 'insertPersonal',
-//          'row' => $row
-//      );
-//      $this->setParam('rsp', $answer);
-//      $this->setView('imprimirJson');
-//    }
   }
 
   private function loadTablePersonal() {

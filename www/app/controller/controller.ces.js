@@ -5,12 +5,9 @@ angular.module('IMPERIUM').controller('cesController', ['$scope', 'cesServices',
     $scope.RegistroEquipo = false;
     $tiempo = 1000;
     $scope.ShowFoto = false;
-    
-    if($sessionStorage.registroCreado){
-      $scope.identificacion = $sessionStorage.registroCreado;
-      delete $sessionStorage.registroCreado;
-      
-    }
+    $tablaPc = false;
+    $reg_per_id = "";
+
 
     $scope.consultarDocumento = function () {
       cesServices.validarExistencia({id: $scope.identificacion}).then(function successCallback(respuesta) {
@@ -29,15 +26,13 @@ angular.module('IMPERIUM').controller('cesController', ['$scope', 'cesServices',
           $scope.horaS = "";
           $scope.alertaEntrada = true;
           $scope.alertaSalida = false;
+          $reg_per_id = respuesta.data.ultimoRegistro[0].reg_per_id;
           $scope.ShowFoto = true;
           if (respuesta.data.persona[0].per_foto) {
             $scope.foto = "app/pictures/" + respuesta.data.persona[0].per_foto;
           } else {
             $scope.foto = "app/pictures/userDefault.png";
           }
-
-
-
         } else if (respuesta.data.accion == 'actualizo') {
           $tiempo = 1000;
           //Salida
@@ -45,6 +40,7 @@ angular.module('IMPERIUM').controller('cesController', ['$scope', 'cesServices',
           $scope.horaE = moment(respuesta.data.ultimoRegistro[0].reg_per_entrada, 'YYYY-MM-DD H:mm:ss').format('HH:mm:ss');
           $scope.horaS = moment(respuesta.data.ultimoRegistro[0].reg_per_salida, 'YYYY-MM-DD H:mm:ss').format('HH:mm:ss');
           $scope.ficha = respuesta.data.persona[0].per_ficha;
+          $reg_per_id = respuesta.data.ultimoRegistro[0].reg_per_id;
 //          $scope.foto = "app/pictures/"+respuesta.data.persona[0].per_foto;
           $scope.ShowFoto = true;
           if (respuesta.data.persona[0].per_foto) {
@@ -72,19 +68,36 @@ angular.module('IMPERIUM').controller('cesController', ['$scope', 'cesServices',
       }, function errorCallback(answer) {
 
       });
-
-
-
     };
+
+
+    if ($sessionStorage.registroCreado) {
+      $scope.identificacion = $sessionStorage.registroCreado;
+      delete $sessionStorage.registroCreado;
+      $scope.consultarDocumento();
+    }
+
 
     $scope.registrarEquipo = function () {
       $scope.RegistroEquipo = true;
-      $location.path("/registrarEquipo");
     }
 
+    $scope.registrarPc = function () {
+      cesServices.cesPc({serial: $scope.registroEquipo, idPersona: $reg_per_id}).then(function successCallback(respuesta) {
+        console.log(respuesta);
+      }, function errorCallback(resp) {
+        console.log(respuesta);
+      });
+    }
+
+
+
+
+
+
+
+
     $scope.salir = function () {
-      console.log("Hola Amor  ");
-//      console.log($sessionStorage.usuario.rol_id);
       if ($sessionStorage.usuario.rol_id == rolAdmin) {
         $location.path("/menuPrincipal");
       } else {
