@@ -3,5 +3,6 @@ angular.module('IMPERIUM', [
     'ngResource',
     'ngStorage',
     'ngRoute.middleware',
-    'chart.js'
+    'chart.js',
+    'ngFileUpload'
 ]);

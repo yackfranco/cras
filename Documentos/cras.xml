@@ -63,7 +63,7 @@
       <Cl au="0" df="" nm="tip_id" nu="0">
         <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="per_foto" nu="0">
+      <Cl au="0" df="" nm="per_foto" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="200" sc="null" sg="1" un="0"/>
         <Cm>Foto del usuario  </Cm>
       </Cl>
@@ -460,12 +460,11 @@
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.diagramA" selected="1"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.diagramA" selected="0"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (1)</TreePath>
     <TreePath>/Diagrams (1)</TreePath>
   </TreePaths>
-  <SqlTexts/>
 </Db>

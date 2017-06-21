@@ -1,5 +1,5 @@
 
-angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', 'personalServices', '$location', function ($scope, personalServices, $location) {
+angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', 'personalServices', '$location','$sessionStorage',function ($scope, personalServices, $location,$sessionStorage) {
 
     $scope.personal = {};
     $scope.success = true;
@@ -14,36 +14,52 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
 
 
     $scope.crudPersonal = function () {
-
-//      $scope.personal.genero;
-      personalServices.createPersonal($scope.personal).then(function succesCallback(response) {
-        console.log(response.data);
-        if (response.data.code == 200) {
-          $scope.personal = {};
-          $scope.success = false;
-          $scope.warning = true;
-          $scope.danger = true;
-        } else if (response.data.code == 500) {
-          console.log(response.data);
-          $scope.success = true;
-          $scope.warning = false;
-          $scope.danger = true;
-          cargarTablaP();
-        } else {
-          $scope.success = true;
-          $scope.warning = true;
-          `+++++¡`;
-          $scope.danger = false;
-          $scope.disabledCelularFamilia = true;
+      if ($scope.formulario.foto.$valid && $scope.personal.foto) {
+        personalServices.createPersonal($scope.personal).then(function (resp) {
+          console.log("Guardado");
+//          console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+        }, function (resp) {
+//          console.log('Error status: ' + resp.status);
+        }, function (evt) {
+          var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+//          console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+        });
+        
+        if($sessionStorage.savePersonFromCes){
+          delete $sessionStorage.savePersonFromCes;
+          $sessionStorage.registroCreado = $scope.personal.identificacionP;
+          $location.path("/ces");
         }
-
-
-      }, function errorCallback(response) {
-        console.log(response);
-      });
+      }
+//      $scope.personal.genero;
+//      personalServices.createPersonal($scope.personal).then(function succesCallback(response) {
+//        console.log(response.data);
+//        if (response.data.code == 200) {
+//          $scope.personal = {};
+//          $scope.success = false;
+//          $scope.warning = true;
+//          $scope.danger = true;
+//        } else if (response.data.code == 500) {
+//          console.log(response.data);
+//          $scope.success = true;
+//          $scope.warning = false;
+//          $scope.danger = true;
+//          cargarTablaP();
+//        } else {
+//          $scope.success = true;
+//          $scope.warning = true;
+//          `+++++¡`;
+//          $scope.danger = false;
+//          $scope.disabledCelularFamilia = true;
+//        }
+//
+//
+//      }, function errorCallback(response) {
+//        console.log(response);
+//      });
     };
 
-    $scope.habilitar = function () { 
+    $scope.habilitar = function () {
       $scope.disabledCelularFamilia = false;
 
 

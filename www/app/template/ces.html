@@ -7,7 +7,7 @@
     <div>
       <label class="labelNombre">Nombre Completo&nbsp;</label> <label class="labelNombreBD"> {{nombre}}</label>
       <img ng-click="salir()" src="img/salir.png" class="btnSalir">
-    </div>
+    <!--</div>-->
     <div><center><label class="labelFechaCes">
 
           <!--fecha y hora-->
@@ -27,10 +27,10 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-6 panelform">
-      <div class="panel panel-default foto" >
+      <div class="panel foto" >
         <div class="panel-body">
-          <img src=""> Aqui va la foto, pero no se como poner un cuadro solo para la fotos
-          <!--<img src="{{foto}}"> Aqui va la foto, pero no se como poner un cuadro solo para la fotos-->
+          <!--<img src=""> Aqui va la foto, pero no se como poner un cuadro solo para la fotos-->
+          <img src="{{foto}}" style="height: 350px;border: 2px solid orange" ng-show="ShowFoto"> 
         </div>
       </div>
     </div>

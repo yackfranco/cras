@@ -2,6 +2,7 @@
 
 $config = new myConfig();
 $config->setPath('C:/xampp/htdocs/cras/');
+$config->setDirUploads('C:/xampp/htdocs/cras/www/app/pictures/');
 
 $config->setDrive('pgsql');
 $config->setHost('localhost');

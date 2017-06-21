@@ -1,13 +1,17 @@
-<form ng-submit="crudPersonal()">
+<form ng-submit="crudPersonal()" name="formulario">
   <div class="" >
+
     <div class=" col-lg-offset-1 col-lg-2">
       <div class="panel panel-default imagenpersonal" >
         <div class="panel-body">
-          Aqui va la foto
+          <img ngf-thumbnail="personal.foto" style="height: 280px; width: 95%">
+          <!--Aqui va la foto-->
         </div>
       </div>
       <div class="botonesfoto">
-        <button type="button" class="btn btn-default" >Subir foto</button>
+        <button type="button" class="btn btn-default" ngf-select ng-model="personal.foto" name="foto" ngf-pattern="'image/*'"
+                ngf-accept="'image/*'" ngf-max-size="2MB" ngf-min-height="100" 
+               >Seleccionar Foto</button>
         <br>
         <button type="button" class="btn btn-default botonfoto2" >Cancelar foto</button>
       </div>
@@ -17,25 +21,25 @@
       <div class="form-group ">
         <label for="nombre" class=" col-lg-5 control-label labelpersonal">Nombre</label>
         <div class="col-lg-6">
-          <input ng-model="personal.nombre" type="text" class=" form-control colorformulario" id="nombre" placeholder="Ingresar Nombre">
+          <input ng-model="personal.nombre" type="text" class=" form-control colorformulario" id="nombre" placeholder="Ingresar Nombre" required>
         </div>
       </div>
       <div class="form-group anchura">
         <label for="identificacion" class=" col-lg-5 control-label labelpersonal">Identificacion</label>
         <div class="col-lg-6">
-          <input ng-model="personal.identificacionP" type="text" class=" form-control colorformulario" id="idpersonal" placeholder="Ingresar Identificacion">
+          <input ng-model="personal.identificacionP" type="text" class=" form-control colorformulario" id="idpersonal" placeholder="Ingresar Identificacion" required>
         </div>
       </div>  
       <div class="form-group anchura">
         <label for="nisAprendiz" class=" col-lg-5 control-label labelpersonal">Nis Aprendiz</label>
         <div class="col-lg-6">
-          <input ng-model="personal.nis" type="text" class=" form-control colorformulario" id="nisaprendiz" placeholder="Ingresar Nis Aprendiz">
+          <input ng-model="personal.nis" type="text" class=" form-control colorformulario" id="nisaprendiz" placeholder="Ingresar Nis Aprendiz" required>
         </div>
       </div>  
       <div class="form-group anchura">
         <label for="cargo" class=" col-lg-5 control-label labelpersonal">Cargo</label>
         <div class="col-lg-4">
-          <select ng-model="personal.cargo" class="form-control colorformulario">
+          <select ng-model="personal.cargo" class="form-control colorformulario" required>
             <option value="">Seleccione cargo</option>
             <option value="1">Funcionario</option>
             <option value="2">Instructor</option>
@@ -51,7 +55,7 @@
       <div class="form-group ">
         <label for="apellido" class=" col-lg-5 control-label labelpersonal">Apellido</label>
         <div class="col-lg-6">
-          <input ng-model="personal.apellido" type="text" class=" form-control colorformulario" id="nombre" placeholder="Ingresar Apellido">
+          <input ng-model="personal.apellido" type="text" class=" form-control colorformulario" id="nombre" placeholder="Ingresar Apellido" required>
         </div>
       </div>
       <div class="form-group anchura">
@@ -59,7 +63,7 @@
         <div class="col-lg-4">
           <!--        <input type="radio" ng-model="personal.genero" name="genero" value="1"> Femenino
                   <input type="radio" ng-model="personal.genero" name="genero" value="0"> Masculino-->
-          <select ng-model="personal.genero" class="form-control colorformulario">
+          <select ng-model="personal.genero" class="form-control colorformulario" required>
             <option value="">Seleccione genero</option>
             <option option="masculino">Masculino</option>
             <option option="femenino">Femenino</option>
@@ -69,15 +73,14 @@
       <div class="form-group anchura">
         <label for="ficha" class=" col-lg-5 control-label labelpersonal">Ficha</label>
         <div class="col-lg-6">
-          <input ng-model="personal.ficha" type="text" class=" form-control colorformulario" id="nisaprendiz" placeholder="Ingresar la Ficha">
+          <input ng-model="personal.ficha" type="text" class=" form-control colorformulario" id="nisaprendiz" placeholder="Ingresar la Ficha" required>
         </div>
       </div>  
 
       <div class="form-group anchura">
         <label for="celularFamiliar" class=" col-lg-5 control-label labelpersonal">Celular Familiar</label>
         <div class="col-lg-6">
-          <input ng-model="personal.celular_familia" type="text" class=" form-control colorformulario" id="Nombrefamiliar" placeholder="Ingresar Celular Familiar" ng-disabled="disabledCelularFamilia">
-        </div>
+          <input ng-model="personal.celular_familia" type="text" class=" form-control colorformulario" id="Nombrefamiliar" placeholder="Ingresar Celular Familiar" ng-disabled="disabledCelularFamilia" required>        </div>
       </div>
 
       <div class="alert alert-success" ng-hide="success">Registro ingresado con éxito!!!</div>
@@ -214,9 +217,9 @@
             <div class="form-group">
               <label  class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Cargo</label>
               <div class="col-lg-7">
-                
+
                 <select ng-model="modal.cargo" class="form-control colorformulario" required>
-                   <!--<option value="">{{cargo}}</option>-->
+                  <!--<option value="">{{cargo}}</option>-->
                   <option option="1">aprendiz</option>
                   <option option="2">instructor</option>
                 </select>
@@ -275,24 +278,24 @@
 
 <!-- Modal Eliminar -->
 <div class="modal fade bs-example-modal-sm" tabindex="-1" id="modalEliminar" role="dialog" aria-labelledby="mySmallModalLabel">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel"><i class="fa fa-trash"></i>
-                    Eliminar esta Persona?</h4>
-            </div>
-            <div class="modal-body">
-                <div class="alert alert-success" ng-show="contactoEliminado">
-                    <center>Persona Eliminada</center>
-                </div>
-                <center>
-                    <h4>¿Esta seguro?</h4>
-                    <p>Se va a eliminar esta Persona</p>
-                    <h3>{{nombre}}</h3>
-                </center>
-                <button ng-click="submitEliminarPersonal()" type="button" class="btn btn-danger btn-block btn-sm">Eliminar</button>
-            </div>
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-trash"></i>
+          Eliminar esta Persona?</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-success" ng-show="contactoEliminado">
+          <center>Persona Eliminada</center>
         </div>
+        <center>
+          <h4>¿Esta seguro?</h4>
+          <p>Se va a eliminar esta Persona</p>
+          <h3>{{nombre}}</h3>
+        </center>
+        <button ng-click="submitEliminarPersonal()" type="button" class="btn btn-danger btn-block btn-sm">Eliminar</button>
+      </div>
     </div>
+  </div>
 </div>
