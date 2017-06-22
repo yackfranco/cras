@@ -56,7 +56,7 @@ class updatePersonal extends controllerExtended {
       $personal->setIdentificacionAprendiz($request->getParam('nis'));
       $personal->setIdTipoPersona($request->getParam('cargo'));
       $personal->setGenero($request->getParam('genero'));
-//      $personal->setFoto('a');
+      $personal->setFoto('a');
       $personal->setApellidos($request->getParam('apellido'));
       $personal->setFicha($request->getParam('ficha'));
       $personal->setCelFamiliar($request->getParam('cel_familiar'));

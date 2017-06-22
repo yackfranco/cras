@@ -11,7 +11,7 @@
       <div class="botonesfoto">
         <button type="button" class="btn btn-default" ngf-select ng-model="personal.foto" name="foto" ngf-pattern="'image/*'"
                 ngf-accept="'image/*'" ngf-max-size="2MB" ngf-min-height="100" 
-               >Seleccionar Foto</button>
+                >Seleccionar Foto</button>
         <br>
         <button type="button" class="btn btn-default botonfoto2" >Cancelar foto</button>
       </div>
@@ -41,9 +41,11 @@
         <div class="col-lg-4">
           <select ng-model="personal.cargo" class="form-control colorformulario" required>
             <option value="">Seleccione cargo</option>
-            <!--<option value="2">Funcionario</option>-->
+            <option value="1">Funcionario</option>
             <option value="2">Instructor</option>
-            <option value="1">Aprendiz</option>
+            <option value="3">Aprendiz</option>
+            <option value="4">Otro</option>
+
             <!--<option value="4">Otro</option>-->
           </select>
         </div>
@@ -167,11 +169,29 @@
           <!--          <div class="row">
                       <label for="inputPassword3" ng-model="modal.nombre" class="col-lg-12 control-label" style="text-align:center; font-size: 35px;">{{modtitulo}}</label>
                     </div>-->
-
+          
+<!--          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i>
+              </span>
+              <input type="hidden" ng-init="modal.fotoNombre = edit.foto" ng-model="modal.fotoNombre">
+              <input readonly ng-model="modal.fotoNombre" type="text" class="form-control fontImput" aria-label="..." placeholder="FOTO">
+              <span ngf-select ng-model="modal.foto" name="inputFile" ngf-pattern="'image/*'"
+                    ngf-accept="'image/*'" ngf-max-size="1MB" ngf-min-height="300" 
+                    ngf-resize="{width: 300, height: 300}"  class="input-group-addon"><i class="glyphicon glyphicon-file"></i>
+              </span>
+            </div>
+            
+            <center><img style="margin-top: 10px;" ngf-src="modal.foto" ngf-resize="{width: 100, height: 100, quality: 1}"></center>
+            <div class="alert alert-danger" ng-show="erroIMG">
+              Error en la imágen de contacto
+            </div>
+          </div>-->
+          
           <div class="row" style="margin-top: 3px;">
             <label for="inputPassword3" class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Nombre</label>
             <div class="col-lg-7">
-              <input ng-model="modal.nombre" type="text" class="form-control colorTexboxU" placeholder="Nombre">
+              <input ng-model="modal.nombre" type="text" class="form-control colorTexboxU"  placeholder="Nombre">
             </div>
           </div>
           <div class="row" style="margin-top: 3px;">
@@ -219,9 +239,11 @@
               <div class="col-lg-7">
 
                 <select ng-model="modal.cargo" class="form-control colorformulario" required>
-                  <!--<option value="">{{cargo}}</option>-->
-                  <option option="1">aprendiz</option>
-                  <option option="2">instructor</option>
+                  <!--                  <option value="">{{cargo}}</option>-->
+                  <option value="1">Funcionario</option>
+                  <option value="2">Instructor</option>
+                  <option value="3">Aprendiz</option>
+                  <option value="4">Otro</option>
                 </select>
 
               </div>
@@ -238,6 +260,7 @@
             <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cerrarModal()">Cerrar</button>
             <button class="btn btn-primary" type="submit">Confirmar Editar</button>
           </div>
+
         </form>
         <!--        <div class="alert alert-success" role="alert" ng-show="modalact">{{mensajeactualizar}}</div>
                 <div class="alert alert-warning" role="alert" ng-show="modalContraIncorrecta">{{mensajeactualizar}}</div>-->
@@ -262,7 +285,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Buscar Personal</h4>
       </div>
       <div class="modal-body">
         Digite la identificacion de la persona a buscar

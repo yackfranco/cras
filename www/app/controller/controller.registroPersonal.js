@@ -11,13 +11,13 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
     $scope.modal = {};
     $scope.mostrarTabla = false;
 
-
+   
 
     $scope.crudPersonal = function () {
       if ($scope.formulario.foto.$valid && $scope.personal.foto) {
         personalServices.createPersonal($scope.personal).then(function (resp) {
           console.log(resp);
-          
+
           console.log("Guardado");
           if ($sessionStorage.savePersonFromCes) {
             delete $sessionStorage.savePersonFromCes;
