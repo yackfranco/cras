@@ -11,7 +11,7 @@ class guardarUsuario extends controllerExtended {
       $validarUsuario = $usuarioDAO->searchUser($request->getParam('usuario'));
       if ($validarUsuario > 0) {
         $respuesta2 = array(
-            'codigo' => 350
+            'codigo' => 350 
 //            'usuario' => $respuesta
         );
       } else {

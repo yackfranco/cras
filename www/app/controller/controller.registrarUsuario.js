@@ -22,7 +22,7 @@ angular.module('IMPERIUM').controller('registrarUsuarioController', ['$scope', '
           $scope.usuarioRepetido = true;
           $timeout(function () {
           $scope.usuarioRepetido = false;
-          }, 3000);
+          }, 3000); 
 //          console.log("El usuario Existe");
         }
           
