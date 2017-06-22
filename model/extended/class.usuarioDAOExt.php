@@ -29,4 +29,13 @@ class usuarioDAOExt extends usuarioDAO {
     return $this->execute($sql, $params);
   }
 
+  public function searchUser($usuario) {
+    $sql = 'SELECT count(*) FROM ces_usuario WHERE usu_usuario = :user';
+    $params = array(
+        ':user' => $usuario
+    );
+
+    return $this->query($sql, $params);
+  }
+
 }

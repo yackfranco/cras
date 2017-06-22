@@ -1,23 +1,31 @@
-angular.module('IMPERIUM').controller('registrarUsuarioController', ['$scope', 'crudUsuarioService', 'rolAdmin', 'rolCelador', '$timeout', function ($scope, crudUsuarioService, rolAdmin, rolCelador, timeout) {
+angular.module('IMPERIUM').controller('registrarUsuarioController', ['$scope', 'crudUsuarioService', 'rolAdmin', 'rolCelador', '$timeout', function ($scope, crudUsuarioService, rolAdmin, rolCelador, $timeout) {
 
     cargarTabla();
     $scope.datosusu = {};
     $scope.modalact = false;
     $scope.usuarioGuardado = false;
+    $scope.usuarioRepetido = false;
 
     $scope.guardarUsuario = function () {
       if ($scope.datosusu.rol == 'Administrador')
         $scope.datosusu.rol = rolAdmin;
       else
         $scope.datosusu.rol = rolCelador;
-      console.log($scope.datosusu);
+//      console.log($scope.datosusu);
       crudUsuarioService.guardarUsuario($scope.datosusu).then(function successCallback(respuesta) {
         console.log(respuesta);
         if (respuesta.data.codigo == 200) {
           $scope.datosusu = {};
           $scope.usuarioGuardado = true;
           $scope.tabla = respuesta.data.usuario;
+        }else if(respuesta.data.codigo == 350){
+          $scope.usuarioRepetido = true;
+          $timeout(function () {
+          $scope.usuarioRepetido = false;
+          }, 3000);
+//          console.log("El usuario Existe");
         }
+          
 
       }, function errorCallback(respuesta) {
         console.log(respuesta);
