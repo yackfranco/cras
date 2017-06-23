@@ -35,7 +35,17 @@ class registroEquipo {
    */
   private $salida;
 
-  /**
+  private $per_id;
+  
+  function getPer_id() {
+    return $this->per_id;
+  }
+
+  function setPer_id($per_id) {
+    $this->per_id = $per_id;
+  }
+
+    /**
    * Obtiene el ID del registro de Equipo
    * @return Integer
    */

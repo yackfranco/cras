@@ -4,8 +4,20 @@
 -La primera letra de toda palabra es con minuscula
 -Se separa por seccion todo lo que se va a hacer(si hay un css para todos se pone en el GENERAl)
 
+
+
 */
 /*------------------------------------------LOGIN------------------------------------------*/
+
+
+
+/*quita todo las flechas de los campos textos number*/ 
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 
 .logoSenaNegro{
   width: 100%; 
@@ -43,7 +55,12 @@
 }
 
 .colorTexbox{
+  background-color: white;
   border:2px solid #E69141;
+}
+
+#ident,#horaEntrada,#horaSalida,#ficha{
+  background-color: white;
 }
 /*------------------------------------------LOGIN------------------------------------------*/
 

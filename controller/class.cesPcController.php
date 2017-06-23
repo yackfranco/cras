@@ -12,31 +12,56 @@ class cesPc extends controllerExtended {
     $consultaPc = new equipoDAOExt($this->getConfig());
     $consultaRegPc = new registroEquipoDAOExt($this->getConfig());
     $RegEquipo = new registroEquipo();
-    $row = $consultaPc->search($request->getParam('serial'));
-//    print_r($row[0]->equi_id);
-//    exit();  
-    if (count($row) > 0) {
-      $RegEquipo->setRegPerId($request->getParam('idPersona'));
-      $RegEquipo->setEquiId($row[0]->equi_id);
-      $consultaRegPc->insert($RegEquipo);
-      $select = $consultaRegPc->select();
 
+    if ($request->getParam('accion') == "Salida") {
+      $consultaRegPc->update($request->getParam('id'));
       $answer = array(
-          'accion' => 'equipoEntra',
-          'persona' => $select
+          'accion' => 'ObjetoSalio'
       );
     }
 
 
-//    print_r($row);
-//    exit();
+    if ($request->getParam('accion') == "llenarTabla") {
+      $tabla = $consultaRegPc->searchForPerson($request->getParam('per_id'));
+      if (count($tabla) > 0) {
+        $answer = array(
+            'accion' => 'llenarTabla',
+            'objeto' => $tabla
+        );
+      } else {
+        $answer = array(
+            'accion' => 'NoLlenarTabla'
+        );
+      }
+    }
 
+    if ($request->getParam('accion') == "ces") {
+      $row = $consultaPc->search($request->getParam('serial'));
+      if (count($row) > 0) {
 
+        $existeRegistro = $consultaRegPc->selectById($row[0]->equi_id);
+        //se pregunta si el equipo existe en la tabla de registro de entrada y salida
 
-
-
-
-
+        if (count($existeRegistro) > 0) {
+          //el equipo ha entrado por lo menos 1 ves al centro
+          $equiposAEntrar = $consultaPc->consultaEntradaEquipo($request->getParam('serial'));
+          $answer = array(
+              'accion' => 'bienesEntrar',
+              'objeto' => $equiposAEntrar
+          );
+        } else {
+          //el equipo nunca ha entrado al centro 
+          $answer = array(
+              'accion' => 'noExistePc',
+              'objeto' => $row
+          );
+        }
+      } else {
+        $answer = array(
+            'accion' => 'noExistePc'
+        );
+      }
+    }
 
 
     $this->setParam('rsp', $answer);
