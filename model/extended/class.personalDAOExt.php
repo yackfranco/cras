@@ -54,15 +54,9 @@ class personalDAOExt extends personalDAO {
   
   public function reporteTotal($fecini, $fecfin) {
     $sql = 'select 
-            p.per_id,p.per_identificacion,
-            p.per_identificacion_aprendiz,
-            p.tip_id,p.per_foto, 
             p.per_nombre,
             p.per_apellidos,
-            p.per_genero,
             p.per_ficha,
-            p.per_celfamiliar,
-            r.reg_per_id,
             r.reg_per_entrada,
             r.reg_per_salida 
             from ces_personal as p inner join ces_registro_personal as r ON p.per_id = r.per_id 
