@@ -11,7 +11,7 @@
       <div class="botonesfoto">
         <button type="button" class="btn btn-default" ngf-select ng-model="personal.foto" name="foto" ngf-pattern="'image/*'"
                 ngf-accept="'image/*'" ngf-max-size="2MB" ngf-min-height="100" 
-               >Seleccionar Foto</button>
+                >Seleccionar Foto</button>
         <br>
         <button type="button" class="btn btn-default botonfoto2" >Cancelar foto</button>
       </div>
@@ -27,13 +27,13 @@
       <div class="form-group anchura">
         <label for="identificacion" class=" col-lg-5 control-label labelpersonal">Identificacion</label>
         <div class="col-lg-6">
-          <input ng-model="personal.identificacionP" type="text" class=" form-control colorformulario" id="idpersonal" placeholder="Ingresar Identificacion" required>
+          <input ng-model="personal.identificacionP" type="number" class=" form-control colorformulario" id="idpersonal" placeholder="Ingresar Identificacion" required>
         </div>
       </div>  
       <div class="form-group anchura">
         <label for="nisAprendiz" class=" col-lg-5 control-label labelpersonal">Nis Aprendiz</label>
         <div class="col-lg-6">
-          <input ng-model="personal.nis" type="text" class=" form-control colorformulario" id="nisaprendiz" placeholder="Ingresar Nis Aprendiz" required>
+          <input ng-model="personal.nis" type="number" class=" form-control colorformulario" id="nisaprendiz" placeholder="Ingresar Nis Aprendiz" required>
         </div>
       </div>  
       <div class="form-group anchura">
@@ -41,9 +41,11 @@
         <div class="col-lg-4">
           <select ng-model="personal.cargo" class="form-control colorformulario" required>
             <option value="">Seleccione cargo</option>
-            <!--<option value="2">Funcionario</option>-->
+            <option value="1">Funcionario</option>
             <option value="2">Instructor</option>
-            <option value="1">Aprendiz</option>
+            <option value="3">Aprendiz</option>
+            <option value="4">Otro</option>
+
             <!--<option value="4">Otro</option>-->
           </select>
         </div>
@@ -73,14 +75,14 @@
       <div class="form-group anchura">
         <label for="ficha" class=" col-lg-5 control-label labelpersonal">Ficha</label>
         <div class="col-lg-6">
-          <input ng-model="personal.ficha" type="text" class=" form-control colorformulario" id="nisaprendiz" placeholder="Ingresar la Ficha" required>
+          <input ng-model="personal.ficha" type="number" class=" form-control colorformulario" id="nisaprendiz" placeholder="Ingresar la Ficha" required>
         </div>
       </div>  
 
       <div class="form-group anchura">
         <label for="celularFamiliar" class=" col-lg-5 control-label labelpersonal">Celular Familiar</label>
         <div class="col-lg-6">
-          <input ng-model="personal.celular_familia" type="text" class=" form-control colorformulario" id="Nombrefamiliar" placeholder="Ingresar Celular Familiar" ng-disabled="disabledCelularFamilia" required>        </div>
+          <input ng-model="personal.celular_familia" type="number" class=" form-control colorformulario" id="Nombrefamiliar" placeholder="Ingresar Celular Familiar" ng-disabled="disabledCelularFamilia" required>        </div>
       </div>
 
       <div class="alert alert-success" ng-hide="success">Registro ingresado con éxito!!!</div>
@@ -167,11 +169,29 @@
           <!--          <div class="row">
                       <label for="inputPassword3" ng-model="modal.nombre" class="col-lg-12 control-label" style="text-align:center; font-size: 35px;">{{modtitulo}}</label>
                     </div>-->
-
+          
+<!--          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i>
+              </span>
+              <input type="hidden" ng-init="modal.fotoNombre = edit.foto" ng-model="modal.fotoNombre">
+              <input readonly ng-model="modal.fotoNombre" type="text" class="form-control fontImput" aria-label="..." placeholder="FOTO">
+              <span ngf-select ng-model="modal.foto" name="inputFile" ngf-pattern="'image/*'"
+                    ngf-accept="'image/*'" ngf-max-size="1MB" ngf-min-height="300" 
+                    ngf-resize="{width: 300, height: 300}"  class="input-group-addon"><i class="glyphicon glyphicon-file"></i>
+              </span>
+            </div>
+            
+            <center><img style="margin-top: 10px;" ngf-src="modal.foto" ngf-resize="{width: 100, height: 100, quality: 1}"></center>
+            <div class="alert alert-danger" ng-show="erroIMG">
+              Error en la imágen de contacto
+            </div>
+          </div>-->
+          
           <div class="row" style="margin-top: 3px;">
             <label for="inputPassword3" class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Nombre</label>
             <div class="col-lg-7">
-              <input ng-model="modal.nombre" type="text" class="form-control colorTexboxU" placeholder="Nombre">
+              <input ng-model="modal.nombre" type="text" class="form-control colorTexboxU"  placeholder="Nombre"> 
             </div>
           </div>
           <div class="row" style="margin-top: 3px;">
@@ -184,7 +204,7 @@
           <div class="row" style="margin-top: 3px;">
             <label for="inputPassword3" class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Identificacion</label>
             <div class="col-lg-7">
-              <input ng-model="modal.identificacionP" type="text" class="form-control colorTexboxU" placeholder="Identificacion">
+              <input ng-model="modal.identificacionP" type="number" class="form-control colorTexboxU" placeholder="Identificacion">
             </div>
           </div>
 
@@ -202,7 +222,7 @@
           <div class="row" style="margin-top: 3px;">
             <label for="inputPassword3" class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">NIS</label>
             <div class="col-lg-7">
-              <input ng-model="modal.nis" type="text" class="form-control colorTexboxU" placeholder="NIS">
+              <input ng-model="modal.nis" type="number" class="form-control colorTexboxU" placeholder="NIS">
             </div>
           </div>
 
@@ -219,9 +239,11 @@
               <div class="col-lg-7">
 
                 <select ng-model="modal.cargo" class="form-control colorformulario" required>
-                  <!--<option value="">{{cargo}}</option>-->
-                  <option option="1">aprendiz</option>
-                  <option option="2">instructor</option>
+                  <!--                  <option value="">{{cargo}}</option>-->
+                  <option value="1">Funcionario</option>
+                  <option value="2">Instructor</option>
+                  <option value="3">Aprendiz</option>
+                  <option value="4">Otro</option>
                 </select>
 
               </div>
@@ -231,13 +253,14 @@
           <div class="row" style="margin-top: 3px;">
             <label class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Celular Familiar</label>
             <div class="col-lg-7">
-              <input ng-model="modal.cel_familiar" type="text" class="form-control colorTexboxU" placeholder="Celular Familiar">
+              <input ng-model="modal.cel_familiar" type="number" class="form-control colorTexboxU" placeholder="Celular Familiar">
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cerrarModal()">Cerrar</button>
             <button class="btn btn-primary" type="submit">Confirmar Editar</button>
           </div>
+
         </form>
         <!--        <div class="alert alert-success" role="alert" ng-show="modalact">{{mensajeactualizar}}</div>
                 <div class="alert alert-warning" role="alert" ng-show="modalContraIncorrecta">{{mensajeactualizar}}</div>-->
@@ -262,7 +285,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Buscar Personal</h4>
       </div>
       <div class="modal-body">
         Digite la identificacion de la persona a buscar
