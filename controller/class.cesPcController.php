@@ -17,7 +17,7 @@ class cesPc extends controllerExtended {
       $consultaRegPc->update($request->getParam('id'));
       $answer = array(
           'accion' => 'ObjetoSalio'
-      );
+      ); 
     }
 
 
