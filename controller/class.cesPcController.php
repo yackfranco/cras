@@ -13,11 +13,23 @@ class cesPc extends controllerExtended {
     $consultaRegPc = new registroEquipoDAOExt($this->getConfig());
     $RegEquipo = new registroEquipo();
 
+
+    if ($request->getParam('accion') == "Entrada") {
+      $RegEquipo->setEquiId($request->getParam('equi_id'));
+      $RegEquipo->setPer_id($request->getParam('per_id'));
+      $RegEquipo->setRegPerId($request->getParam('reg_per_id'));
+      $consultaRegPc->insert($RegEquipo);
+      $answer = array(
+          'accion' => 'ObjetoEntro'
+      );
+    }
+
+
     if ($request->getParam('accion') == "Salida") {
       $consultaRegPc->update($request->getParam('id'));
       $answer = array(
           'accion' => 'ObjetoSalio'
-      ); 
+      );
     }
 
 
@@ -45,8 +57,12 @@ class cesPc extends controllerExtended {
         if (count($existeRegistro) > 0) {
           //el equipo ha entrado por lo menos 1 ves al centro
           $equiposAEntrar = $consultaPc->consultaEntradaEquipo($request->getParam('serial'));
+          
+          
+          
           $answer = array(
-              'accion' => 'bienesEntrar',
+              'accion' => (count($equiposAEntrar)> 0) ? 'bienesEntrar' : 'noExistePc',
+//              'accion' => 'bienesEntrar',
               'objeto' => $equiposAEntrar
           );
         } else {

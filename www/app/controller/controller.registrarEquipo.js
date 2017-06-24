@@ -1,5 +1,5 @@
 angular.module('IMPERIUM').controller('registrarEquipoController', ['$scope', 'registrarEquipoServices', '$sessionStorage','$location', function ($scope, registroEquipoServices, $sessionStorage,$location) {
-
+//location.reload("true");
     $scope.equipo = {};
     if ($sessionStorage.idPersona && $sessionStorage.regPerId) {
       $id = $sessionStorage.idPersona;
@@ -9,6 +9,7 @@ angular.module('IMPERIUM').controller('registrarEquipoController', ['$scope', 'r
 
     $scope.guardarEquipo = function () {
       registroEquipoServices.createEquipo($scope.equipo).then(function succesCallback(response) {
+        $sessionStorage.datosPersona.accion = "cargarRegistros";
         console.log(response.data);
         if (response.data.code == 200) {
           $scope.equipo = {};

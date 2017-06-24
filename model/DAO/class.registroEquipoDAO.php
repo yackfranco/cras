@@ -24,7 +24,8 @@ class registroEquipoDAO extends dataSource implements IregistroEquipo {
    * @return Integer
    */
   public function insert(\registroEquipo $reEquipo) {
-    $sql = 'INSERT INTO ces_registro_equipo (equi_id,reg_per_id,fecha_entrada,per_id) VALUES (:id,:reg_per_id,now(),:per_id) ';
+    $sql = 'INSERT INTO ces_registro_equipo (equi_id,reg_per_id,fecha_entrada,per_id) '
+            . 'VALUES (:id,:reg_per_id,now(),:per_id) ';
 
 //    print_r($reEquipo);
 //    exit();

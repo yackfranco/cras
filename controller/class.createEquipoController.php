@@ -26,8 +26,7 @@ class createEquipo extends controllerExtended {
       $equipoDAO->insert($equipo);
       $idInsertado = $equipoDAO->traerUltimoRegistro();
       
-//      exit();
-      //aqui voy
+//inserta la entrada del pc
       $tablaCesEquipo->setEquiId($idInsertado[0]->max);
       $tablaCesEquipo->setRegPerId($request->getParam('regPerId'));
       $tablaCesEquipo->setPer_id($request->getParam('idPersona'));

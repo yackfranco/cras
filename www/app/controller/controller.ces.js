@@ -1,7 +1,6 @@
 angular.module('IMPERIUM').controller('cesController', ['$scope', 'cesServices', '$location', '$timeout', 'rolAdmin', '$sessionStorage', '$interval', '$filter', function ($scope, cesServices, $location, $timeout, rolAdmin, $sessionStorage, $interval, $filter) {
 
     //inicializacion de variables
-//    $scope.foto = "app/pictures/userDefault.png";
     $scope.focus = true;
     $scope.alertaEntrada = false;
     $scope.alertaSalida = false;
@@ -15,14 +14,29 @@ angular.module('IMPERIUM').controller('cesController', ['$scope', 'cesServices',
     $scope.objeto = "";
     $idPersona = 0;
     $scope.mostrarTabla = false;
-//    $dirfoto = "";
+    $scope.btnSalida = true;
+
+
     //se llama la funcion del reloj actualizable
     $interval(callAtInterval, 1000);
 
 
 
 
+    $scope.entradaEquipo = function (x) {
+      x.reg_per_id = $reg_per_id;
+      x.per_id = $idPersona;
+      x.accion = "Entrada";
+      cesServices.cesPc(x).then(function successCallback(respuesta) {
+        if (respuesta.data.accion == "ObjetoEntro") {
+          traerTablaEquipos();
+          $('#modalEquipo').modal('hide');
+        }
+//        console.log(respuesta);
+      }, function errorCallback(respuesta) {
 
+      });
+    }
 
     //funcion del reloj
     function callAtInterval() {
@@ -30,7 +44,7 @@ angular.module('IMPERIUM').controller('cesController', ['$scope', 'cesServices',
       $scope.Hora = $h;
     }
 
-
+//llena la tabla de CES de equipos
     function traerTablaEquipos() {
       cesServices.cesPc({per_id: $idPersona, accion: 'llenarTabla'}).then(function successCallback(respuesta) {
         console.log(respuesta);
@@ -46,6 +60,7 @@ angular.module('IMPERIUM').controller('cesController', ['$scope', 'cesServices',
       });
     }
 
+//llena los datos de la persona cuando viene del modulo registrarEquipo
     if ($sessionStorage.datosPersona) {
       $scope.ShowFoto = true;
       $scope.nombre = $sessionStorage.datosPersona.nombre;
@@ -56,8 +71,15 @@ angular.module('IMPERIUM').controller('cesController', ['$scope', 'cesServices',
       $scope.foto = $sessionStorage.datosPersona.foto;
       $scope.identificacion2 = $sessionStorage.datosPersona.id;
       $idPersona = $sessionStorage.idPersona;
-//      delete $sessionStorage.datosPersona;
+
+      $scope.btnSalida = false;
       traerTablaEquipos();
+//      if ($sessionStorage.datosPersona.accion == "cargarRegistros") {
+        $scope.btnRegistrarEquipo = false;
+//      }
+      delete $sessionStorage.idPersona;
+      delete $sessionStorage.regPerId;
+      delete $sessionStorage.datosPersona;
     }
 
 
@@ -88,11 +110,12 @@ angular.module('IMPERIUM').controller('cesController', ['$scope', 'cesServices',
             $scope.foto = "app/pictures/userDefault.png";
           }
           $scope.btnRegistrarEquipo = false;
-//          traerTablaEquipos();
+          $scope.btnSalida = false;
 
         } else if (respuesta.data.accion == 'actualizo') {
           $tiempo = 1000;
           //Salida
+
           $scope.nombre = (respuesta.data.persona[0].per_nombre) + " " + (respuesta.data.persona[0].per_apellidos);
           $scope.horaE = moment(respuesta.data.ultimoRegistro[0].reg_per_entrada, 'YYYY-MM-DD H:mm:ss').format('HH:mm:ss');
           $scope.horaS = moment(respuesta.data.ultimoRegistro[0].reg_per_salida, 'YYYY-MM-DD H:mm:ss').format('HH:mm:ss');
@@ -107,8 +130,8 @@ angular.module('IMPERIUM').controller('cesController', ['$scope', 'cesServices',
           }
           $scope.alertaEntrada = false;
           $scope.alertaSalida = true;
-          $scope.btnRegistrarEquipo = false;
-//          traerTablaEquipos();
+          $scope.btnRegistrarEquipo = true;
+          $scope.btnSalida = true;
         } else {
           //la persona no existe
           $sessionStorage.savePersonFromCes = true;
@@ -143,9 +166,9 @@ angular.module('IMPERIUM').controller('cesController', ['$scope', 'cesServices',
     $scope.salidaPc = function (x) {
 //      console.log(x.reg_equi_id);
       cesServices.cesPc({accion: 'Salida', id: x.reg_equi_id}).then(function successCallback(respuesta) {
-          if(respuesta.data.accion == "ObjetoSalio"){
-            traerTablaEquipos();
-          }
+        if (respuesta.data.accion == "ObjetoSalio") {
+          traerTablaEquipos();
+        }
       }, function errorCallback(respuesta) {
 
       });
@@ -158,21 +181,22 @@ angular.module('IMPERIUM').controller('cesController', ['$scope', 'cesServices',
 
 //funcion que realiza el control de entrada y salida de los equipos
     $scope.registrarPc = function () {
-
-      $sessionStorage.datosPersona = {nombre: $scope.nombre, id: $scope.identificacion2, he: $scope.horaE, hs: $scope.horaS, ficha: $scope.ficha, foto: $scope.foto, per_id: $idPersona};
       cesServices.cesPc({serial: $scope.registroEquipo, reg_per_id: $reg_per_id, accion: 'ces'}).then(function successCallback(respuesta) {
         console.log(respuesta);
         //se pregunta que si el pc existe
         if (respuesta.data.accion == "noExistePc") {
-          $sessionStorage.idPersona = $idPersona;
-          $sessionStorage.regPerId = $reg_per_id;
-          $location.path("/registrarEquipo");
+          $scope.nuevoObjeto();
 
 
 
         } else if (respuesta.data.accion == "bienesEntrar") {
+//          if (respuesta.data.filas == 200) {
           $('#modalEquipo').modal('show');
           $scope.objeto = respuesta.data.objeto;
+
+//          } else {
+//            $location.path("/registrarEquipo");
+//          }
         }
       }, function errorCallback(respuesta) {
         console.log(respuesta);
@@ -186,6 +210,15 @@ angular.module('IMPERIUM').controller('cesController', ['$scope', 'cesServices',
       } else {
         $location.path("/logout");
       }
+    }
+
+
+    $scope.nuevoObjeto = function () {
+      $sessionStorage.datosPersona = {accion: "guardarObjeto", nombre: $scope.nombre, id: $scope.identificacion2, he: $scope.horaE, hs: $scope.horaS, ficha: $scope.ficha, foto: $scope.foto, per_id: $idPersona};
+      $sessionStorage.idPersona = $idPersona;
+      $sessionStorage.regPerId = $reg_per_id;
+      $('#modalEquipo').modal('hide');
+      $location.path("/registrarEquipo");
     }
 
   }]);
