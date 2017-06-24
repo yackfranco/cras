@@ -2,6 +2,8 @@
 angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', 'personalServices', '$location', '$sessionStorage', function ($scope, personalServices, $location, $sessionStorage) {
 
     $scope.personal = {};
+//    $scope.modeloSoloLetras = '^[a-zA-Z ]+$';
+
     $scope.success = true;
     $scope.warning = true;
     $scope.danger = true;
@@ -11,7 +13,10 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
     $scope.modal = {};
     $scope.mostrarTabla = false;
 
-   
+    $scope.personalGuardado = false;
+
+
+
 
     $scope.crudPersonal = function () {
       if ($scope.formulario.foto.$valid && $scope.personal.foto) {
@@ -19,6 +24,7 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
           console.log(resp);
 
           console.log("Guardado");
+          $scope.personalGuardado = true;
           if ($sessionStorage.savePersonFromCes) {
             delete $sessionStorage.savePersonFromCes;
             $sessionStorage.registroCreado = $scope.personal.identificacionP;
@@ -59,6 +65,9 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
         $scope.modal.identificacionP = x.per_identificacion;
         $scope.modal.genero = x.per_genero;
         $scope.modal.nis = x.per_identificacion_aprendiz;
+        $scope.modal.ficha = x.per_ficha;
+        $scope.modal.cel_familiar = x.per_celfamiliar;
+        $scope.modal.id = x.per_id;
         if (x.tip_tipo_persona == "aprendiz")
         {
           $scope.modal.cargo = 1;
@@ -68,21 +77,16 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
 //          $scope.cargo="instructor";
         }
 //        $scope.modal.cargo = x.tip_tipo_persona;
-        $scope.modal.ficha = x.per_ficha;
-        $scope.modal.cel_familiar = x.per_celfamiliar;
-        $scope.modal.id = x.per_id;
+        
 
       } else {
-//        console.log( $scope.modal);
+        console.log( $scope.modal);
         personalServices.updatePersonal($scope.modal).then(function successCallback(response) {
 //          console.log(response);
           $scope.contactoEditado = false;
           $scope.edit = {};
           if (response.data.code == 500) {
-          } else {
-//            console.log(response);
-//            $scope.contactoEditado = true;
-//            $scope.edit = '';
+          } else {      
             $('#modalEditar').modal('hide');
             $scope.tablaP = response.data.answer;
           }
@@ -109,7 +113,7 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
       }, function errorCallback(response) {
         console.error(response);
       });
-    }
+    };
 
     $scope.eliminarP = function (x) {
       $('#modalEliminar').modal('toggle');

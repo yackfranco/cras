@@ -5,7 +5,7 @@ angular.module('IMPERIUM').service('personalServices', ['$http', 'serverUrl', 'U
       return Upload.upload({
         url: serverUrl + 'createPersonal',
         data: data
-      })
+      });
     };
     this.updatePersonal = function (data) {
       return $http.post(serverUrl + 'updatePersonal', $.param(data));

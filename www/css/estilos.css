@@ -347,6 +347,15 @@
   padding-top: 80px;
 
 }
+.parrafoError{
+    color: red;
+    font-family: Berlin Sans FB;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+.iconoError{
+    margin-right: 10px;
+}
 /*------------------------------------------REGISTRO Usuario------------------------------------------*/
 .espaciotab
 {

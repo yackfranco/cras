@@ -21,8 +21,9 @@
       <div class="form-group ">
         <label for="nombre" class=" col-lg-5 control-label labelpersonal">Nombre</label>
         <div class="col-lg-6">
-          <input ng-model="personal.nombre" type="text" class=" form-control colorformulario" id="nombre" placeholder="Ingresar Nombre" required>
+          <input ng-model="personal.nombre" type="text" class="form-control colorformulario" id="nombre"  placeholder="Ingresar Nombre">
         </div>
+
       </div>
       <div class="form-group anchura">
         <label for="identificacion" class=" col-lg-5 control-label labelpersonal">Identificacion</label>
@@ -57,8 +58,9 @@
       <div class="form-group ">
         <label for="apellido" class=" col-lg-5 control-label labelpersonal">Apellido</label>
         <div class="col-lg-6">
-          <input ng-model="personal.apellido" type="text" class=" form-control colorformulario" id="nombre" placeholder="Ingresar Apellido" required>
+          <input ng-model="personal.apellido" type="text" class=" form-control colorformulario" id="nombre"  placeholder="Ingresar Apellido">
         </div>
+
       </div>
       <div class="form-group anchura">
         <label for="Genero" class=" col-lg-5 control-label labelFechaCes">Genero</label>
@@ -85,9 +87,16 @@
           <input ng-model="personal.celular_familia" type="number" class=" form-control colorformulario" id="Nombrefamiliar" placeholder="Ingresar Celular Familiar" ng-disabled="disabledCelularFamilia" required>        </div>
       </div>
 
-      <div class="alert alert-success" ng-hide="success">Registro ingresado con éxito!!!</div>
-      <div class="alert alert-warning" ng-hide="warning">OJO apito que algo anda mal!!!</div>
+      <div  class="alert alert-success alert-dismissible mensaje" ng-show="personalGuardado"
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Persona Registrada!</div>
       <div class="alert alert-danger alert-dismissible" role="alert" ng-hide="danger">
+
+
+        <!--        <div class="alert alert-success alert-dismissible mensaje" role="alert" ng-show="personalGuardado">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  Persona Registrada con Exito
+                </div>-->
+
         <button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="habilitar()"><span aria-hidden="true">&times;</span></button>
         Error En el Registro
       </div>
@@ -109,41 +118,44 @@
   <div  class="espaciotab">
 
 
-  </div>
-  <table class="table table-bordered table-condensed table-striped" ng-show="mostrarTabla">
-    <thead> 
-      <tr>
-        <th>Foto</th>
-        <th hidden>Id</th>
-        <th>Identificacion</th>
-        <th>NIS</th>
-        <th>Cargo</th>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Genero</th>
-        <th>Ficha</th>
-        <th>Cel.Familiar</th>
 
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="x in tablaP">
-        <td>{{x.per_foto}}</td>
-        <td hidden>{{ x.per_id}}</td>
-        <td>{{ x.per_identificacion}}</td>
-        <td>{{x.per_identificacion_aprendiz}}</td>
-        <td>{{x.tip_tipo_persona}}</td>
-        <td>{{x.per_nombre}}</td>
-        <td>{{x.per_apellidos}}</td>
-        <td>{{x.per_genero}}</td>
-        <td>{{x.per_ficha}}</td>
-        <td>{{x.per_celfamiliar}}</td>
+    <!--    <div class="alert alert-success" ng-hide="success">Registro ingresado con éxito!!!</div>-->
+    <div class="container" > 
 
-        <td><span title="Editar" class="glyphicon glyphicon-edit" ng-click="editar(x)" data-toggle="modal" data-target="#modalEditar" aria-hidden="true"></span> 
-          <span title="Eliminar" class="glyphicon glyphicon-trash" ng-click="eliminarP(x)"aria-hidden="true"></span></td>
-    </tbody>
-  </table>
+
+    </div>
+    <table class="table table-bordered table-condensed table-striped" ng-show="mostrarTabla">
+      <thead> 
+        <tr>
+          <th>Foto</th>
+          <th hidden>Id</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Identificacion</th>
+          <th>NIS</th>
+          <th>Cargo</th>
+          <th>Genero</th>
+          <th>Ficha</th>
+          <th>Cel.Familiar</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="x in tablaP">
+          <td>{{x.per_foto}}</td>
+          <td hidden>{{ x.per_id}}</td>
+          <td>{{x.per_nombre}}</td>
+          <td>{{x.per_apellidos}}</td>  
+          <td>{{ x.per_identificacion}}</td>
+          <td>{{x.per_identificacion_aprendiz}}</td>
+          <td>{{x.tip_tipo_persona}}</td>       
+          <td>{{x.per_genero}}</td>
+          <td>{{x.per_ficha}}</td>
+          <td>{{x.per_celfamiliar}}</td>
+          <td><span title="Editar" class="glyphicon glyphicon-edit" ng-click="editar(x)" data-toggle="modal" data-target="#modalEditar" aria-hidden="true"></span> 
+            <span title="Eliminar" class="glyphicon glyphicon-trash" ng-click="eliminarP(x)"aria-hidden="true"></span></td>
+      </tbody>
+    </table>
 </form>
 
 <div class="">
@@ -169,25 +181,25 @@
           <!--          <div class="row">
                       <label for="inputPassword3" ng-model="modal.nombre" class="col-lg-12 control-label" style="text-align:center; font-size: 35px;">{{modtitulo}}</label>
                     </div>-->
-          
-<!--          <div class="form-group">
-            <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i>
-              </span>
-              <input type="hidden" ng-init="modal.fotoNombre = edit.foto" ng-model="modal.fotoNombre">
-              <input readonly ng-model="modal.fotoNombre" type="text" class="form-control fontImput" aria-label="..." placeholder="FOTO">
-              <span ngf-select ng-model="modal.foto" name="inputFile" ngf-pattern="'image/*'"
-                    ngf-accept="'image/*'" ngf-max-size="1MB" ngf-min-height="300" 
-                    ngf-resize="{width: 300, height: 300}"  class="input-group-addon"><i class="glyphicon glyphicon-file"></i>
-              </span>
-            </div>
-            
-            <center><img style="margin-top: 10px;" ngf-src="modal.foto" ngf-resize="{width: 100, height: 100, quality: 1}"></center>
-            <div class="alert alert-danger" ng-show="erroIMG">
-              Error en la imágen de contacto
-            </div>
-          </div>-->
-          
+
+          <!--          <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i>
+                        </span>
+                        <input type="hidden" ng-init="modal.fotoNombre = edit.foto" ng-model="modal.fotoNombre">
+                        <input readonly ng-model="modal.fotoNombre" type="text" class="form-control fontImput" aria-label="..." placeholder="FOTO">
+                        <span ngf-select ng-model="modal.foto" name="inputFile" ngf-pattern="'image/*'"
+                              ngf-accept="'image/*'" ngf-max-size="1MB" ngf-min-height="300" 
+                              ngf-resize="{width: 300, height: 300}"  class="input-group-addon"><i class="glyphicon glyphicon-file"></i>
+                        </span>
+                      </div>
+                      
+                      <center><img style="margin-top: 10px;" ngf-src="modal.foto" ngf-resize="{width: 100, height: 100, quality: 1}"></center>
+                      <div class="alert alert-danger" ng-show="erroIMG">
+                        Error en la imágen de contacto
+                      </div>
+                    </div>-->
+
           <div class="row" style="margin-top: 3px;">
             <label for="inputPassword3" class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Nombre</label>
             <div class="col-lg-7">
@@ -204,7 +216,7 @@
           <div class="row" style="margin-top: 3px;">
             <label for="inputPassword3" class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Identificacion</label>
             <div class="col-lg-7">
-              <input ng-model="modal.identificacionP" type="number" class="form-control colorTexboxU" placeholder="Identificacion">
+              <input ng-model="modal.identificacionP" type="text" class="form-control colorTexboxU" placeholder="Identificacion">
             </div>
           </div>
 
@@ -222,7 +234,7 @@
           <div class="row" style="margin-top: 3px;">
             <label for="inputPassword3" class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">NIS</label>
             <div class="col-lg-7">
-              <input ng-model="modal.nis" type="number" class="form-control colorTexboxU" placeholder="NIS">
+              <input ng-model="modal.nis" type="text" class="form-control colorTexboxU" placeholder="NIS">
             </div>
           </div>
 
@@ -253,7 +265,7 @@
           <div class="row" style="margin-top: 3px;">
             <label class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Celular Familiar</label>
             <div class="col-lg-7">
-              <input ng-model="modal.cel_familiar" type="number" class="form-control colorTexboxU" placeholder="Celular Familiar">
+              <input ng-model="modal.cel_familiar" type="text" class="form-control colorTexboxU" placeholder="Celular Familiar">
             </div>
           </div>
           <div class="modal-footer">
