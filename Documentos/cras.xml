@@ -43,6 +43,10 @@
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
         <Cm>se utiliza para saber cuando seelimina el equipo en la base de datos</Cm>
       </Cl>
+      <Idx clu="0" ftx="0" nm="ces_equipo_equi_serial_Idx" spa="0" unq="0">
+        <ClNs>equi_serial</ClNs>
+        <OptTx/>
+      </Idx>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
@@ -136,6 +140,9 @@
       <Cl au="0" df="" nm="fecha_salida" nu="1">
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <Cl au="0" df="" nm="per_id" nu="0">
+        <DT arr="0" ds="BigInt" en="" id="-5" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Fk deAc="1" nm="fk_ces_registro_equipo_ces_equipo" prLkCl="equi_id" upAc="1">
         <PrTb mn="0" nm="ces_equipo" oe="1" sch="public" zr="0"/>
         <CdTb mn="1" nm="ces_registro_equipo" oe="1" sch="public" zr="0"/>
@@ -145,6 +152,11 @@
         <PrTb mn="0" nm="ces_registro_personal" oe="1" sch="public" zr="0"/>
         <CdTb mn="1" nm="ces_registro_equipo" oe="1" sch="public" zr="0"/>
         <ClPr cdCl="reg_per_id" prCl="reg_per_id"/>
+      </Fk>
+      <Fk deAc="3" nm="relacionEquipoPersonal" prLkCl="per_id" upAc="3">
+        <PrTb mn="0" nm="ces_personal" oe="1" sch="public" zr="0"/>
+        <CdTb mn="1" nm="ces_registro_equipo" oe="0" sch="public" zr="1"/>
+        <ClPr cdCl="per_id" prCl="per_id"/>
       </Fk>
       <Idx clu="0" ftx="0" nm="ces_registro_equipo_equi_id_Idx" spa="0" unq="0">
         <ClNs>equi_id</ClNs>
@@ -341,6 +353,9 @@
     <FkGl bkCl="ff000000" childEdge="" nm="public.ces_registro_equipo.fk_ces_registro_equipo_ces_registro_personal" parentEdge="" positioner="">
       <positionableLines/>
     </FkGl>
+    <FkGl bkCl="ff000000" childEdge="" nm="public.ces_registro_equipo.relacionEquipoPersonal" parentEdge="" positioner="">
+      <positionableLines/>
+    </FkGl>
     <FkGl bkCl="ff000000" childEdge="NORTH" nm="public.ces_registro_personal.fk_ces_registro_per_ces_personal" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines/>
     </FkGl>
@@ -467,4 +482,5 @@
     <TreePath>/Schemas (1)</TreePath>
     <TreePath>/Diagrams (1)</TreePath>
   </TreePaths>
+  <SqlTexts/>
 </Db>

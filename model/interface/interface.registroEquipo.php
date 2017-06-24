@@ -25,7 +25,7 @@ interface IregistroEquipo {
    * Metodo para actualizar un registro por id
    * @param registroEquipo $reEquipo
    */
-  public function update(registroEquipo $reEquipo);
+  public function update($id);
 
   /**
    * Metodo para borrar un registro equipo por id

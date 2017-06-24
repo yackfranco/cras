@@ -24,11 +24,14 @@ class registroEquipoDAO extends dataSource implements IregistroEquipo {
    * @return Integer
    */
   public function insert(\registroEquipo $reEquipo) {
-    $sql = 'INSERT INTO ces_registro_equipo (equi_id,reg_per_id,fecha_entrada) VALUES (:id,:reg_per_id,now()) ';
+    $sql = 'INSERT INTO ces_registro_equipo (equi_id,reg_per_id,fecha_entrada,per_id) VALUES (:id,:reg_per_id,now(),:per_id) ';
+
+//    print_r($reEquipo);
+//    exit();
     $params = array(
-        ':id'=>$reEquipo->getEquiId(),
-        ':reg_per_id'=>$reEquipo->getRegPerId()
-        
+        ':id' => (integer) $reEquipo->getEquiId(),
+        ':reg_per_id' => (integer) $reEquipo->getRegPerId(),
+        ':per_id' => (integer) $reEquipo->getPer_id()
     );
     return $this->execute($sql, $params);
   }
@@ -48,7 +51,7 @@ class registroEquipoDAO extends dataSource implements IregistroEquipo {
    * @return array of stdClass
    */
   public function selectById($id) {
-    $sql = 'SELECT reg_equi_id FROM ces_registro_equipo WHERE reg_equi_id = :id';
+    $sql = 'SELECT reg_equi_id FROM ces_registro_equipo WHERE equi_id = :id';
     $params = array(
         ':id' => $id
     );
@@ -60,11 +63,10 @@ class registroEquipoDAO extends dataSource implements IregistroEquipo {
    * @param \registroEquipo $reEquipo
    * @return Integer
    */
-  public function update(\registroEquipo $reEquipo) {
-    $sql = 'UPDATE ces_registro_equipo SET fecha_entrada = :entrada, fecha_salida = :salida WHERE reg_equi_id = :id';
+  public function update($id) {
+    $sql = 'UPDATE ces_registro_equipo SET fecha_salida = now() WHERE reg_equi_id = :id';
     $params = array(
-        ':entrada' => $reEquipo->getEntrada(),
-        ':salida' => $reEquipo->getSalida(),
+        ':id' => $id
     );
     return $this->execute($sql, $params);
   }
