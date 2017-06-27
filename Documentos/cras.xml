@@ -162,6 +162,10 @@
         <ClNs>equi_id</ClNs>
         <OptTx>USING btree</OptTx>
       </Idx>
+      <Idx clu="0" ftx="0" nm="ces_registro_equipo_fecha_salida_equi_id_Idx" spa="0" unq="1">
+        <ClNs>fecha_salida, equi_id</ClNs>
+        <OptTx/>
+      </Idx>
       <Idx clu="0" ftx="0" nm="ces_registro_equipo_reg_per_id_Idx" spa="0" unq="0">
         <ClNs>reg_per_id</ClNs>
         <OptTx>USING btree</OptTx>
@@ -475,12 +479,11 @@
     </BasicOptionMgr>
   </DbDocOptionMgr>
   <OpenEditors>
-    <OpenEditor ClsNm="Diagram" fqn="null.diagramA" selected="0"/>
+    <OpenEditor ClsNm="Diagram" fqn="null.diagramA" selected="1"/>
   </OpenEditors>
   <TreePaths>
     <TreePath/>
     <TreePath>/Schemas (1)</TreePath>
     <TreePath>/Diagrams (1)</TreePath>
   </TreePaths>
-  <SqlTexts/>
 </Db>
