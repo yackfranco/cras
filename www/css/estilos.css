@@ -287,6 +287,9 @@ input[type=number]::-webkit-inner-spin-button {
   border:2px solid #E69141;
   resize: none;
 }
+.btn-cesEquipo{
+  position: absolute; top:90%; right: 5%;
+}
 /*------------------------------------------REgistro Equipo------------------------------------------*/
 
 /*------------------------------------------Reportes------------------------------------------*/
@@ -381,6 +384,10 @@ input[type=number]::-webkit-inner-spin-button {
 .iconoError{
     margin-right: 10px;
 }
+
+.btn-menuPersonal{
+  position: absolute; top:90%; right: 5%;
+}
 /*------------------------------------------REGISTRO Usuario------------------------------------------*/
 .espaciotab
 {
@@ -410,6 +417,6 @@ input[type=number]::-webkit-inner-spin-button {
   border: 0px;
 }
 .btn-menuP{
-  position: absolute; top: 93%; right: 5%;
+  position: absolute; top: 89%; right: 5%;
 }
 
