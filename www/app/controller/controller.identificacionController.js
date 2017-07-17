@@ -1,4 +1,5 @@
-angular.module('IMPERIUM').controller('identificacionController', ['$scope', 'servidorService', '$sessionStorage','$filter', function ($scope, servidorService, $sessionStorage,$filter) {
+angular.module('IMPERIUM').controller('identificacionController', ['$scope', 'servidorService', '$sessionStorage','$filter','urlUploads', function ($scope, servidorService, $sessionStorage,$filter,urlUploads) {
+    $scope.urlUploads=urlUploads;
     $scope.tablaIden = {};
 //    console.log($sessionStorage.reporte);
 

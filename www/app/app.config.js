@@ -6,6 +6,7 @@ angular.module('IMPERIUM').constant('rolCelador', 2);
 //angular.module('IMPERIUM').constant('masculino', 'true');
 //angular.module('IMPERIUM').constant('femenino', 'false');
 angular.module('IMPERIUM').constant('serverUrl', 'http://localhost/cras/www/server.php/');
+angular.module('IMPERIUM').constant('urlUploads', 'http://localhost/cras/www/app/pictures/');
 
 /**
  * middleware que comprueba las session y los tipos de roles

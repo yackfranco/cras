@@ -51,9 +51,11 @@ class personalDAOExt extends personalDAO {
     );
     return $this->query($sql, $params);
   }
-  
+
   public function reporteTotal($fecini, $fecfin) {
-    $sql = 'select 
+    $sql = 'select
+            p.per_identificacion,
+            p.per_foto, 
             p.per_nombre,
             p.per_apellidos,
             p.per_ficha,
@@ -68,5 +70,5 @@ class personalDAOExt extends personalDAO {
     );
     return $this->query($sql, $params);
   }
- 
+
 }

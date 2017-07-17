@@ -1,10 +1,12 @@
 <div class="container container-fluid" style="margin-top:30px;">
   <a href="#!/reportes"><img src="img/atras.png"></a>
   <center><h1>Reporte Total</h1></center>
-  <div class="tabla">
+  <div class="tabla reporte1">
     <table class="table table-bordered">
       <thead>
         <tr>
+          <th>Foto</th>
+          <th>Identificacion</th>
           <th>Nombre</th>
           <th>Apellidos</th>
           <th>Ficha</th>
@@ -14,6 +16,8 @@
       </thead>
       <tbody>
         <tr ng-repeat="data in tablaTot">
+          <td><img src="{{urlUploads + data.per_foto}}" class="img-responsive imagenfoto"></td>
+          <td>{{data.per_identificacion}}</td>
           <td>{{data.per_nombre}}</td>
           <td>{{data.per_apellidos}}</td>
           <td>{{data.per_ficha}}</td>

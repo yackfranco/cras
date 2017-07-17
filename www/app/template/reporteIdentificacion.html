@@ -4,8 +4,8 @@
   <br><br>
   <center><h1>Reporte por Identificacion</h1></center>
 
-  <div class="tabla">
-    <table class="table table-bordered">
+  <div class="tabla reporte1">
+    <table class="table table-bordered ">
       <thead>
         <tr>
           <th>per_id</th>
@@ -28,7 +28,7 @@
           <td>{{data.per_identificacion}}</td>
           <td>{{data.per_identificacion_aprendiz}}</td>
           <td>{{data.tip_id}}</td>
-          <td>{{data.per_foto}}</td>    
+          <td><img src="{{urlUploads + data.per_foto}}" class="img-responsive imagenfoto"></td>    
           <td>{{data.per_nombre}}</td>
           <td>{{data.per_apellidos}}</td>
           <td>{{data.per_genero}}</td>

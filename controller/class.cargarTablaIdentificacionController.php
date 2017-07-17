@@ -18,6 +18,8 @@ class cargarTablaIdentificacion extends controllerExtended{
           'usuario' => $respuesta1
       );    
       
+      
+      
       $this->setParam('rsp', $respuesta2);
       $this->setView('imprimirJson');
     } catch (Exception $exc) {

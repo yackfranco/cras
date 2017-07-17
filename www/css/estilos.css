@@ -317,10 +317,19 @@ input[type=number]::-webkit-inner-spin-button {
 .tabla{
   margin-top: 40px;
 }
+.reporte1{
+  height: calc(85vh - 244px);
+  overflow: auto;
+  border: 2px solid #000000;
+}
+.imagenfoto{
+  width: 100px;
+  height: 80px;
+}
 .export{
   /*float: right;*/
   padding-left: 85%;
-  padding-top: 10%;
+  padding-top: 5%;
 }
 .copyrigth{
   padding-top: 80px;

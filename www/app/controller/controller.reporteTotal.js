@@ -1,5 +1,6 @@
-angular.module('IMPERIUM').controller('totalController',  ['$scope', 'servidorService', '$sessionStorage', '$filter',function ($scope, servidorService,$sessionStorage,$filter) {
+angular.module('IMPERIUM').controller('totalController',  ['$scope', 'servidorService', '$sessionStorage', '$filter','urlUploads', function ($scope, servidorService,$sessionStorage,$filter,urlUploads) {
 
+    $scope.urlUploads=urlUploads;
     $scope.tablaTot = {};
 //    console.log($sessionStorage.reporte);
 

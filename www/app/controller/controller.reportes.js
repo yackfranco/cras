@@ -1,5 +1,6 @@
-angular.module('IMPERIUM').controller('reportesController', ['$scope', '$sessionStorage', '$location', function ($scope, $sessionStorage, $location) {
+angular.module('IMPERIUM').controller('reportesController', ['$scope', '$sessionStorage', '$location',  function ($scope, $sessionStorage, $location) {
 
+    
     $scope.reporteId = {};
     $scope.Grafica = {};
     $scope.reporteTot={};
