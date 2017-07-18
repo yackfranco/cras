@@ -1,9 +1,9 @@
 
-angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', 'personalServices', '$location', '$sessionStorage', function ($scope, personalServices, $location, $sessionStorage) {
+angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', 'personalServices', '$location', '$sessionStorage','urlUploads', function ($scope, personalServices, $location, $sessionStorage, urlUploads) {
 
     $scope.personal = {};
 //    $scope.modeloSoloLetras = '^[a-zA-Z ]+$';
-
+ $scope.urlUploads=urlUploads;
     $scope.success = true;
     $scope.warning = true;
     $scope.danger = true;
@@ -55,46 +55,40 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
     }
 
 
-    $scope.editar = function (x, $des = true) {
-//      console.log(x.tip_tipo_persona);
-      if ($des) {
+    $scope.editar = function (x) {
+      console.log(x);
 
-        $scope.modal.nombre = x.per_nombre;
-        $scope.modal.cedula = x.per_identificacion;
-        $scope.modal.apellido = x.per_apellidos;
-        $scope.modal.identificacionP = x.per_identificacion;
-        $scope.modal.genero = x.per_genero;
-        $scope.modal.nis = x.per_identificacion_aprendiz;
-        $scope.modal.ficha = x.per_ficha;
-        $scope.modal.cel_familiar = x.per_celfamiliar;
-        $scope.modal.id = x.per_id;
-        if (x.tip_tipo_persona == "aprendiz")
-        {
-          $scope.modal.cargo = 1;
-//          $scope.cargo="aprendiz";
-        } else {
-          $scope.modal.cargo = 2;
-//          $scope.cargo="instructor";
-        }
-//        $scope.modal.cargo = x.tip_tipo_persona;
-        
-
-      } else {
-        console.log( $scope.modal);
-        personalServices.updatePersonal($scope.modal).then(function successCallback(response) {
-//          console.log(response);
-          $scope.contactoEditado = false;
-          $scope.edit = {};
-          if (response.data.code == 500) {
-          } else {      
-            $('#modalEditar').modal('hide');
-            $scope.tablaP = response.data.answer;
-          }
-        }, function errorCallback(response) {
-          console.error(response);
-        });
-    }
+      $scope.modal.nombre = x.per_nombre;
+      $scope.modal.cedula = x.per_identificacion;
+      $scope.modal.apellido = x.per_apellidos;
+      $scope.modal.identificacionP = x.per_identificacion;
+      $scope.modal.genero = x.per_genero;
+      $scope.modal.nis = x.per_identificacion_aprendiz;
+      $scope.modal.ficha = x.per_ficha;
+      $scope.modal.cel_familiar = x.per_celfamiliar;
+      $scope.modal.id = x.per_id;
+      $scope.modal.fotoNombre = x.per_foto;
+      $scope.modal.cargo = x.tip_id;
+      
     };
+
+    $scope.guardarPersonalEditado = function () {
+      console.log('response');
+
+      personalServices.updatePersonal($scope.modal).then(function successCallback(response) {
+        $scope.contactoEditado = false;
+        $scope.edit = {};
+        if (response.data.code == 500) {
+        } else {
+          $('#modalEditar').modal('hide');
+          $scope.tablaP = response.data.answer;
+        }
+      }, function errorCallback(response) {
+        console.error(response);
+      });
+
+    }
+
 
     $scope.buscar = function () {
       console.log($scope.textoBuscar);

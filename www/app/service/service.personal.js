@@ -8,7 +8,10 @@ angular.module('IMPERIUM').service('personalServices', ['$http', 'serverUrl', 'U
       });
     };
     this.updatePersonal = function (data) {
-      return $http.post(serverUrl + 'updatePersonal', $.param(data));
+      return Upload.upload({
+        url: serverUrl + 'updatePersonal',
+        data: data
+      });
     };
     this.deletePersonal = function (data) {
       return $http.post(serverUrl + 'deletePersonal', $.param(data));

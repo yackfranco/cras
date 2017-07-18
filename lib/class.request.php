@@ -40,4 +40,8 @@ class request {
     return $this->files[$file];
   }
 
+  public function hasFile($file): bool {
+    return isset($this->files[$file]);
+  }
+
 }
