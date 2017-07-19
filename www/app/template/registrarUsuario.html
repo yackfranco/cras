@@ -41,13 +41,13 @@
             <div class="form-group">
               <label for="inputPassword3" class="col-lg-4 control-label">Celular</label>
               <div class="col-lg-8">
-                <input ng-model="datosusu.celular" type="number" class="form-control colorTexboxU" id="inputPassword3" placeholder="Celular" required >
+                <input ng-keypress="tanto()" ng-model="datosusu.celular" type="number" class="form-control colorTexboxU" id="inputPassword3" placeholder="Celular" required >
               </div>
             </div>
             <div class="form-group">
               <label for="inputPassword3" class="col-lg-4 control-label">Usuario</label>
               <div class="col-lg-8">
-                <input ng-model="datosusu.usuario" type="text" class="form-control colorTexboxU" id="inputPassword3" placeholder="Usuario" required >
+                <input maxlength="8" ng-model="datosusu.usuario" type="text" class="form-control colorTexboxU" id="inputPassword3" placeholder="Usuario" required >
               </div>
             </div>
             <div class="form-group">
@@ -89,9 +89,9 @@
         Usuario Guardado
       </div>
 
-      <div class="alert alert-success alert-dismissible mensaje" role="alert" ng-show="usuarioRepetido">
+      <div class="alert alert-warning alert-dismissible mensaje" role="alert" ng-show="usuarioRepetido">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        Datos Invalidos
+        {{mensajeError}}
       </div>
       <!--    <div class="alert alert-success" ng-hide="success">Registro ingresado con éxito!!!</div>-->
       <div class="container" >     

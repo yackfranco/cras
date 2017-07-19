@@ -30,9 +30,18 @@ class usuarioDAOExt extends usuarioDAO {
   }
 
   public function searchUser($usuario) {
-    $sql = 'SELECT count(*) FROM ces_usuario WHERE usu_usuario = :user';
+    $sql = 'SELECT FROM ces_usuario WHERE usu_usuario = :user';
     $params = array(
         ':user' => $usuario
+    );
+
+    return $this->query($sql, $params);
+  }
+  
+    public function validarCedula($cedula) {
+    $sql = 'SELECT FROM ces_usuario WHERE usu_cedula = :cedula';
+    $params = array(
+        ':cedula' => $cedula 
     );
 
     return $this->query($sql, $params);

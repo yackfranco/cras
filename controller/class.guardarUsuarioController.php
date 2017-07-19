@@ -4,15 +4,39 @@ class guardarUsuario extends controllerExtended {
 
   public function main(\request $request) {
     try {
-      
-      //codigo 350 es para saber que el usuario existe
+//      print_r($request);
+//      Exit();
       $this->loadTableUsuario();
       $usuarioDAO = new usuarioDAOExt($this->getConfig());
-      $validarUsuario = $usuarioDAO->searchUser($request->getParam('usuario'));
-      if ($validarUsuario > 0) {
+
+      function validar($usuarioDAO,$request) {
+//        $usuarioDAO = new usuarioDAOExt($this->getConfig());
+        $validarUsuario = $usuarioDAO->searchUser($request->getParam('usuario'));
+        if (count($validarUsuario) > 0) {
+          return 'VUsuario';
+        }
+        if($request->getParam('contrasena') != $request->getParam('confpass')){
+          return 'VContrasena';
+        }
+        $validarCedu = $usuarioDAO->validarCedula($request->getParam('cedula'));
+        if (count($validarCedu) > 0) {
+          return 'VCedula';
+        }
+        if (strpos($request->getParam('correo'),'@')==false) {
+          return 'VCorreo';
+        }  
+        return 'correcto';
+      }
+
+      //codigo 350 es para saber que el usuario existe
+
+
+//      $validarUsuario = $usuarioDAO->searchUser($request->getParam('usuario'));
+      $validaciones = validar($usuarioDAO,$request);
+      if ($validaciones !='correcto') {
         $respuesta2 = array(
-            'codigo' => 350 
-//            'usuario' => $respuesta
+            'codigo' => 350,
+            'accion' => $validaciones
         );
       } else {
         $cedula = $request->getParam('cedula');

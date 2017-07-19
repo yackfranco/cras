@@ -5,6 +5,7 @@ angular.module('IMPERIUM').controller('registrarUsuarioController', ['$scope', '
     $scope.modalact = false;
     $scope.usuarioGuardado = false;
     $scope.usuarioRepetido = false;
+    $scope.mensajeError = "";
 
     $scope.guardarUsuario = function () {
       if ($scope.datosusu.rol == 'Administrador')
@@ -19,6 +20,23 @@ angular.module('IMPERIUM').controller('registrarUsuarioController', ['$scope', '
           $scope.usuarioGuardado = true;
           $scope.tabla = respuesta.data.usuario;
         }else if(respuesta.data.codigo == 350){
+          switch (respuesta.data.accion) {
+            case 'VCedula':
+              $scope.mensajeError = "La cedula Esta Repetida";
+              break;
+              
+            case 'VCorreo':
+              $scope.mensajeError = "El formato del Correo es invalido";
+              break;
+              
+              case 'VUsuario':
+              $scope.mensajeError = "El Usuario ya existe";
+              break;
+              
+              case 'VContrasena':
+              $scope.mensajeError = "Las contraseñas no coinciden";
+              break;
+          }
           $scope.usuarioRepetido = true;
           $timeout(function () {
           $scope.usuarioRepetido = false;
@@ -33,7 +51,16 @@ angular.module('IMPERIUM').controller('registrarUsuarioController', ['$scope', '
     };
 
 
-
+    $scope.tanto = function(){
+      $anterior = $scope.datosusu.celular;
+      $a = $scope.datosusu.celular;
+      if($a > 3){
+//       $scope.datosusu.celular=$anterior.substring(0,$anterior.length(0,$anterior.length-1));
+      }else{
+console.log("aaa");        
+      }
+    }   
+    
 
     function cargarTabla() {
       crudUsuarioService.cargarTabla.then(function successCallback(respTabla) {
