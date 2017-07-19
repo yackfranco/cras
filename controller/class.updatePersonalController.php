@@ -31,7 +31,7 @@ class updatePersonal extends controllerExtended {
         $flag = true;
       }
 
-      if ($flag === true) {
+       if ($flag === true) {
         $personalDAO = new personalDAOExt($this->getConfig());
         $row = $personalDAO->update($personal);
 //        $row = $personalDAO->selectById($request->getParam('identificacionP'));

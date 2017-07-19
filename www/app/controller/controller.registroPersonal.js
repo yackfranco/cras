@@ -67,7 +67,7 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
       $scope.modal.ficha = x.per_ficha;
       $scope.modal.cel_familiar = x.per_celfamiliar;
       $scope.modal.id = x.per_id;
-      $scope.modal.fotoNombre = x.per_foto;
+      $scope.modal.foto = x.per_foto;
       $scope.modal.cargo = x.tip_id;
       
     };
@@ -93,16 +93,18 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
     $scope.buscar = function () {
       console.log($scope.textoBuscar);
       personalServices.searchPersonal({id: $scope.textoBuscar}).then(function successCallback(response) {
-        console.log(response);
+       
         $scope.mostrarTabla = true;
         if (response.data.codigo == 200) {
           $scope.tablaP = response.data.usuario;
           $('#modalBuscar').modal('hide');
+            console.log(response.data);
         } else {
           $scope.mostrarTabla = false;
           $('#modalBuscar').modal('hide');
         }
         $scope.textoBuscar = "";
+       
 
       }, function errorCallback(response) {
         console.error(response);

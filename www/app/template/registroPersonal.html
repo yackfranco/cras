@@ -21,20 +21,22 @@
       <div class="form-group ">
         <label for="nombre" class=" col-lg-5 control-label labelpersonal">Nombre</label>
         <div class="col-lg-6">
-          <input ng-model="personal.nombre" type="text" class="form-control colorformulario" id="nombre"  placeholder="Ingresar Nombre">
+          <input maxlength="30" ng-model="personal.nombre" type="text" class="form-control colorformulario" id="nombre"  placeholder="Ingresar Nombre">
         </div>
 
       </div>
       <div class="form-group anchura">
         <label for="identificacion" class=" col-lg-5 control-label labelpersonal">Identificacion</label>
         <div class="col-lg-6">
-          <input ng-model="personal.identificacionP" type="number" class=" form-control colorformulario" id="idpersonal" placeholder="Ingresar Identificacion" required>
+          <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "32" 
+                 ng-model="personal.identificacionP" type= "number" class=" form-control colorformulario" id="idpersonal" placeholder="Ingresar Identificacion" required>
         </div>
       </div>  
       <div class="form-group anchura">
         <label for="nisAprendiz" class=" col-lg-5 control-label labelpersonal">Nis Aprendiz</label>
         <div class="col-lg-6">
-          <input ng-model="personal.nis" type="number" class=" form-control colorformulario" id="nisaprendiz" placeholder="Ingresar Nis Aprendiz" required>
+          <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "60"  
+                 ng-model="personal.nis" type="number" class=" form-control colorformulario" id="nisaprendiz" placeholder="Ingresar Nis Aprendiz" required>
         </div>
       </div>  
       <div class="form-group anchura">
@@ -58,7 +60,7 @@
       <div class="form-group ">
         <label for="apellido" class=" col-lg-5 control-label labelpersonal">Apellido</label>
         <div class="col-lg-6">
-          <input ng-model="personal.apellido" type="text" class=" form-control colorformulario" id="nombre"  placeholder="Ingresar Apellido">
+          <input  maxlength="50" ng-model="personal.apellido" type="text" class=" form-control colorformulario" id="nombre"  placeholder="Ingresar Apellido">
         </div>
 
       </div>
@@ -77,14 +79,16 @@
       <div class="form-group anchura">
         <label for="ficha" class=" col-lg-5 control-label labelpersonal">Ficha</label>
         <div class="col-lg-6">
-          <input ng-model="personal.ficha" type="number" class=" form-control colorformulario" id="nisaprendiz" placeholder="Ingresar la Ficha" required>
+          <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
+                 maxlength = "50" ng-model="personal.ficha" type="number" class=" form-control colorformulario" id="nisaprendiz" placeholder="Ingresar la Ficha" required>
         </div>
       </div>  
 
       <div class="form-group anchura">
         <label for="celularFamiliar" class=" col-lg-5 control-label labelpersonal">Celular Familiar</label>
         <div class="col-lg-6">
-          <input ng-model="personal.celular_familia" type="number" class=" form-control colorformulario" id="Nombrefamiliar" placeholder="Ingresar Celular Familiar" ng-disabled="disabledCelularFamilia" required>        </div>
+          <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                 maxlength = "15"  ng-model="personal.celular_familia" type="number" class=" form-control colorformulario" id="Nombrefamiliar" placeholder="Ingresar Celular Familiar" ng-disabled="disabledCelularFamilia" required>        </div>
       </div>
 
       <div  class="alert alert-success alert-dismissible mensaje" ng-show="personalGuardado"
@@ -142,12 +146,13 @@
       </thead>
       <tbody>
         <tr ng-repeat="x in tablaP">
-         <td><img src="{{urlUploads + x.per_foto}}" class="img-responsive imagenfoto"></td>
+          <td><img src="{{urlUploads + x.per_foto}}" class="img-responsive imagenfoto"></td>
           <td hidden>{{ x.per_id}}</td>
           <td>{{x.per_nombre}}</td>
           <td>{{x.per_apellidos}}</td>  
           <td>{{ x.per_identificacion}}</td>
           <td>{{x.per_identificacion_aprendiz}}</td>
+
           <td>{{x.tip_tipo_persona}}</td>       
           <td>{{x.per_genero}}</td>
           <td>{{x.per_ficha}}</td>
@@ -178,28 +183,28 @@
 
         <!--        <input type="text"ng-model="mod_usuario">-->
         <form ng-submit="guardarPersonalEditado()">
-          
-                    <div class="row">
-                      <label for="inputPassword3" ng-model="modal.nombre" class="col-lg-12 control-label" style="text-align:center; font-size: 35px;">{{modtitulo}}</label>
-                    </div>
 
-                    <div class="form-group">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i>
-                        </span>
-                        <input type="hidden" ng-init="modal.fotoNombre = modal.foto" ng-model="modal.fotoNombre">
-                        <input readonly ng-model="modal.fotoNombre" type="text" class="form-control fontImput" aria-label="..." placeholder="FOTO">
-                        <span ngf-select ng-model="modal.foto" name="inputFile" ngf-pattern="'image/*'"
-                              ngf-accept="'image/*'" ngf-max-size="1MB" ngf-min-height="300" 
-                              ngf-resize="{width: 300, height: 300}"  class="input-group-addon"><i class="glyphicon glyphicon-file"></i>
-                        </span>
-                      </div>
-                      
-                      <center><img style="margin-top: 10px;" ngf-src="modal.foto" ngf-resize="{width: 100, height: 100, quality: 1}"></center>
-                      <div class="alert alert-danger" ng-show="erroIMG">
-                        Error en la imágen de contacto
-                      </div>
-                    </div>
+          <div class="row">
+            <label for="inputPassword3" ng-model="modal.nombre" class="col-lg-12 control-label" style="text-align:center; font-size: 35px;">{{modtitulo}}</label>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i>
+              </span>
+              <input type="hidden" ng-init="modal.fotoNombre = modal.foto" ng-model="modal.fotoNombre">
+              <input readonly ng-model="modal.fotoNombre" type="text" class="form-control fontImput" aria-label="..." placeholder="FOTO">
+              <span ngf-select ng-model="modal.foto"  name="inputFile" ngf-pattern="'image/*'"
+                    ngf-accept="'image/*'" ngf-max-size="1MB" ngf-min-height="300" 
+                    ngf-resize="{width: 300, height: 300}"  class="input-group-addon"><i class="glyphicon glyphicon-file"></i>
+              </span>
+            </div>
+
+            <center><img style="margin-top: 10px;" ngf-src="modal.foto" ngf-resize="{width: 100, height: 100, quality: 1}"></center>
+            <div class="alert alert-danger" ng-show="erroIMG">
+              Error en la imágen de contacto
+            </div>
+          </div>
 
           <div class="row" style="margin-top: 3px;">
             <label for="inputPassword3" class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Nombre</label>
@@ -334,9 +339,9 @@
       </div>
     </div>
   </div>
- 
+
 </div>
 
- <div class="btn-menuPersonal">
-    <a href="#!/menuPrincipal"><image class="home" src="img/house.png"></a> 
-  </div>
+<div class="btn-menuPersonal">
+  <a href="#!/menuPrincipal"><image class="home" src="img/house.png"></a> 
+</div>
