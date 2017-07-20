@@ -18,7 +18,6 @@ class personalDAOExt extends personalDAO {
 //    );
 //    return $this->execute($sql, $params);
 //  }
-
   public function searchForIdentification($identificacion) {
     $sql = 'SELECT per_id,per_identificacion,per_identificacion_aprendiz,per_foto,per_nombre,per_apellidos,per_ficha FROM ces_personal WHERE per_identificacion = :identi1 OR per_identificacion_aprendiz= :identi2';
     $params = array(
@@ -68,6 +67,17 @@ class personalDAOExt extends personalDAO {
         ':fechaInicial' => $fecini,
         ':fechaFinal' => $fecfin
     );
+
+
+    return $this->query($sql, $params);
+  }
+
+  public function searchPersonal($Personal) {
+    $sql = 'SELECT FROM ces_personal WHERE per_identificacion = :ident';
+    $params = array(
+        ':ident' => $Personal
+    );
+
     return $this->query($sql, $params);
   }
 

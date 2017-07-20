@@ -1,9 +1,9 @@
 
-angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', 'personalServices', '$location', '$sessionStorage','urlUploads', function ($scope, personalServices, $location, $sessionStorage, urlUploads) {
+angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', 'personalServices', '$location', '$sessionStorage', 'urlUploads','$timeout', function ($scope, personalServices, $location, $sessionStorage, urlUploads, $timeout) {
 
     $scope.personal = {};
 //    $scope.modeloSoloLetras = '^[a-zA-Z ]+$';
- $scope.urlUploads=urlUploads;
+    $scope.urlUploads = urlUploads;
     $scope.success = true;
     $scope.warning = true;
     $scope.danger = true;
@@ -12,26 +12,43 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
 //    $scope.femenino = femenino;
     $scope.modal = {};
     $scope.mostrarTabla = false;
-
     $scope.personalGuardado = false;
+    $scope.personalRepetido = false;
+    $scope.mensajeError = "";
 
 
 
 
     $scope.crudPersonal = function () {
       if ($scope.formulario.foto.$valid && $scope.personal.foto) {
-        personalServices.createPersonal($scope.personal).then(function (resp) {
-          console.log(resp);
+        personalServices.createPersonal($scope.personal).then(function (respuesta) {
+//          console.log(resp);
+//          console.log("Guardado");
 
-          console.log("Guardado");
           $scope.personalGuardado = true;
-          if ($sessionStorage.savePersonFromCes) {
-            delete $sessionStorage.savePersonFromCes;
-            $sessionStorage.registroCreado = $scope.personal.identificacionP;
-            $location.path("/ces");
+
+          if (respuesta.data.codigo == 350) {
+            switch (respuesta.data.accion) {
+
+              case 'VPersonal':
+                $scope.mensajeError = "La Identificaciòn ya existe";
+                break;
+
+            }
+            $scope.personalRepetido = true;
+            $timeout(function () {
+              $scope.personalRepetido = false;
+            }, 3000);
+            if ($sessionStorage.savePersonFromCes) {
+              delete $sessionStorage.savePersonFromCes;
+              $sessionStorage.registroCreado = $scope.personal.identificacionP;
+              $location.path("/ces");
+            }
+
+//          console.log("El usuario Existe");
           }
 
-        }, function (resp) {
+        }, function (respuesta) {
         }, function (evt) {
           var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
         });
@@ -69,7 +86,7 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
       $scope.modal.id = x.per_id;
       $scope.modal.foto = x.per_foto;
       $scope.modal.cargo = x.tip_id;
-      
+
     };
 
     $scope.guardarPersonalEditado = function () {
@@ -93,18 +110,18 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
     $scope.buscar = function () {
       console.log($scope.textoBuscar);
       personalServices.searchPersonal({id: $scope.textoBuscar}).then(function successCallback(response) {
-       
+
         $scope.mostrarTabla = true;
         if (response.data.codigo == 200) {
           $scope.tablaP = response.data.usuario;
           $('#modalBuscar').modal('hide');
-            console.log(response.data);
+          console.log(response.data);
         } else {
           $scope.mostrarTabla = false;
           $('#modalBuscar').modal('hide');
         }
         $scope.textoBuscar = "";
-       
+
 
       }, function errorCallback(response) {
         console.error(response);
