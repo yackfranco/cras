@@ -1,5 +1,5 @@
-angular.module('IMPERIUM').controller('identificacionController', ['$scope', 'servidorService', '$sessionStorage','$filter','urlUploads', function ($scope, servidorService, $sessionStorage,$filter,urlUploads) {
-    $scope.urlUploads=urlUploads;
+angular.module('IMPERIUM').controller('identificacionController', ['$scope', 'servidorService', '$sessionStorage', '$filter', 'urlUploads', function ($scope, servidorService, $sessionStorage, $filter, urlUploads) {
+    $scope.urlUploads = urlUploads;
     $scope.tablaIden = {};
 //    console.log($sessionStorage.reporte);
 
@@ -20,6 +20,21 @@ angular.module('IMPERIUM').controller('identificacionController', ['$scope', 'se
 //        console.log(response);
       };
     };
+
+    $scope.exportToPdf = function () {
+
+      var doc = new jsPDF();
+
+      console.log('elemId 12312321', scope.elemId);
+
+      doc.fromHTML(
+              document.getElementById(scope.elemId).innerHTML, 15, 15, {
+        'width': 170
+      });
+
+      doc.save('a4.pdf')
+
+    }
 
     $scope.pintarTabla();
   }]);

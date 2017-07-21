@@ -49,17 +49,7 @@ angular.module('IMPERIUM').controller('registrarUsuarioController', ['$scope', '
         console.log(respuesta);
       });
     };
-
-
-    $scope.tanto = function(){
-      $anterior = $scope.datosusu.celular;
-      $a = $scope.datosusu.celular;
-      if($a > 3){
-//       $scope.datosusu.celular=$anterior.substring(0,$anterior.length(0,$anterior.length-1));
-      }else{
-console.log("aaa");        
-      }
-    }   
+  
     
 
     function cargarTabla() {

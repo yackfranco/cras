@@ -25,18 +25,20 @@ class createPersonal extends controllerExtended {
           break;
       }
 
+    
+
       function validar($personalDAO, $request) {
 
         $validarPersonal = $personalDAO->searchPersonal($request->getParam('identificacionP'));
         if (count($validarPersonal) > 0) {
           return 'VPersonal';
         }
-       
+
         return 'correcto';
       }
 
       //codigo 350 es para saber que el usuario existe
-      $validaciones = validar($personalDAO,$request);
+      $validaciones = validar($personalDAO, $request);
       if ($validaciones != 'correcto') {
         $respuesta2 = array(
             'codigo' => 350,
