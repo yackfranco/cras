@@ -29,14 +29,14 @@
         <label for="identificacion" class=" col-lg-5 control-label labelpersonal">Identificacion</label>
         <div class="col-lg-6">
           <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(4, this.maxLength);" maxlength = "32" 
-                 ng-model="personal.identificacionP" type= "text" only-digits class=" form-control colorformulario" id="idpersonal" placeholder="Ingresar Identificacion" required>
+                 ng-model="personal.identificacionP" minlength="10" type= "text" only-digits class=" form-control colorformulario" id="idpersonal" placeholder="Ingresar Identificacion" required>
         </div>
       </div>  
       <div class="form-group anchura">
         <label for="nisAprendiz" class=" col-lg-5 control-label labelpersonal">Nis Aprendiz</label>
         <div class="col-lg-6">
           <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(4, this.maxLength);" maxlength = "60"  
-                 ng-model="personal.nis" only-digits type="text" class=" form-control colorformulario" id="nisaprendiz" placeholder="Ingresar Nis Aprendiz" required>
+                 ng-model="personal.nis" only-digits type="text" minlength="10" class=" form-control colorformulario" id="nisaprendiz" placeholder="Ingresar Nis Aprendiz" required>
         </div>
       </div>  
       <div class="form-group anchura">
@@ -60,7 +60,7 @@
       <div class="form-group ">
         <label for="apellido" class=" col-lg-5 control-label labelpersonal">Apellido</label>
         <div class="col-lg-6">
-          <input only-alpha maxlength="50" ng-model="personal.apellido" type="text" class=" form-control colorformulario" id="nombre"  placeholder="Ingresar Apellido" required>
+          <input only-alpha maxlength="50" minlength="4" ng-model="personal.apellido" type="text" class=" form-control colorformulario" id="nombre"  placeholder="Ingresar Apellido" required>
         </div>
 
       </div>
@@ -80,7 +80,7 @@
         <label for="ficha" class=" col-lg-5 control-label labelpersonal">Ficha</label>
         <div class="col-lg-6">
           <input only-digits oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(4, this.maxLength);" 
-                 maxlength = "50" ng-model="personal.ficha" type="text" class=" form-control colorformulario" id="nisaprendiz" placeholder="Ingresar la Ficha" required>
+                 maxlength = "50" minlength="5" ng-model="personal.ficha" type="text" class=" form-control colorformulario" id="nisaprendiz" placeholder="Ingresar la Ficha" required>
         </div>
       </div>  
 
@@ -88,7 +88,7 @@
         <label for="celularFamiliar" class=" col-lg-5 control-label labelpersonal">Celular Familiar</label>
         <div class="col-lg-6">
           <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(4, this.maxLength);"
-                 maxlength = "15" only-digits ng-model="personal.celular_familia" type="text" class=" form-control colorformulario" id="Nombrefamiliar" placeholder="Ingresar Celular Familiar" ng-disabled="disabledCelularFamilia" required>        </div>
+                 maxlength = "15" minlength="5" only-digits ng-model="personal.celular_familia" type="text" class=" form-control colorformulario" id="Nombrefamiliar" placeholder="Ingresar Celular Familiar" ng-disabled="disabledCelularFamilia" required>        </div>
       </div>
 
       <div  class="alert alert-success alert-dismissible mensaje" ng-show="personalGuardado"
@@ -213,20 +213,20 @@
           <div class="row" style="margin-top: 3px;">
             <label for="inputPassword3" class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Nombre</label>
             <div class="col-lg-7">
-              <input only-alpha maxlength="30" ng-model="modal.nombre" type="text" class="form-control colorTexboxU"  placeholder="Nombre" required> 
+              <input only-alpha maxlength="30" minlength="3" ng-model="modal.nombre" type="text" class="form-control colorTexboxU"  placeholder="Nombre" required> 
             </div>
           </div>
           <div class="row" style="margin-top: 3px;">
             <label  class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Apellido</label>
             <div class="col-lg-7">
-              <input only-alpha maxlength="50" ng-model="modal.apellido" type="text" class="form-control colorTexboxU" placeholder="Apellido" required>
+              <input only-alpha maxlength="50" minlength="4" ng-model="modal.apellido" type="text" class="form-control colorTexboxU" placeholder="Apellido" required>
             </div>
           </div>
 
           <div class="row" style="margin-top: 3px;">
             <label for="inputPassword3" class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Identificacion</label>
             <div class="col-lg-7">
-              <input only-digits ng-model="modal.identificacionP" type="text" class="form-control colorTexboxU" placeholder="Identificacion" required>
+              <input only-digits ng-model="modal.identificacionP" maxlength="32" minlength="10" type="text" class="form-control colorTexboxU" placeholder="Identificacion" required>
             </div>
           </div>
 
@@ -244,14 +244,14 @@
           <div class="row" style="margin-top: 3px;">
             <label for="inputPassword3" class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">NIS</label>
             <div class="col-lg-7">
-              <input maxlength = "60" only-digits ng-model="modal.nis" type="text" class="form-control colorTexboxU" placeholder="NIS" required>
+              <input maxlength = "60" minlength="10" only-digits ng-model="modal.nis" type="text" class="form-control colorTexboxU" placeholder="NIS" required>
             </div>
           </div>
 
           <div class="row" style="margin-top: 3px;">
             <label  class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Ficha</label>
             <div class="col-lg-7">
-              <input  maxlength = "50" only-digits ng-model="modal.ficha" type="text" class="form-control colorTexboxU" placeholder="Ficha" required>
+              <input  maxlength = "50" minlength="5" only-digits ng-model="modal.ficha" type="text" class="form-control colorTexboxU" placeholder="Ficha" required>
             </div>
           </div>
 
@@ -275,7 +275,7 @@
           <div class="row" style="margin-top: 3px;">
             <label class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Celular Familiar</label>
             <div class="col-lg-7">
-              <input  maxlength = "15" only-digits ng-model="modal.cel_familiar" type="text" class="form-control colorTexboxU" placeholder="Celular Familiar" required>
+              <input  maxlength = "15" minlength="5"only-digits ng-model="modal.cel_familiar" type="text" class="form-control colorTexboxU" placeholder="Celular Familiar" required>
             </div>
           </div>
           <div class="modal-footer">
