@@ -84,14 +84,14 @@ class personalDAO extends dataSource implements IPersonal {
 //    print_r($personal);
 //    exit();
 
-    $sql = 'UPDATE ces_personal SET per_identificacion=:identificacion,per_identificacion_aprendiz=:identAprendiz,tip_id=:idTipoPersonal,per_foto=:foto,'
+    $sql = 'UPDATE ces_personal SET per_identificacion=:identificacion,per_identificacion_aprendiz=:identAprendiz,tip_id=:idTipoPersonal,'
             . 'per_nombre=:nombre,per_apellidos=:apellidos,per_genero=:genero,per_ficha=:ficha,per_celfamiliar=:celfamiliar WHERE per_id=:id';
     $params = array(
         ':id' => $personal->getId(),
         ':identificacion' => $personal->getIdentificacion(),
         ':identAprendiz' => $personal->getIdentificacionAprendiz(),
         ':idTipoPersonal' => $personal->getIdTipoPersona(),
-        ':foto' => $personal->getFoto(),
+//        ':foto' => $personal->getFoto(),
         ':nombre' => $personal->getNombre(),
         ':apellidos' => $personal->getApellidos(),
         ':genero' => $personal->getGenero(),

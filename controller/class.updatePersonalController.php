@@ -19,19 +19,19 @@ class updatePersonal extends controllerExtended {
       $personal->setCelFamiliar($request->getParam('cel_familiar'));
       $personal->setId($request->getParam('id'));
 
-      $flag = false;
-      if ($request->hasFile('foto')) {
-        $foto = $request->getFile('foto');
-        $dirFile = $this->getConfig()->getDirUploads() . $request->getParam('fotoNombre');
-        move_uploaded_file($foto['tmp_name'], $dirFile);
-        $personal->setFoto($request->getParam('fotoNombre'));
-        $flag = true;
-      } else {
-        $personal->setFoto($request->getParam('foto'));
-        $flag = true;
-      }
-
-       if ($flag === true) {
+//      $flag = false;
+//      if ($request->hasFile('foto')) {
+//        $foto = $request->getFile('foto');
+//        $dirFile = $this->getConfig()->getDirUploads() . $request->getParam('fotoNombre');
+//        move_uploaded_file($foto['tmp_name'], $dirFile);
+//        $personal->setFoto($request->getParam('fotoNombre'));
+//        $flag = true;
+//      } else {
+//        $personal->setFoto($request->getParam('foto'));
+//        $flag = true;
+//      }
+//
+//       if ($flag === true) {
         $personalDAO = new personalDAOExt($this->getConfig());
         $row = $personalDAO->update($personal);
 //        $row = $personalDAO->selectById($request->getParam('identificacionP'));
@@ -42,14 +42,14 @@ class updatePersonal extends controllerExtended {
         );
         $this->setParam('rsp', $answer);
         $this->setView('imprimirJson');
-      } else {
+//      } else {
         $answer = array(
             'code' => 500,
             'datos' => 'La imagen no pudo ser guardada'
         );
         $this->setParam('rsp', $answer);
         $this->setView('imprimirJson');
-      }
+      
     } catch (Exception $exc) {
       echo $exc->getMessage();
     }

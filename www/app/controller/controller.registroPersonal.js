@@ -1,7 +1,7 @@
 
 angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', 'personalServices', '$location', '$sessionStorage', 'urlUploads', '$timeout', function ($scope, personalServices, $location, $sessionStorage, urlUploads, $timeout) {
 
-    
+
     $scope.personal = {};
     $scope.urlUploads = urlUploads;
     $scope.success = true;
@@ -15,48 +15,49 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
     $scope.personalGuardado = false;
     $scope.personalRepetido = false;
     $scope.mensajeError = "";
+    $scope.modalactu = false;
 
 
 
 
 
     $scope.crudPersonal = function () {
-    
 
-        if ($scope.formulario.foto.$valid && $scope.personal.foto) {
-          personalServices.createPersonal($scope.personal).then(function (respuesta) {
+
+      if ($scope.formulario.foto.$valid && $scope.personal.foto) {
+        personalServices.createPersonal($scope.personal).then(function (respuesta) {
 //          console.log(resp);
 //          console.log("Guardado");
 
-            $scope.personalGuardado = true;
+          $scope.personalGuardado = true;
 
-            if (respuesta.data.codigo == 350) {
-              switch (respuesta.data.accion) {
+          if (respuesta.data.codigo == 350) {
+            switch (respuesta.data.accion) {
 
-                case 'VPersonal':
-                  $scope.mensajeError = "La Identificaciòn ya existe";
-                  break;
+              case 'VPersonal':
+                $scope.mensajeError = "La Identificaciòn ya existe";
+                break;
 
-              }
-              $scope.personalRepetido = true;
-              $timeout(function () {
-                $scope.personalRepetido = false;
-              }, 3000);
-              if ($sessionStorage.savePersonFromCes) {
-                delete $sessionStorage.savePersonFromCes;
-                $sessionStorage.registroCreado = $scope.personal.identificacionP;
-                $location.path("/ces");
-              }
-
-//          console.log("El usuario Existe");
+            }
+            $scope.personalRepetido = true;
+            $timeout(function () {
+              $scope.personalRepetido = false;
+            }, 3000);
+            if ($sessionStorage.savePersonFromCes) {
+              delete $sessionStorage.savePersonFromCes;
+              $sessionStorage.registroCreado = $scope.personal.identificacionP;
+              $location.path("/ces");
             }
 
-          }, function (respuesta) {
-          }, function (evt) {
-            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-          });
-        }
-      
+//          console.log("El usuario Existe");
+          }
+
+        }, function (respuesta) {
+        }, function (evt) {
+          var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+        });
+      }
+
     };
 
     $scope.habilitar = function () {
@@ -65,7 +66,7 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
 
     };
 
-    
+
 
     function cargarTablaP() {
       personalServices.cargarTablaP.then(function successCallback(respTablaP) {
@@ -98,12 +99,15 @@ angular.module('IMPERIUM').controller('registroPersonalController', ['$scope', '
       console.log('response');
 
       personalServices.updatePersonal($scope.modal).then(function successCallback(response) {
-        $scope.contactoEditado = false;
+//        $scope.contactoEditado = false;
         $scope.edit = {};
         if (response.data.code == 500) {
+          $scope.mensajeactualizarP = "Su registro se ha Actualizado correctamente";
+          $scope.modalactu = true;
         } else {
           $('#modalEditar').modal('hide');
           $scope.tablaP = response.data.answer;
+
         }
       }, function errorCallback(response) {
         console.error(response);

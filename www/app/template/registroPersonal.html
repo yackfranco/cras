@@ -192,23 +192,23 @@
             <label for="inputPassword3" ng-model="modal.nombre" class="col-lg-12 control-label" style="text-align:center; font-size: 35px;">{{modtitulo}}</label>
           </div>
 
-          <div class="form-group">
-            <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i>
-              </span>
-              <input type="hidden" ng-init="modal.fotoNombre = modal.foto" ng-model="modal.fotoNombre">
-              <input readonly ng-model="modal.fotoNombre" type="text" class="form-control fontImput" aria-label="..." placeholder="FOTO">
-              <span ngf-select ng-model="modal.foto"  name="inputFile" ngf-pattern="'image/*'"
-                    ngf-accept="'image/*'" ngf-max-size="1MB" ngf-min-height="300" 
-                    ngf-resize="{width: 300, height: 300}"  class="input-group-addon"><i class="glyphicon glyphicon-file"></i>
-              </span>
-            </div>
-
-            <center><img style="margin-top: 10px;" ngf-src="modal.foto" ngf-resize="{width: 100, height: 100, quality: 1}"></center>
-            <div class="alert alert-danger" ng-show="erroIMG">
-              Error en la imágen de contacto
-            </div>
-          </div>
+          <!--          <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i>
+                        </span>
+                        <input type="hidden" ng-init="modal.fotoNombre = modal.foto" ng-model="modal.fotoNombre">
+                        <input readonly ng-model="modal.fotoNombre" type="text" class="form-control fontImput" aria-label="..." placeholder="FOTO">
+                        <span ngf-select ng-model="modal.foto"  name="inputFile" ngf-pattern="'image/*'"
+                              ngf-accept="'image/*'" ngf-max-size="1MB" ngf-min-height="300" 
+                              ngf-resize="{width: 300, height: 300}"  class="input-group-addon"><i class="glyphicon glyphicon-file"></i>
+                        </span>
+                      </div>
+          
+                      <center><img style="margin-top: 10px;" ngf-src="modal.foto" ngf-resize="{width: 100, height: 100, quality: 1}"></center>
+                      <div class="alert alert-danger" ng-show="erroIMG">
+                        Error en la imágen de contacto
+                      </div>
+                    </div>-->
 
           <div class="row" style="margin-top: 3px;">
             <label for="inputPassword3" class="col-lg-5 control-label" style="text-align:center; font-size: 20px;">Nombre</label>
@@ -278,6 +278,7 @@
               <input  maxlength = "15" minlength="5"only-digits ng-model="modal.cel_familiar" type="text" class="form-control colorTexboxU" placeholder="Celular Familiar" required>
             </div>
           </div>
+          <div class="alert alert-success" role="alert" ng-show="modalactu">{{mensajeactualizarP}}</div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cerrarModal()">Cerrar</button>
             <button class="btn btn-primary" type="submit">Confirmar Editar</button>
