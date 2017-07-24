@@ -1,7 +1,14 @@
+<!--<?php
+  header('Content-type: application/vnd.ms-excel');
+  header("Content-Disposition: attachment; filename=Reporte_Total.xls");
+  header("Pragma: no-cache");
+  header("Expires: 0");
+?>-->
+
 <div class="container container-fluid" style="margin-top:30px;">
   <a href="#!/reportes"><img src="img/atras.png"></a>
   <center><h1>Reporte Total</h1></center>
-  <div class="tabla reporte1">
+  <div class="tabla reporte1" id="exportable">
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -29,8 +36,6 @@
   </div>
 
   <div  class="export">
-    <h3>Exportar A:</h3>
-    <center><button>PDF</button>
-      <button>Excel</button></center>
+    <button class="btn btn-link" ng-click="exportData()"><span class="glyphicon glyphicon-share"></span>Exportar a Excel</button>
   </div>
 </div>

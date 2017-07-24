@@ -1,11 +1,10 @@
-
 <div class="container container-fluid" style="margin-top:30px;">
   <a href="#!/reportes"><img src="img/atras.png"></a>
   <br><br>
   <center><h1>Reporte por Identificacion</h1></center>
 
-  <div class="tabla reporte1">
-    <table class="table table-bordered" id="table">
+  <div class="tabla reporte1" id="exportable">
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th>per_id</th>
@@ -40,12 +39,9 @@
       </tbody>
     </table>
   </div>
-  
+
   <div  class="export">
-    <h3>Exportar A:</h3>
-    <export-to-pdf elem-id="table">PDF</export-to-pdf>
-    <center><button data-ng-click="exportToPdf()">PDF</button>
-      <button>Excel</button></center>
+    <button class="btn btn-link" ng-click="exportData()"><span class="glyphicon glyphicon-share"></span>Exportar a Excel</button>
   </div>
 </div>
 
