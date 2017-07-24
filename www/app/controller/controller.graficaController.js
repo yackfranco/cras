@@ -13,7 +13,6 @@ angular.module('IMPERIUM').controller('graficaController', ['$scope', 'servidorS
       }
     };
 
-
     $sessionStorage.reporte.fechaInicio = $filter('date')($sessionStorage.reporte.fechaInicio, 'yyyy-MM-dd') + ' 00:00:00';
     $sessionStorage.reporte.fechaFin = $filter('date')($sessionStorage.reporte.fechaFin, 'yyyy-MM-dd') + ' 23:59:59';
 

@@ -117,7 +117,7 @@
               <td>{{x.usu_usuario}}</td>
               <td>{{x.rol_nombre}}</td>
               <td><i ng-click="editar(x)" title="Editar" class="glyphicon glyphicon-edit" aria-hidden="true" data-toggle="modal" data-target="#myModal"></i> 
-                <i ng-click="eliminar(x)" title="Eliminar" class="glyphicon glyphicon-trash" aria-hidden="true"></i></td>
+                <i ng-click="eliminar(x)" title="Eliminar" class="glyphicon glyphicon-trash" aria-hidden="true" ></i></td>
           </tbody>
         </table>
 
@@ -150,34 +150,34 @@
         <div class="modal-body">
           <form>
             <div class="row">
-              <label for="inputPassword3" ng-model="modal.usuario" class="col-lg-12 control-label modaleditar">{{modtitulo}}</label>   
+              <label for="inputPassword3" ng-model="modalu.usuario" class="col-lg-12 control-label modaleditar">{{modtitulo}}</label>   
             </div>
 
             <div class = "row clase-modal">     
               <label for="inputPassword3" class="col-lg-5 control-label clasesLabel">Cedula</label>    
               <div class="col-lg-7">
-                <input only-digits minlength="10" maxlength="20" ng-model="modal.cedula" type="text" class="form-control colorTexboxU" placeholder="Cedula">
+                <input only-digits minlength="10" maxlength="20" ng-model="modalu.cedula" type="text" class="form-control colorTexboxU" placeholder="Cedula">
               </div>
             </div>
 
             <div class = "row clase-modal">    
               <label for="inputPassword3" class="col-lg-5 control-label clasesLabel">Nombre</label>   
               <div class="col-lg-7">
-                <input only-alpha maxlength="100" ng-model="modal.nombre" type="text" class="form-control colorTexboxU" placeholder="Nombre">
+                <input only-alpha maxlength="100" ng-model="modalu.nombre" type="text" class="form-control colorTexboxU" placeholder="Nombre">
               </div>
             </div>
 
             <div class = "row clase-modal">     
               <label for="inputPassword3" class="col-lg-5 control-label clasesLabel">Correo</label>    
               <div class="col-lg-7">
-                <input maxlength="100" ng-model="modal.correo" type="text" class="form-control colorTexboxU" placeholder="Correo">
+                <input maxlength="100" ng-model="modalu.correo" type="text" class="form-control colorTexboxU" placeholder="Correo">
               </div>
             </div>
 
             <div class = "row clase-modal">    
               <label for="inputPassword3" class="col-lg-5 control-label clasesLabel">Celular</label>    
               <div class="col-lg-7">
-                <input only-digits maxlength="15" ng-model="modal.celular" type="text" class="form-control colorTexboxU" placeholder="Celular">
+                <input only-digits maxlength="15" ng-model="modalu.celular" type="text" class="form-control colorTexboxU" placeholder="Celular">
               </div>
             </div>
 
@@ -185,7 +185,7 @@
               <div class="form-group">
                 <label class="col-lg-5 control-label clasesLabel">Rol</label>    
                 <div class="col-lg-7">
-                  <select ng-model="modal.rol" class="form-control colorTexboxU" required>
+                  <select ng-model="modalu.rol" class="form-control colorTexboxU" required>
                     <option value="Administrador">Administrador</option>
                     <option value="Invitado">Invitado</option>
                   </select>
@@ -197,14 +197,14 @@
             <div class="row clase-modal">
               <label  class="col-lg-5 control-label clasesLabel">Anterior Contraseña</label>
               <div class="col-lg-7">
-                <input maxlength="32" ng-model="modal.anteriorContra" type="password" class="form-control colorTexboxU" placeholder="Anterior Contraseña">
+                <input maxlength="32" ng-model="modalu.anteriorContra" type="password" class="form-control colorTexboxU" placeholder="Anterior Contraseña">
               </div>
             </div>
 
             <div class="row clase-modal">
               <label  class="col-lg-5 control-label clasesLabel">Nueva Contraseña</label>
               <div class="col-lg-7">
-                <input maxlength="32" ng-model="modal.contrasena" type="password" class="form-control colorTexboxU" placeholder="Nueva Contraseña">
+                <input maxlength="32" ng-model="modalu.contrasena" type="password" class="form-control colorTexboxU" placeholder="Nueva Contraseña">
               </div>
             </div>
 
@@ -227,15 +227,15 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel"><i class="fa fa-trash"></i>Eliminar Contacto</h4>
+          <h4 class="modal-title" id="myModalLabel"><i class="fa fa-trash"></i>Eliminar Usuario</h4>
         </div>
         <div class="modal-body">
           <div class="alert alert-success" ng-show="contactoEliminado">
-            <center>Contacto Eliminado</center>
+            <center>Usuario Eliminado</center>
           </div>
           <center>
             <h4>¿Estas Seguro?</h4>
-            <p>Se va a eliminar este contacto</p>
+            <p>Se va a eliminar este usuario</p>
             <h3>{{nombre}}</h3>
           </center>
           <button ng-click="submitEliminar()" type="button" class="btn btn-danger btn-block btn-sm">Eliminar</button>
@@ -243,6 +243,28 @@
       </div>
     </div>
   </div>
+<!--<div class="modal fade bs-example-modal-sm" data-keyboard="false" data-backdrop="static" tabindex="-1" id="ppp" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"><i class="fa fa-trash"></i>
+                    Eliminar Contacto</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-success" ng-show="libroEliminado">
+                    <center>Contacto Eliminado</center>
+                </div>
+                <center>
+                    <h4>¿Esta seguro?</h4>
+                    <p>Se va a eliminar el Contacto</p>
+                    <h3>{{usuel.nombre}}</h3>
+                </center>
+                <button ng-click="submitEliminar()" type="button" class="btn btn-danger btn-block btn-sm">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>-->
 
   <div class="btn-menuP">
     <a href="#!/menuPrincipal"><image class="home" src="img/house.png"></a> 

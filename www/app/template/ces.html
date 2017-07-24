@@ -31,7 +31,7 @@
                     <div class="form-group">
                       <label for="inputEmail3" class="col-lg-7 control-label labelFechaCes" >Ingresar Identificacion</label>
                       <div class="col-lg-5">
-                        <input autofocus type="number" ng-model="identificacion" ng-focus="RegistroEquipo = false" ng-enter="consultarDocumento()" class="form-control colorTexbox" id="identificacion">
+                        <input only-digits autofocus type="text" ng-model="identificacion" ng-focus="RegistroEquipo = false" ng-enter="consultarDocumento()" class="form-control colorTexbox" id="identificacion">
                       </div>
                     </div>
                     <div class="form-group">
