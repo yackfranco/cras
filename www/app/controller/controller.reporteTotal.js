@@ -22,6 +22,7 @@ angular.module('IMPERIUM').controller('totalController', ['$scope', 'servidorSer
       };
     };
 
+  
     $scope.exportData = function () {
       var blob = new Blob([document.getElementById('exportable').innerHTML], {
         type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8"
@@ -29,6 +30,7 @@ angular.module('IMPERIUM').controller('totalController', ['$scope', 'servidorSer
       saveAs(blob, "Reporte_Total.xls");
     };
     $scope.pintarTabla();
+  
   }]);
 
 
