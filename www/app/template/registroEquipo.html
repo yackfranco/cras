@@ -6,7 +6,7 @@
           <div class="form-group">
             <label for="inputEmail3" class="col-lg-4 control-label">Tipo</label>
             <div class="col-lg-8">
-              <input type="text" ng-model="equipo.tipo" class="form-control" id="inputEmail3" placeholder="Tipo" required>
+              <input type="text" only-alpha maxlength="40" minlength="2" ng-model="equipo.tipo" class="form-control" id="inputEmail3" maxLeght placeholder="Tipo" required>
             </div>
           </div>
           <div class="form-group">
@@ -19,14 +19,14 @@
                   </div>
                 </div>
               </div>
-              <input type="text" ng-model="equipo.codbarra" class="form-control" id="inputPassword3" placeholder="Cod.Barra" required>
+              <input only-digits maxlength="50" minlength="5" type="text" ng-model="equipo.codbarra" class="form-control" id="inputPassword3" placeholder="Cod.Barra" required>
 
             </div>
           </div>
           <div class="form-group">
             <label for="inputEmail3" class="col-lg-4 control-label">Serial</label>
             <div class="col-lg-8">
-              <input  ng-model="equipo.serial" type="text" class="form-control" id="inputEmail3" placeholder="Serial" required>
+              <input  only-digits   maxlength="50" minlength="5" ng-model="equipo.serial" type="text" class="form-control" id="inputEmail3" placeholder="Serial" required>
             </div>
           </div>          
         </div>
@@ -40,13 +40,13 @@
           <div class="form-group">
             <label for="inputPassword3" class="col-lg-4 control-label">Marca</label>
             <div class="col-lg-8">
-              <input type="text" ng-model="equipo.marca" class="form-control" id="inputPassword3" placeholder="Marca">
+              <input only-alpha maxlength="30" minlength="3" type="text" ng-model="equipo.marca" class="form-control" id="inputPassword3" placeholder="Marca" required>
             </div>
           </div>
           <div class="form-group">
             <label for="inputPassword3" class="col-lg-4 control-label">Observaciones</label>
             <div class="col-lg-8">
-              <textarea class="form-control textarea" ng-model="equipo.observaciones" rows="3" ></textarea>
+              <textarea class="form-control textarea" ng-model="equipo.observaciones" rows="3" required></textarea>
             </div>
           </div>
         </div>
